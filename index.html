@@ -4,19 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Damien A. PARAISO — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=Barlow:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#050505;--white:#f0f0f0;--green:#00ff66;--red:#ff2244;
-  --muted:#333;--border:#1a1a1a;
+  --muted:#444;--border:#1c1c1c;
   --mono:'Share Tech Mono',monospace;
   --display:'Bebas Neue',sans-serif;
-  --body:'Space Grotesk',sans-serif;
+  --body:'Barlow',sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--white);font-family:var(--body);overflow-x:hidden;cursor:none;}
+body{background:var(--bg);color:var(--white);font-family:var(--body);font-weight:700;overflow-x:hidden;cursor:none;}
 a{color:inherit;text-decoration:none;}
+strong{font-weight:900;}
 
 /* CURSOR */
 #cur{position:fixed;width:6px;height:6px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
@@ -31,75 +32,122 @@ a{color:inherit;text-decoration:none;}
 .ld-pct{font-family:var(--mono);font-size:.65rem;color:var(--muted);}
 
 /* TOPBAR */
-#topbar{position:fixed;top:0;left:0;right:0;z-index:400;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2.5rem;border-bottom:1px solid var(--border);background:rgba(5,5,5,.9);backdrop-filter:blur(8px);}
-.top-logo{font-family:var(--mono);font-size:.7rem;color:var(--green);letter-spacing:.2em;}
-.top-status{display:flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.58rem;color:var(--muted);}
-.sdot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:blink 2s infinite;}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+#topbar{
+  position:fixed;top:0;left:0;right:0;z-index:400;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 2.5rem;height:56px;
+  border-bottom:1px solid var(--border);
+  background:rgba(5,5,5,.92);backdrop-filter:blur(10px);
+}
+.top-logo{font-family:var(--mono);font-size:.7rem;color:var(--green);letter-spacing:.2em;flex-shrink:0;}
+.top-nav{display:flex;align-items:center;gap:0;}
+.top-nav a{
+  font-family:var(--mono);font-size:.6rem;color:var(--muted);
+  letter-spacing:.14em;text-transform:uppercase;
+  padding:0 1.1rem;height:56px;display:flex;align-items:center;
+  border-left:1px solid var(--border);
+  transition:color .18s,background .18s;cursor:pointer;
+}
+.top-nav a:hover{color:var(--white);background:rgba(255,255,255,.03);}
+.top-nav a:last-child{border-right:1px solid var(--border);}
+.top-dispo{
+  display:flex;align-items:center;gap:.55rem;
+  font-family:var(--mono);font-size:.6rem;color:var(--green);
+  letter-spacing:.14em;padding-left:1.4rem;flex-shrink:0;
+}
+.sdot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 1.4s infinite;}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,255,102,.5)}60%{opacity:.15;box-shadow:0 0 0 5px rgba(0,255,102,0)}}
 
 /* DOT NAV */
-#dotnav{position:fixed;right:1.8rem;top:50%;transform:translateY(-50%);z-index:400;display:flex;flex-direction:column;gap:.9rem;}
-.dot{width:5px;height:5px;border-radius:50%;background:var(--muted);border:1px solid #333;cursor:none;transition:all .2s;position:relative;}
-.dot::after{content:attr(data-label);font-family:var(--mono);font-size:.52rem;color:var(--muted);position:absolute;right:14px;top:50%;transform:translateY(-50%);white-space:nowrap;opacity:0;transition:opacity .2s;}
+#dotnav{position:fixed;right:1.6rem;top:50%;transform:translateY(-50%);z-index:400;display:flex;flex-direction:column;gap:.9rem;}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--muted);border:1px solid #2a2a2a;cursor:pointer;transition:all .2s;position:relative;}
+.dot::after{content:attr(data-label);font-family:var(--mono);font-size:.5rem;color:var(--muted);position:absolute;right:14px;top:50%;transform:translateY(-50%);white-space:nowrap;opacity:0;transition:opacity .2s;}
 .dot:hover::after,.dot.active::after{opacity:1;}
 .dot.active{background:var(--green);border-color:var(--green);box-shadow:0 0 8px var(--green);}
-.dot{cursor:pointer;}
 
 /* NOISE */
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:800;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");opacity:.28;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:800;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");opacity:.25;}
 
 /* SECTIONS */
-section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
-.scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,102,.006) 2px,rgba(0,255,102,.006) 4px);pointer-events:none;}
-.gbg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:50px 50px;opacity:.1;pointer-events:none;}
+section{min-height:100vh;width:100%;position:relative;padding:8rem 5vw 5rem;}
+.scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,102,.005) 2px,rgba(0,255,102,.005) 4px);pointer-events:none;}
+.gbg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:50px 50px;opacity:.09;pointer-events:none;}
+.sep{display:block;width:100%;height:1px;background:var(--border);}
 
 /* SHARED */
 .idx{font-family:var(--mono);font-size:.58rem;color:var(--green);letter-spacing:.25em;display:block;margin-bottom:.5rem;}
-.stitle{font-family:var(--display);font-size:clamp(3rem,7vw,6rem);line-height:.92;letter-spacing:.03em;margin-bottom:1.4rem;}
+.stitle{font-family:var(--display);font-size:clamp(3.2rem,7.5vw,6.5rem);line-height:.9;letter-spacing:.03em;margin-bottom:1.5rem;}
 .stitle .r{color:var(--red);}
 .stitle .g{color:var(--green);}
 
-/* binary targets — hidden until revealed */
-[data-bin]{opacity:0;transition:opacity .1s;}
-[data-bin].revealed{opacity:1;}
+/* binary */
+[data-bin]{opacity:0;transition:opacity .05s;}
 
-/* HERO */
+/* ── HERO ── */
 #s0{background:var(--bg);display:flex;flex-direction:column;justify-content:center;}
-.h-tag{font-family:var(--mono);font-size:.65rem;color:var(--green);letter-spacing:.2em;margin-bottom:1.2rem;display:flex;align-items:center;gap:.7rem;}
+.h-tag{font-family:var(--mono);font-size:.65rem;color:var(--green);letter-spacing:.2em;margin-bottom:1.3rem;display:flex;align-items:center;gap:.7rem;}
 .h-tag::before{content:'';width:24px;height:1px;background:var(--green);}
-.h1{font-family:var(--display);font-size:clamp(4.5rem,11vw,10rem);line-height:.92;letter-spacing:.02em;}
+.h1{font-family:var(--display);font-size:clamp(5rem,12vw,11rem);line-height:.9;letter-spacing:.02em;}
 .h1 .stroke{color:transparent;-webkit-text-stroke:1.5px var(--white);}
 .h1 .g{color:var(--green);}
-.h-role{font-family:var(--mono);font-size:.78rem;color:var(--muted);margin:1.5rem 0 .7rem;letter-spacing:.07em;}
+.h-role{font-family:var(--mono);font-size:.82rem;color:var(--muted);margin:1.6rem 0 .8rem;letter-spacing:.07em;}
 .cur-blink{animation:bl .85s step-end infinite;color:var(--green);}
 @keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
-.h-desc{max-width:440px;font-size:.88rem;color:#555;line-height:1.8;}
-.h-nums{position:absolute;right:5vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:1.6rem;align-items:flex-end;}
-.h-num{font-family:var(--display);font-size:3.2rem;color:var(--white);line-height:1;text-align:right;}
+.h-desc{max-width:460px;font-size:.92rem;color:#555;line-height:1.85;font-weight:700;}
+.h-nums{position:absolute;right:5vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:1.8rem;align-items:flex-end;}
+.h-num{font-family:var(--display);font-size:3.5rem;color:var(--white);line-height:1;text-align:right;}
 .h-lbl{font-family:var(--mono);font-size:.55rem;color:var(--muted);letter-spacing:.14em;text-align:right;}
-.h-scroll{margin-top:4rem;font-family:var(--mono);font-size:.58rem;color:var(--muted);letter-spacing:.15em;display:flex;align-items:center;gap:.6rem;}
+.h-scroll{margin-top:4rem;font-family:var(--mono);font-size:.6rem;color:var(--muted);letter-spacing:.15em;display:flex;align-items:center;gap:.6rem;}
 .h-scroll::after{content:'↓';color:var(--green);animation:bounce 1.6s ease-in-out infinite;}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 .h-corner{position:absolute;right:0;bottom:0;font-family:var(--display);font-size:clamp(5rem,14vw,13rem);color:transparent;-webkit-text-stroke:1px var(--border);line-height:1;pointer-events:none;user-select:none;}
 
+/* ── CV DOWNLOAD ── */
+.cv-band{
+  background:#0a0a0a;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:2.2rem 5vw;display:flex;align-items:center;justify-content:space-between;
+  position:relative;overflow:hidden;
+}
+.cv-band::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green);}
+.cv-band-left{display:flex;flex-direction:column;gap:.4rem;}
+.cv-band-title{font-family:var(--display);font-size:2rem;letter-spacing:.05em;color:var(--white);}
+.cv-band-sub{font-family:var(--mono);font-size:.6rem;color:var(--muted);letter-spacing:.15em;}
+.cv-dl-btn{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;
+  padding:.85rem 2.2rem;
+  border:1px solid var(--green);color:var(--green);
+  cursor:pointer;transition:all .22s;
+  display:flex;align-items:center;gap:.7rem;
+  background:transparent;
+  text-transform:uppercase;
+}
+.cv-dl-btn:hover{background:var(--green);color:var(--bg);}
+.cv-dl-btn .arr{font-size:.9rem;}
+
 /* ── SKILLS ── */
 #s1{background:#060606;}
 .sk-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
-.lang-grid{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.4rem;}
-.ltag{font-family:var(--mono);font-size:.62rem;padding:.25rem .65rem;border:1px solid var(--border);color:var(--muted);border-radius:1px;letter-spacing:.04em;}
+.lang-grid{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.5rem;}
+.ltag{
+  font-family:var(--mono);font-size:.65rem;padding:.3rem .75rem;
+  border:1px solid var(--border);color:var(--muted);
+  border-radius:1px;letter-spacing:.04em;font-weight:700;
+}
 .ltag.core{border-color:rgba(0,255,102,.3);color:var(--green);}
 .ltag.vis{border-color:rgba(255,34,68,.25);color:var(--red);}
 .ltag.tool{border-color:rgba(240,240,240,.1);color:#666;}
-.sk-sub{font-family:var(--mono);font-size:.55rem;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.7rem;}
-.bar-item{margin-bottom:1.4rem;}
-.bar-head{display:flex;justify-content:space-between;margin-bottom:.4rem;}
-.bar-nm{font-family:var(--mono);font-size:.65rem;color:var(--white);letter-spacing:.04em;}
-.bar-pc{font-family:var(--mono);font-size:.6rem;color:var(--muted);}
-.bar-track{height:1px;background:var(--border);position:relative;overflow:hidden;}
+.ltag.fw{border-color:rgba(240,240,240,.15);color:#aaa;}
+.sk-sub{font-family:var(--mono);font-size:.56rem;color:var(--muted);letter-spacing:.22em;text-transform:uppercase;margin-bottom:.8rem;margin-top:.2rem;}
+
+/* BARRES — sans % ni label */
+.bars-wrap{display:flex;flex-direction:column;gap:1.1rem;}
+.bar-item{display:flex;flex-direction:column;gap:.4rem;}
+.bar-nm{font-family:var(--mono);font-size:.68rem;color:var(--white);letter-spacing:.04em;font-weight:700;}
+.bar-track{height:2px;background:var(--border);position:relative;overflow:hidden;border-radius:1px;}
 .bar-fill{height:100%;width:0;position:absolute;left:0;top:0;transition:width 1.6s cubic-bezier(.4,0,.2,1);}
-.bar-fill.g{background:linear-gradient(90deg,var(--green),rgba(0,255,102,.2));}
-.bar-fill.r{background:linear-gradient(90deg,var(--red),rgba(255,34,68,.2));}
-.bar-fill.w{background:linear-gradient(90deg,var(--white),rgba(240,240,240,.15));}
+.bar-fill.g{background:linear-gradient(90deg,var(--green),rgba(0,255,102,.25));}
+.bar-fill.r{background:linear-gradient(90deg,var(--red),rgba(255,34,68,.25));}
+.bar-fill.w{background:linear-gradient(90deg,var(--white),rgba(240,240,240,.2));}
 
 /* ── EXPERIENCE ── */
 #s2{background:var(--bg);}
@@ -107,90 +155,99 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 .ex-timeline{position:relative;padding-left:1.8rem;}
 .ex-timeline::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--green),var(--red) 70%,transparent);}
 .ex-item{position:relative;margin-bottom:2.5rem;cursor:pointer;}
-.ex-card{border:1px solid var(--border);padding:1.2rem;transition:border-color .2s,background .2s;}
+.ex-card{border:1px solid var(--border);padding:1.3rem;transition:border-color .2s,background .2s;}
 .ex-item:hover .ex-card{border-color:rgba(0,255,102,.3);background:rgba(0,255,102,.02);}
 .ex-dot{position:absolute;left:-2.3rem;top:18px;width:9px;height:9px;border-radius:50%;background:var(--green);border:2px solid var(--bg);}
 .ex-dot.r{background:var(--red);}
 .ex-date{font-family:var(--mono);font-size:.58rem;color:var(--green);letter-spacing:.1em;margin-bottom:.3rem;}
-.ex-role{font-size:.98rem;font-weight:700;margin-bottom:.15rem;}
-.ex-co{font-family:var(--mono);font-size:.65rem;color:var(--red);margin-bottom:.7rem;}
+.ex-role{font-size:1rem;font-weight:800;margin-bottom:.18rem;}
+.ex-co{font-family:var(--mono);font-size:.65rem;color:var(--red);margin-bottom:.75rem;}
 .ex-ul{list-style:none;}
-.ex-ul li{font-size:.78rem;color:#555;line-height:1.7;padding-left:1rem;position:relative;margin-bottom:.2rem;}
+.ex-ul li{font-size:.8rem;color:#555;line-height:1.75;padding-left:1rem;position:relative;margin-bottom:.22rem;font-weight:700;}
 .ex-ul li::before{content:'>';position:absolute;left:0;color:var(--green);font-family:var(--mono);}
-.ex-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.6rem;}
+.ex-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.65rem;}
 .xt{font-family:var(--mono);font-size:.55rem;padding:.15rem .45rem;border:1px solid rgba(0,255,102,.15);color:rgba(0,255,102,.5);border-radius:1px;}
-.click-hint{font-family:var(--mono);font-size:.52rem;color:rgba(0,255,102,.35);margin-top:.5rem;letter-spacing:.1em;}
+.click-hint{font-family:var(--mono);font-size:.52rem;color:rgba(0,255,102,.32);margin-top:.55rem;letter-spacing:.1em;}
 
 /* ── PROJECTS ── */
 #s3{background:#040404;}
 .pr-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:1.8rem;}
-.pr-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;height:60vh;}
+.pr-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;height:62vh;}
 .pr-card{background:#0a0a0a;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;border:1px solid var(--border);transition:border-color .3s;}
 .pr-card:hover{border-color:rgba(0,255,102,.35);}
-.pr-card-img{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;filter:brightness(.18) grayscale(1);transition:filter .5s,transform .7s;}
-.pr-card:hover .pr-card-img{filter:brightness(.38) grayscale(.5);transform:scale(1.04);}
-.pr-card-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,4,4,.98) 0%,rgba(4,4,4,.4) 55%,transparent 100%);}
-.pr-body{position:relative;z-index:2;padding:1.2rem;}
+.pr-card-img{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;filter:brightness(.17) grayscale(1);transition:filter .5s,transform .7s;}
+.pr-card:hover .pr-card-img{filter:brightness(.36) grayscale(.5);transform:scale(1.05);}
+.pr-card-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,4,4,.98) 0%,rgba(4,4,4,.35) 55%,transparent 100%);}
+.pr-body{position:relative;z-index:2;padding:1.3rem;}
 .pr-num{font-family:var(--mono);font-size:.55rem;color:var(--muted);margin-bottom:.5rem;letter-spacing:.1em;}
-.pr-title{font-size:.95rem;font-weight:700;margin-bottom:.25rem;line-height:1.2;}
+.pr-title{font-size:1rem;font-weight:800;margin-bottom:.28rem;line-height:1.2;}
 .pr-client{font-family:var(--mono);font-size:.58rem;color:var(--green);margin-bottom:.5rem;}
 .pr-stack{display:flex;flex-wrap:wrap;gap:.28rem;}
 .pt{font-family:var(--mono);font-size:.52rem;padding:.15rem .45rem;border:1px solid rgba(255,34,68,.2);color:var(--red);border-radius:1px;}
-.pr-hint{font-family:var(--mono);font-size:.52rem;color:rgba(0,255,102,.35);margin-top:.5rem;}
+.pr-hint{font-family:var(--mono);font-size:.52rem;color:rgba(0,255,102,.32);margin-top:.5rem;}
 
 /* ── EDUCATION ── */
 #s4{background:var(--bg);}
 .ed-grid{display:grid;grid-template-columns:1fr 1fr;gap:4vw;}
-.ed-item{display:grid;grid-template-columns:72px 1fr;gap:1.2rem;padding:1.4rem 0;border-bottom:1px solid var(--border);}
+.ed-item{display:grid;grid-template-columns:72px 1fr;gap:1.3rem;padding:1.5rem 0;border-bottom:1px solid var(--border);}
 .ed-yr{font-family:var(--mono);font-size:.6rem;color:var(--muted);line-height:1.6;padding-top:.15rem;}
-.ed-deg{font-size:.95rem;font-weight:700;margin-bottom:.2rem;line-height:1.3;}
+.ed-deg{font-size:1rem;font-weight:800;margin-bottom:.22rem;line-height:1.3;}
 .ed-sch{font-family:var(--mono);font-size:.65rem;color:var(--red);}
-.ed-badge{display:inline-block;margin-top:.4rem;font-family:var(--mono);font-size:.52rem;padding:.15rem .45rem;border:1px solid rgba(0,255,102,.25);color:var(--green);}
-.cert-card{border-left:2px solid var(--green);padding:.9rem 1.1rem;margin-bottom:.8rem;background:rgba(0,255,102,.02);}
-.cert-t{font-size:.9rem;font-weight:700;margin-bottom:.18rem;}
+.ed-badge{display:inline-block;margin-top:.42rem;font-family:var(--mono);font-size:.52rem;padding:.15rem .5rem;border:1px solid rgba(0,255,102,.25);color:var(--green);}
+.cert-card{border-left:2px solid var(--green);padding:.95rem 1.2rem;margin-bottom:.85rem;background:rgba(0,255,102,.025);}
+.cert-t{font-size:.95rem;font-weight:800;margin-bottom:.2rem;}
 .cert-i{font-family:var(--mono);font-size:.62rem;color:var(--green);}
-.cert-d{font-family:var(--mono);font-size:.58rem;color:var(--muted);margin-top:.2rem;}
-.info-block{font-family:var(--mono);font-size:.65rem;color:var(--muted);line-height:1.9;margin-top:.6rem;}
+.cert-d{font-family:var(--mono);font-size:.58rem;color:var(--muted);margin-top:.22rem;}
+.info-block{font-family:var(--mono);font-size:.65rem;color:var(--muted);line-height:2;margin-top:.6rem;}
 
 /* ── CONTACT ── */
-#s5{background:var(--bg);display:flex;flex-direction:column;justify-content:center;}
-.ct-big{font-family:var(--display);font-size:clamp(3.5rem,10vw,9rem);line-height:.92;letter-spacing:.02em;margin-bottom:2.2rem;}
+#s5{background:#040404;display:flex;flex-direction:column;justify-content:center;position:relative;}
+.ct-big{font-family:var(--display);font-size:clamp(3.5rem,10vw,9rem);line-height:.9;letter-spacing:.02em;margin-bottom:2.4rem;}
 .ct-big .outline{color:transparent;-webkit-text-stroke:1.5px var(--red);}
 .ct-links{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:1.8rem;}
-.clink{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;padding:.65rem 1.5rem;border:1px solid var(--border);color:var(--muted);transition:all .2s;display:flex;align-items:center;gap:.5rem;cursor:pointer;}
+.clink{
+  font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;
+  padding:.7rem 1.6rem;border:1px solid var(--border);color:var(--muted);
+  transition:all .2s;display:flex;align-items:center;gap:.5rem;cursor:pointer;
+}
 .clink:hover,.clink.primary{border-color:var(--green);color:var(--green);}
 .clink.primary:hover{background:var(--green);color:var(--bg);}
+.ct-looking{
+  margin-top:2.5rem;padding:1.4rem 1.8rem;
+  border:1px solid var(--border);
+  display:inline-flex;align-items:center;gap:1rem;
+  background:rgba(0,255,102,.03);
+}
+.ct-looking-txt{font-family:var(--mono);font-size:.72rem;color:var(--white);letter-spacing:.1em;line-height:1.6;}
+.ct-looking-txt span{color:var(--green);}
 .ct-deco{position:absolute;right:0;top:0;bottom:0;width:40%;display:flex;align-items:center;justify-content:center;overflow:hidden;pointer-events:none;}
-.ct-deco-txt{font-family:var(--display);font-size:clamp(7rem,16vw,18rem);color:transparent;-webkit-text-stroke:1px var(--border);white-space:nowrap;transform:rotate(-14deg);opacity:.3;animation:flt 9s ease-in-out infinite;}
+.ct-deco-txt{font-family:var(--display);font-size:clamp(7rem,16vw,18rem);color:transparent;-webkit-text-stroke:1px var(--border);white-space:nowrap;transform:rotate(-14deg);opacity:.25;animation:flt 9s ease-in-out infinite;}
 @keyframes flt{0%,100%{transform:rotate(-14deg) translateY(0)}50%{transform:rotate(-14deg) translateY(-18px)}}
 
 /* ── MODAL ── */
-#modal{position:fixed;inset:0;z-index:6000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.93);backdrop-filter:blur(10px);}
+#modal{position:fixed;inset:0;z-index:6000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.94);backdrop-filter:blur(12px);}
 #modal.open{display:flex;}
-.modal-box{background:#080808;border:1px solid var(--border);width:92%;max-width:840px;max-height:88vh;overflow-y:auto;position:relative;animation:min .3s cubic-bezier(.77,0,.18,1);}
+.modal-box{background:#070707;border:1px solid var(--border);width:92%;max-width:860px;max-height:88vh;overflow-y:auto;position:relative;animation:min .3s cubic-bezier(.77,0,.18,1);}
 @keyframes min{from{transform:translateY(28px) scale(.97);opacity:0}to{transform:none;opacity:1}}
 .modal-close{position:absolute;top:1.2rem;right:1.5rem;font-family:var(--mono);font-size:.65rem;color:var(--muted);cursor:pointer;letter-spacing:.1em;z-index:2;transition:color .15s;}
 .modal-close:hover{color:var(--red);}
-.modal-img{width:100%;height:200px;object-fit:cover;filter:brightness(.3) grayscale(.7);display:block;}
+.modal-img{width:100%;height:210px;object-fit:cover;filter:brightness(.28) grayscale(.7);display:block;}
 .modal-body{padding:2rem;}
 .m-tag{font-family:var(--mono);font-size:.55rem;color:var(--green);letter-spacing:.22em;margin-bottom:.6rem;}
 .m-title{font-family:var(--display);font-size:clamp(1.8rem,5vw,3.2rem);line-height:1;letter-spacing:.03em;margin-bottom:.3rem;}
 .m-sub{font-family:var(--mono);font-size:.62rem;color:var(--red);margin-bottom:1.4rem;}
-.m-desc{font-size:.83rem;color:#666;line-height:1.8;margin-bottom:1.5rem;border-left:2px solid var(--border);padding-left:1rem;}
-.m-sec{margin-bottom:1.2rem;}
-.m-sec-title{font-family:var(--mono);font-size:.55rem;color:var(--muted);letter-spacing:.22em;text-transform:uppercase;margin-bottom:.6rem;padding-bottom:.3rem;border-bottom:1px solid var(--border);}
+.m-desc{font-size:.84rem;color:#666;line-height:1.8;margin-bottom:1.5rem;border-left:2px solid var(--border);padding-left:1rem;font-weight:700;}
+.m-sec{margin-bottom:1.3rem;}
+.m-sec-title{font-family:var(--mono);font-size:.55rem;color:var(--muted);letter-spacing:.22em;text-transform:uppercase;margin-bottom:.65rem;padding-bottom:.3rem;border-bottom:1px solid var(--border);}
 .m-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
-.m-tag-item{font-family:var(--mono);font-size:.6rem;padding:.22rem .55rem;border:1px solid rgba(0,255,102,.2);color:var(--green);}
+.m-tag-item{font-family:var(--mono);font-size:.6rem;padding:.22rem .58rem;border:1px solid rgba(0,255,102,.2);color:var(--green);}
 .m-list{list-style:none;}
-.m-list li{font-size:.8rem;color:#666;padding-left:1.1rem;position:relative;margin-bottom:.35rem;line-height:1.65;}
+.m-list li{font-size:.82rem;color:#666;padding-left:1.1rem;position:relative;margin-bottom:.35rem;line-height:1.68;font-weight:700;}
 .m-list li::before{content:'>';position:absolute;left:0;color:var(--green);font-family:var(--mono);}
-.m-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
-.m-info{border:1px solid var(--border);padding:.8rem;}
+.m-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;}
+.m-info{border:1px solid var(--border);padding:.85rem;}
 .m-info-lbl{font-family:var(--mono);font-size:.5rem;color:var(--muted);letter-spacing:.15em;margin-bottom:.22rem;}
-.m-info-val{font-size:.8rem;font-weight:700;}
-
-/* section separator line */
-.sep{display:block;width:100%;height:1px;background:var(--border);margin:0;}
+.m-info-val{font-size:.82rem;font-weight:800;}
 </style>
 </head>
 <body>
@@ -212,11 +269,22 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
   </div>
 </div>
 
+<!-- TOPBAR -->
 <div id="topbar">
-  <div class="top-logo">DAP // PORTFOLIO 2026</div>
-  <div class="top-status"><span class="sdot"></span>DISPONIBLE · ALTERNANCE · STAGE · CDI</div>
+  <div class="top-logo">DAP // 2026</div>
+  <nav class="top-nav">
+    <a href="#s3">Projets</a>
+    <a href="#s2">Expérience</a>
+    <a href="#s4">Cursus</a>
+    <a href="#s5">Contact</a>
+  </nav>
+  <div class="top-dispo">
+    <span class="sdot"></span>
+    DISPONIBLE
+  </div>
 </div>
 
+<!-- DOT NAV -->
 <div id="dotnav">
   <div class="dot active" data-target="s0" data-label="HOME"></div>
   <div class="dot" data-target="s1" data-label="STACK"></div>
@@ -226,7 +294,7 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
   <div class="dot" data-target="s5" data-label="CONTACT"></div>
 </div>
 
-<!-- ══════════════════════════════ HERO ══════════════════════════════ -->
+<!-- ══ HERO ══ -->
 <section id="s0">
   <div class="scan"></div><div class="gbg"></div>
   <div style="position:relative;z-index:1;">
@@ -236,7 +304,7 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
       <span class="stroke" data-bin="AFFOLABI">AFFOLABI</span><br>
       <span data-bin="PARAISO">PARAISO</span>
     </h1>
-    <p class="h-role" data-bin="> Java · Python · Kotlin · C · OCaml_">&gt; Java · Python · Kotlin · C · OCaml<span class="cur-blink">_</span></p>
+    <p class="h-role">&gt; Java · JavaScript · C++ · SQL · HTML/CSS<span class="cur-blink">_</span></p>
     <p class="h-desc">Étudiant en Licence Robotique &amp; Vision Industrielle — Université de Nîmes.<br>Développeur fullstack passionné par l'automatisation et la vision par ordinateur.</p>
     <div class="h-scroll">SCROLL DOWN</div>
   </div>
@@ -248,66 +316,143 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
   <div class="h-corner">PARAISO</div>
 </section>
 
+<!-- ══ CV DOWNLOAD BAND ══ -->
+<div class="cv-band">
+  <div class="cv-band-left">
+    <div class="cv-band-title" data-bin="MON CURRICULUM VITAE">MON CURRICULUM VITAE</div>
+    <div class="cv-band-sub">DERNIÈRE MISE À JOUR · 2026 · FR</div>
+  </div>
+  <a href="cv.pdf" download class="cv-dl-btn">
+    <span class="arr">↓</span> TÉLÉCHARGER LE CV
+  </a>
+</div>
+
 <span class="sep"></span>
 
-<!-- ══════════════════════════════ SKILLS ══════════════════════════════ -->
+<!-- ══ SKILLS ══ -->
 <section id="s1">
   <div class="sk-grid">
     <div>
       <span class="idx" data-bin="— 02 / STACK TECHNIQUE">— 02 / STACK TECHNIQUE</span>
       <h2 class="stitle"><span data-bin="STACK">STACK</span><br><span class="g" data-bin="TECH">TECH</span></h2>
-      <div class="sk-sub">// langages</div>
+
+      <div class="sk-sub">// Langages</div>
       <div class="lang-grid">
-        <span class="ltag core">Java</span><span class="ltag core">Python</span><span class="ltag core">Kotlin</span>
-        <span class="ltag core">C / C++</span><span class="ltag">C#</span><span class="ltag">PHP</span>
-        <span class="ltag">Swift</span><span class="ltag">Ruby</span><span class="ltag">OCaml</span>
-        <span class="ltag">Shell</span><span class="ltag">HTML/CSS</span><span class="ltag core">SQL</span>
+        <span class="ltag core">Java</span>
+        <span class="ltag core">JavaScript</span>
+        <span class="ltag core">C++</span>
+        <span class="ltag core">SQL</span>
+        <span class="ltag core">HTML</span>
+        <span class="ltag core">CSS</span>
+        <span class="ltag core">PHP</span>
       </div>
-      <div class="sk-sub">// vision industrielle</div>
+
+      <div class="sk-sub">// Vision industrielle</div>
       <div class="lang-grid">
-        <span class="ltag vis">Open eVision</span><span class="ltag vis">Halcon</span>
-        <span class="ltag vis">Traitement image</span><span class="ltag vis">Robotique</span>
+        <span class="ltag vis">Halcon</span>
+        <span class="ltag vis">Open eVision</span>
+        <span class="ltag vis">Traitement image</span>
         <span class="ltag vis">Prog. automate</span>
+        <span class="ltag vis">Robotique</span>
       </div>
-      <div class="sk-sub">// outils</div>
+
+      <div class="sk-sub">// Outils</div>
       <div class="lang-grid">
-        <span class="ltag tool">Linux</span><span class="ltag tool">Docker</span><span class="ltag tool">Git</span>
-        <span class="ltag tool">MySQL</span><span class="ltag tool">IntelliJ IDEA</span>
-        <span class="ltag tool">Android Studio</span><span class="ltag tool">VS Code</span>
+        <span class="ltag tool">Linux</span>
+        <span class="ltag tool">Docker</span>
+        <span class="ltag tool">Git / GitHub</span>
+        <span class="ltag tool">MySQL</span>
+        <span class="ltag tool">IntelliJ IDEA</span>
+        <span class="ltag tool">Android Studio</span>
+        <span class="ltag tool">VS Code</span>
       </div>
-      <div class="sk-sub">// méthodes</div>
+
+      <div class="sk-sub">// Méthodes</div>
       <div class="lang-grid">
-        <span class="ltag">POO</span><span class="ltag">Agile/Scrum</span>
-        <span class="ltag">REST API</span><span class="ltag">CI/CD</span>
+        <span class="ltag">POO</span>
+        <span class="ltag">Agile / Scrum</span>
+        <span class="ltag">REST API</span>
+        <span class="ltag">CI/CD</span>
+        <span class="ltag">MVC</span>
+      </div>
+
+      <div class="sk-sub">// Frameworks &amp; Librairies</div>
+      <div class="lang-grid">
+        <span class="ltag fw">Spring Boot</span>
+        <span class="ltag fw">JavaFX</span>
+        <span class="ltag fw">Android SDK</span>
+        <span class="ltag fw">JUnit</span>
+        <span class="ltag fw">Chart.js</span>
+        <span class="ltag fw">Bootstrap</span>
+        <span class="ltag fw">JDBC</span>
       </div>
     </div>
+
+    <!-- BARRES — sans % ni langues -->
     <div>
-      <span class="idx" data-bin="— MAÎTRISE">— MAÎTRISE</span><br><br>
-      <div class="bar-item"><div class="bar-head"><span class="bar-nm">Java / JVM</span><span class="bar-pc">88%</span></div><div class="bar-track"><div class="bar-fill g" data-w="88"></div></div></div>
-      <div class="bar-item"><div class="bar-head"><span class="bar-nm">Python</span><span class="bar-pc">80%</span></div><div class="bar-track"><div class="bar-fill g" data-w="80"></div></div></div>
-      <div class="bar-item"><div class="bar-head"><span class="bar-nm">Kotlin / Android</span><span class="bar-pc">78%</span></div><div class="bar-track"><div class="bar-fill r" data-w="78"></div></div></div>
-      <div class="bar-item"><div class="bar-head"><span class="bar-nm">SQL / MySQL</span><span class="bar-pc">82%</span></div><div class="bar-track"><div class="bar-fill g" data-w="82"></div></div></div>
-      <div class="bar-item"><div class="bar-head"><span class="bar-nm">Linux / Shell</span><span class="bar-pc">75%</span></div><div class="bar-track"><div class="bar-fill w" data-w="75"></div></div></div>
-      <div class="bar-item"><div class="bar-head"><span class="bar-nm">Docker</span><span class="bar-pc">65%</span></div><div class="bar-track"><div class="bar-fill w" data-w="65"></div></div></div>
-      <div class="bar-item"><div class="bar-head"><span class="bar-nm">C / C++</span><span class="bar-pc">70%</span></div><div class="bar-track"><div class="bar-fill r" data-w="70"></div></div></div>
-      <div class="bar-item"><div class="bar-head"><span class="bar-nm">Vision (Halcon / eVision)</span><span class="bar-pc">60%</span></div><div class="bar-track"><div class="bar-fill r" data-w="60"></div></div></div>
-      <div class="bar-item"><div class="bar-head"><span class="bar-nm">Français</span><span class="bar-pc">Natif</span></div><div class="bar-track"><div class="bar-fill g" data-w="100"></div></div></div>
-      <div class="bar-item"><div class="bar-head"><span class="bar-nm">Anglais</span><span class="bar-pc">Intermédiaire</span></div><div class="bar-track"><div class="bar-fill w" data-w="58"></div></div></div>
+      <span class="idx" data-bin="— MAÎTRISE">— MAÎTRISE</span>
+      <br><br>
+      <div class="bars-wrap">
+        <div class="bar-item">
+          <span class="bar-nm">Java</span>
+          <div class="bar-track"><div class="bar-fill g" data-w="88"></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-nm">JavaScript</span>
+          <div class="bar-track"><div class="bar-fill g" data-w="75"></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-nm">SQL / MySQL</span>
+          <div class="bar-track"><div class="bar-fill g" data-w="82"></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-nm">HTML / CSS</span>
+          <div class="bar-track"><div class="bar-fill w" data-w="80"></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-nm">PHP</span>
+          <div class="bar-track"><div class="bar-fill w" data-w="68"></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-nm">C++</span>
+          <div class="bar-track"><div class="bar-fill r" data-w="70"></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-nm">Halcon / Vision</span>
+          <div class="bar-track"><div class="bar-fill r" data-w="60"></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-nm">Linux / Shell</span>
+          <div class="bar-track"><div class="bar-fill w" data-w="75"></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-nm">Docker</span>
+          <div class="bar-track"><div class="bar-fill w" data-w="65"></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-nm">Spring Boot</span>
+          <div class="bar-track"><div class="bar-fill g" data-w="72"></div></div>
+        </div>
+        <div class="bar-item">
+          <span class="bar-nm">Android SDK</span>
+          <div class="bar-track"><div class="bar-fill r" data-w="78"></div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <span class="sep"></span>
 
-<!-- ══════════════════════════════ EXPERIENCE ══════════════════════════════ -->
+<!-- ══ EXPERIENCE ══ -->
 <section id="s2">
   <div class="ex-layout">
     <div>
       <span class="idx" data-bin="— 03 / EXPÉRIENCE">— 03 / EXPÉRIENCE</span>
       <h2 class="stitle"><span data-bin="EXP">EXP</span><span class="r" data-bin="ÉRI">ÉRI</span><br><span data-bin="ENCE">ENCE</span></h2>
-      <p style="font-size:.8rem;color:#444;line-height:1.8;">Développement logiciel en production — Java, SQL, Android &amp; API dans des contextes métiers réels.</p>
+      <p style="font-size:.82rem;color:#444;line-height:1.85;font-weight:700;">Développement logiciel en production — Java, SQL, Android &amp; API dans des contextes métiers réels.</p>
       <br>
-      <p style="font-family:var(--mono);font-size:.55rem;color:rgba(0,255,102,.4);letter-spacing:.1em;line-height:1.7;">CLIQUER SUR UNE<br>EXPÉRIENCE POUR<br>LES DÉTAILS →</p>
+      <p style="font-family:var(--mono);font-size:.55rem;color:rgba(0,255,102,.38);letter-spacing:.1em;line-height:1.8;">CLIQUER SUR UNE<br>EXPÉRIENCE POUR<br>LES DÉTAILS →</p>
     </div>
     <div class="ex-timeline">
       <div class="ex-item" data-modal="exp1">
@@ -346,12 +491,12 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 
 <span class="sep"></span>
 
-<!-- ══════════════════════════════ PROJECTS ══════════════════════════════ -->
+<!-- ══ PROJECTS ══ -->
 <section id="s3">
   <div class="pr-head">
     <div>
       <span class="idx" data-bin="— 04 / PROJETS">— 04 / PROJETS</span>
-      <h2 class="stitle" style="font-size:clamp(2rem,5vw,4rem);margin-bottom:0"><span data-bin="RÉALISATIONS">RÉALISATIONS</span></h2>
+      <h2 class="stitle" style="margin-bottom:0"><span data-bin="RÉALISATIONS">RÉALISATIONS</span></h2>
     </div>
     <span style="font-family:var(--mono);font-size:.55rem;color:var(--muted)">04 PROJETS · CLIQUER POUR DÉTAILS</span>
   </div>
@@ -405,27 +550,42 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 
 <span class="sep"></span>
 
-<!-- ══════════════════════════════ EDUCATION ══════════════════════════════ -->
+<!-- ══ EDUCATION ══ -->
 <section id="s4">
   <div class="ed-grid">
     <div>
       <span class="idx" data-bin="— 05 / FORMATION">— 05 / FORMATION</span>
       <h2 class="stitle"><span data-bin="FORM">FORM</span><span class="r" data-bin="ATION">ATION</span></h2>
-      <div class="ed-item"><div class="ed-yr">2025<br>→ cours<br>Nîmes</div><div><div class="ed-deg">Licence Pro — Robotique &amp; Vision Industrielle</div><div class="ed-sch">Université de Nîmes</div><span class="ed-badge">EN COURS</span></div></div>
-      <div class="ed-item"><div class="ed-yr">2023<br>→ 2025<br>Gabon</div><div><div class="ed-deg">Licence — Génie Logiciel</div><div class="ed-sch">ESGIS Gabon</div></div></div>
-      <div class="ed-item"><div class="ed-yr">2022<br>→ 2023<br>Gabon</div><div><div class="ed-deg">BTS — Informatique &amp; Réseau</div><div class="ed-sch">Institut Technologique d'Owendo</div></div></div>
+      <div class="ed-item">
+        <div class="ed-yr">2025<br>→ cours<br>Nîmes</div>
+        <div><div class="ed-deg">Licence Pro — Robotique &amp; Vision Industrielle</div><div class="ed-sch">Université de Nîmes</div><span class="ed-badge">EN COURS</span></div>
+      </div>
+      <div class="ed-item">
+        <div class="ed-yr">2023<br>→ 2025<br>Gabon</div>
+        <div><div class="ed-deg">Licence — Génie Logiciel</div><div class="ed-sch">ESGIS Gabon</div></div>
+      </div>
+      <div class="ed-item">
+        <div class="ed-yr">2022<br>→ 2023<br>Gabon</div>
+        <div><div class="ed-deg">BTS — Informatique &amp; Réseau</div><div class="ed-sch">Institut Technologique d'Owendo</div></div>
+      </div>
     </div>
     <div>
       <span class="idx" data-bin="— CERTIFICATIONS">— CERTIFICATIONS</span><br><br>
-      <div class="cert-card"><div class="cert-t">Google Data Analytics Certificate</div><div class="cert-i">Coursera × Google</div><div class="cert-d">10/2025 — 02/2026 · Nîmes</div></div>
+      <div class="cert-card">
+        <div class="cert-t">Google Data Analytics Certificate</div>
+        <div class="cert-i">Coursera × Google</div>
+        <div class="cert-d">10/2025 — 02/2026 · Nîmes</div>
+      </div>
       <br>
       <span class="idx" data-bin="— LOCALISATION">— LOCALISATION</span>
       <div class="info-block">📍 Lyon, France<br>🌍 Origine : Gabon<br>✈️ Mobilité : France entière</div>
       <br>
       <span class="idx" data-bin="— INTÉRÊTS">— INTÉRÊTS</span>
       <div class="lang-grid" style="margin-top:.7rem">
-        <span class="ltag">♟ Échecs</span><span class="ltag">💪 Musculation</span>
-        <span class="ltag">⚽ Futsal</span><span class="ltag">🎮 Jeux vidéo</span>
+        <span class="ltag">♟ Échecs</span>
+        <span class="ltag">💪 Musculation</span>
+        <span class="ltag">⚽ Futsal</span>
+        <span class="ltag">🎮 Jeux vidéo</span>
       </div>
     </div>
   </div>
@@ -433,20 +593,30 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 
 <span class="sep"></span>
 
-<!-- ══════════════════════════════ CONTACT ══════════════════════════════ -->
-<section id="s5" style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;">
-  <span class="idx" data-bin="— 06 / CONTACT">— 06 / CONTACT</span>
-  <div class="ct-big">
-    <span data-bin="TRAVAILLONS">TRAVAILLONS</span><br>
-    <span class="outline" data-bin="ENSEMBLE.">ENSEMBLE.</span>
+<!-- ══ CONTACT ══ -->
+<section id="s5">
+  <div style="position:relative;z-index:1;">
+    <span class="idx" data-bin="— 06 / CONTACT">— 06 / CONTACT</span>
+    <div class="ct-big">
+      <span data-bin="TRAVAILLONS">TRAVAILLONS</span><br>
+      <span class="outline" data-bin="ENSEMBLE.">ENSEMBLE.</span>
+    </div>
+    <div class="ct-links">
+      <a href="mailto:isaacparaiso432@gmail.com" class="clink primary">✉ isaacparaiso432@gmail.com</a>
+      <a href="tel:0751597288" class="clink">📱 07 51 59 72 88</a>
+      <a href="https://github.com/Yortze" target="_blank" class="clink">⌥ GitHub @Yortze</a>
+      <a href="https://linkedin.com/in/Isaacparaiso1" target="_blank" class="clink">in LinkedIn</a>
+    </div>
+
+    <!-- À la recherche de -->
+    <div class="ct-looking">
+      <span class="sdot" style="flex-shrink:0;width:8px;height:8px;"></span>
+      <div class="ct-looking-txt">
+        À la recherche d'un <span>CDI</span>, d'un <span>stage</span> ou d'une <span>alternance</span><br>
+        Lyon · France entière · Disponible dès maintenant
+      </div>
+    </div>
   </div>
-  <div class="ct-links">
-    <a href="mailto:isaacparaiso432@gmail.com" class="clink primary">✉ isaacparaiso432@gmail.com</a>
-    <a href="tel:0751597288" class="clink">📱 07 51 59 72 88</a>
-    <a href="https://github.com/Yortze" target="_blank" class="clink">⌥ GitHub @Yortze</a>
-    <a href="https://linkedin.com/in/Isaacparaiso1" target="_blank" class="clink">in LinkedIn</a>
-  </div>
-  <p style="font-family:var(--mono);font-size:.62rem;color:var(--muted);letter-spacing:.1em">Lyon, France · Disponible pour alternance, stage ou CDI</p>
   <div class="ct-deco"><div class="ct-deco-txt">PARAISO</div></div>
 </section>
 
@@ -454,157 +624,98 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 // ══ MODAL DATA ══
 const MODALS={
   exp1:{img:'https://images.unsplash.com/photo-1555066931-4365d14431b9?w=900&q=80',tag:'EXPÉRIENCE · 01/2025 — 08/2025',title:'DÉVELOPPEUR FULLSTACK',sub:'SOGAC Transit — Dépôt sous douane · Libreville, Gabon',desc:"Mission de développement en production au sein de SOGAC Transit, entreprise spécialisée dans la logistique et le dépôt sous douane. Intégré à l'équipe IT, j'ai pris en charge le développement et la maintenance de modules critiques de l'application de gestion douanière.",sections:[{title:'MISSIONS',type:'list',items:["Développement du module de facturation des marchandises sortant du dépôt sous douane en Java","Optimisation des requêtes SQL complexes — réduction significative du temps de traitement","Collaboration avec l'équipe métier pour aligner les règles douanières avec la logique applicative","Maintenance corrective et débogage sur l'application en production","Rédaction de rapports de suivi et documentation des modifications apportées"]},{title:'STACK TECHNIQUE',type:'tags',items:['Java','MySQL','SQL avancé','IntelliJ IDEA','Git']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Mission'},{label:'DURÉE',val:'7 mois'},{label:'LIEU',val:'Libreville, Gabon'},{label:'SECTEUR',val:'Logistique douanière'}]}]},
-  exp2:{img:'https://images.unsplash.com/photo-1555066931-4365d14431b9?w=900&q=80',tag:'STAGE · 04/2022 — 01/2023',title:'STAGE DÉVELOPPEMENT FULLSTACK',sub:'SOGAC Transit — Gestion logistique · Libreville, Gabon',desc:"Stage de 9 mois chez SOGAC Transit durant lequel j'ai conçu et développé de A à Z une application Java de gestion des entrées et sorties de marchandises en magasin sous douane.",sections:[{title:'MISSIONS',type:'list',items:["Conception et développement complet d'une application Java de gestion des entrées/sorties de produits","Modélisation de la base de données relationnelle (schéma entité-relation, normalisation)","Intégration d'API externes pour l'interopérabilité avec les outils tiers douaniers","Collaboration avec l'équipe design pour l'amélioration de l'UX","Rédaction de documentation technique complète","Mise en place de tests unitaires (JUnit)"]},{title:'STACK TECHNIQUE',type:'tags',items:['Java','Swing / JavaFX','MySQL','REST API','JUnit','Git']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Stage'},{label:'DURÉE',val:'9 mois'},{label:'LIEU',val:'Libreville, Gabon'},{label:'SECTEUR',val:'Logistique douanière'}]}]},
-  proj1:{img:'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=900&q=80',tag:'PROJET · 2026',title:'SITE VITRINE SOGAC',sub:'CLIENT — SOGAC Transit · Gabon',desc:"Conception et développement du site vitrine officiel de SOGAC Transit, société gabonaise spécialisée dans la logistique et le dépôt sous douane. Interface responsive présentant les services douaniers, les partenaires et les contacts de l'entreprise.",sections:[{title:'FONCTIONNALITÉS',type:'list',items:["Page d'accueil animée avec présentation de l'entreprise","Section services détaillant les prestations douanières (import, export, transit)","Formulaire de contact intégré","Design responsive mobile / tablette / desktop","Optimisation SEO et performance"]},{title:'TECHNOLOGIES',type:'tags',items:['HTML5','CSS3','JavaScript (ES6+)','Responsive Design','SEO']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Site vitrine'},{label:'ANNÉE',val:'2026'},{label:'CLIENT',val:'SOGAC Transit'},{label:'STATUT',val:'Livré'}]}]},
-  proj2:{img:'https://images.unsplash.com/photo-1607706189992-eae578626c86?w=900&q=80',tag:'PROJET · 2022 — 2023',title:'APP GESTION DOUANE',sub:'SOGAC Transit — Entrées / Sorties Magasin',desc:"Application de bureau Java développée pour SOGAC Transit permettant la gestion complète des entrées et sorties de marchandises dans le magasin sous douane. Le système gère le cycle de vie complet des articles : réception, stockage, inventaire et expédition, avec traçabilité totale.",sections:[{title:'FONCTIONNALITÉS',type:'list',items:["Enregistrement des entrées marchandises avec numéros de déclaration douanière","Gestion des sorties avec édition automatique des bons de sortie","Tableau de bord inventaire en temps réel","Historique complet des mouvements avec filtres de recherche","Génération de rapports PDF mensuels / annuels","Gestion des utilisateurs avec niveaux d'accès (admin, agent, superviseur)","Intégration API avec le système douanier tiers"]},{title:'TECHNOLOGIES',type:'tags',items:['Java','JavaFX','MySQL','JDBC','REST API','JUnit','IntelliJ IDEA']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Application desktop'},{label:'ANNÉE',val:'2022 → 2023'},{label:'CLIENT',val:'SOGAC Transit'},{label:'STATUT',val:'En production'}]}]},
-  proj3:{img:'https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?w=900&q=80',tag:'PROJET · 2024',title:'GABCHAT',sub:'Messagerie P2P — ESGIS Gabon',desc:"Application mobile Android de messagerie peer-to-peer en réseau local, développée en Kotlin avec Android Studio. GabChat permet l'échange de messages en temps réel entre utilisateurs sur le même réseau Wi-Fi, sans serveur centralisé.",sections:[{title:'FONCTIONNALITÉS',type:'list',items:["Découverte automatique des utilisateurs sur le réseau local (broadcast)","Messagerie instantanée peer-to-peer via sockets TCP","Interface native Android Material Design","Historique des conversations persistant en SQLite local","Indicateurs de présence (en ligne / hors ligne)","Envoi de fichiers et images entre pairs","Chiffrement basique des messages en transit"]},{title:'TECHNOLOGIES',type:'tags',items:['Kotlin','Android Studio','TCP Sockets','SQLite','Material Design','Coroutines','MVVM']},{title:'ARCHITECTURE',type:'list',items:["Architecture MVVM (Model-View-ViewModel)","Communication réseau via Kotlin Coroutines","Base de données locale SQLite pour la persistance","Service Android en arrière-plan pour la réception"]},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Application mobile'},{label:'PLATEFORME',val:'Android'},{label:'ANNÉE',val:'2024'},{label:'CONTEXTE',val:'Projet académique ESGIS'}]}]},
-  proj4:{img:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80',tag:'PROJET · 2025',title:'MODULE GESTION ABSENCES',sub:'Système web — ESGIS Gabon',desc:"Système web de gestion des absences étudiantes développé pour l'ESGIS Gabon. La plateforme centralise le suivi des présences, automatise les rapports et offre des tableaux de bord distincts pour enseignants, étudiants et administration.",sections:[{title:'FONCTIONNALITÉS',type:'list',items:["Tableau de bord administrateur avec vue globale des absences par classe / module","Interface enseignant : prise de présence en ligne, export des listes","Interface étudiant : consultation de son historique en temps réel","Alertes automatiques par email lorsque le seuil est dépassé","Génération automatique de rapports PDF mensuels","Gestion des justificatifs avec workflow de validation","Authentification sécurisée avec rôles (admin / enseignant / étudiant)"]},{title:'TECHNOLOGIES',type:'tags',items:['HTML5','CSS3','JavaScript','PHP','MySQL','Chart.js','AJAX']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Application web'},{label:'ANNÉE',val:'2025'},{label:'CLIENT',val:'ESGIS Gabon'},{label:'STATUT',val:'Livré'}]}]}
+  exp2:{img:'https://images.unsplash.com/photo-1555066931-4365d14431b9?w=900&q=80',tag:'STAGE · 04/2022 — 01/2023',title:'STAGE DÉVELOPPEMENT FULLSTACK',sub:'SOGAC Transit — Gestion logistique · Libreville, Gabon',desc:"Stage de 9 mois chez SOGAC Transit durant lequel j'ai conçu et développé de A à Z une application Java de gestion des entrées et sorties de marchandises en magasin sous douane.",sections:[{title:'MISSIONS',type:'list',items:["Conception et développement complet d'une application Java de gestion des entrées/sorties de produits","Modélisation de la base de données relationnelle (schéma entité-relation, normalisation)","Intégration d'API externes pour l'interopérabilité avec les outils tiers douaniers","Collaboration avec l'équipe design pour l'amélioration de l'UX","Rédaction de documentation technique complète","Mise en place de tests unitaires (JUnit)"]},{title:'STACK TECHNIQUE',type:'tags',items:['Java','JavaFX','MySQL','REST API','JUnit','Git']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Stage'},{label:'DURÉE',val:'9 mois'},{label:'LIEU',val:'Libreville, Gabon'},{label:'SECTEUR',val:'Logistique douanière'}]}]},
+  proj1:{img:'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=900&q=80',tag:'PROJET · 2026',title:'SITE VITRINE SOGAC',sub:'CLIENT — SOGAC Transit · Gabon',desc:"Conception et développement du site vitrine officiel de SOGAC Transit, société gabonaise spécialisée dans la logistique et le dépôt sous douane. Interface responsive présentant les services douaniers, les partenaires et les contacts.",sections:[{title:'FONCTIONNALITÉS',type:'list',items:["Page d'accueil animée avec présentation de l'entreprise","Section services détaillant les prestations douanières (import, export, transit)","Formulaire de contact intégré","Design responsive mobile / tablette / desktop","Optimisation SEO et performance"]},{title:'TECHNOLOGIES',type:'tags',items:['HTML5','CSS3','JavaScript (ES6+)','Responsive Design','SEO']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Site vitrine'},{label:'ANNÉE',val:'2026'},{label:'CLIENT',val:'SOGAC Transit'},{label:'STATUT',val:'Livré'}]}]},
+  proj2:{img:'https://images.unsplash.com/photo-1607706189992-eae578626c86?w=900&q=80',tag:'PROJET · 2022 — 2023',title:'APP GESTION DOUANE',sub:'SOGAC Transit — Entrées / Sorties Magasin',desc:"Application de bureau Java développée pour SOGAC Transit permettant la gestion complète des entrées et sorties de marchandises dans le magasin sous douane. Traçabilité totale, rapports automatisés et gestion des accès multi-rôles.",sections:[{title:'FONCTIONNALITÉS',type:'list',items:["Enregistrement des entrées marchandises avec numéros de déclaration douanière","Gestion des sorties avec édition automatique des bons de sortie","Tableau de bord inventaire en temps réel","Historique complet des mouvements avec filtres","Génération de rapports PDF mensuels / annuels","Gestion des utilisateurs avec niveaux d'accès (admin, agent, superviseur)","Intégration API avec le système douanier tiers"]},{title:'TECHNOLOGIES',type:'tags',items:['Java','JavaFX','MySQL','JDBC','REST API','JUnit','IntelliJ IDEA']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Application desktop'},{label:'ANNÉE',val:'2022 → 2023'},{label:'CLIENT',val:'SOGAC Transit'},{label:'STATUT',val:'En production'}]}]},
+  proj3:{img:'https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?w=900&q=80',tag:'PROJET · 2024',title:'GABCHAT',sub:'Messagerie P2P — ESGIS Gabon',desc:"Application mobile Android de messagerie peer-to-peer en réseau local, développée en Kotlin. GabChat permet l'échange de messages en temps réel entre utilisateurs sur le même réseau Wi-Fi, sans serveur centralisé.",sections:[{title:'FONCTIONNALITÉS',type:'list',items:["Découverte automatique des utilisateurs sur le réseau local (broadcast)","Messagerie instantanée peer-to-peer via sockets TCP","Interface native Android Material Design","Historique des conversations en SQLite local","Indicateurs de présence (en ligne / hors ligne)","Envoi de fichiers et images entre pairs","Chiffrement basique des messages en transit"]},{title:'TECHNOLOGIES',type:'tags',items:['Kotlin','Android Studio','Android SDK','TCP Sockets','SQLite','Coroutines','MVVM']},{title:'ARCHITECTURE',type:'list',items:["Architecture MVVM (Model-View-ViewModel)","Communication réseau via Kotlin Coroutines","Base de données locale SQLite pour la persistance","Service Android en arrière-plan pour la réception"]},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Application mobile'},{label:'PLATEFORME',val:'Android'},{label:'ANNÉE',val:'2024'},{label:'CONTEXTE',val:'Projet académique ESGIS'}]}]},
+  proj4:{img:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80',tag:'PROJET · 2025',title:'MODULE GESTION ABSENCES',sub:'Système web — ESGIS Gabon',desc:"Système web de gestion des absences étudiantes pour l'ESGIS Gabon. Tableaux de bord multi-rôles, alertes automatiques et rapports PDF.",sections:[{title:'FONCTIONNALITÉS',type:'list',items:["Dashboard admin avec vue globale des absences par classe / module","Interface enseignant : prise de présence en ligne, export des listes","Interface étudiant : consultation de son historique en temps réel","Alertes automatiques par email lorsque le seuil est dépassé","Génération automatique de rapports PDF mensuels","Gestion des justificatifs avec workflow de validation","Authentification sécurisée avec rôles (admin / enseignant / étudiant)"]},{title:'TECHNOLOGIES',type:'tags',items:['HTML5','CSS3','JavaScript','PHP','MySQL','Chart.js','Bootstrap']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Application web'},{label:'ANNÉE',val:'2025'},{label:'CLIENT',val:'ESGIS Gabon'},{label:'STATUT',val:'Livré'}]}]}
 };
 
-//  CURSOR 
+// ── CURSOR ──
 const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
 (function lp(){cur.style.left=mx+'px';cur.style.top=my+'px';rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(lp);})();
 
-// ── BINARY EFFECT (lettre par lettre, 2 secondes) ──
+// ── BINARY EFFECT — lettre par lettre, 2 secondes ──
 const BIN='01';
-const revealed=new WeakSet();
-
+const done=new WeakSet();
 function binaryReveal(el){
-  if(revealed.has(el))return;
-  revealed.add(el);
-  const finalText=el.dataset.bin;
-  if(!finalText)return;
-  el.classList.add('revealed');
-  const len=finalText.length;
-  const totalDur=2000; // 2 secondes
-  // chaque lettre se révèle à son tour, avec scramble pendant qu'elle attend
-  const msPerChar=totalDur/len;
-  let frame=0;
-  const fps=40;
-  const totalFrames=Math.round(totalDur/(1000/fps));
-
-  const tick=setInterval(()=>{
-    frame++;
-    const progress=frame/totalFrames; // 0→1 sur 2 secondes
-    let out='';
-    for(let i=0;i<len;i++){
-      const c=finalText[i];
-      if(c===' '){out+=' ';continue;}
-      const charProgress=i/len;
-      if(progress>=charProgress+0.05){
-        // lettre révélée définitivement
-        out+=c;
-      } else if(progress>=charProgress){
-        // lettre en train de se révéler (scramble rapide)
-        out+=BIN[Math.floor(Math.random()*2)];
-      } else {
-        // pas encore atteinte — scramble lent
-        out+=Math.random()>0.65?BIN[Math.floor(Math.random()*2)]:' ';
-      }
-    }
-    el.textContent=out;
-    if(frame>=totalFrames){
-      el.textContent=finalText;
-      clearInterval(tick);
-    }
-  },1000/fps);
-}
-
-// INTERSECTION OBSERVER — déclenche l'effet binary quand visible
-const observer=new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      binaryReveal(entry.target);
-    }
-  });
-},{threshold:0.15});
-
-document.querySelectorAll('[data-bin]').forEach(el=>{
-  // hide initially
-  el.style.opacity='0';
-  // show when observer fires
-  observer.observe(el);
-});
-
-// Override reveal to also show opacity
-const origReveal=binaryReveal;
-function binaryReveal(el){
-  if(revealed.has(el))return;
-  revealed.add(el);
-  const finalText=el.dataset.bin;
-  if(!finalText)return;
+  if(done.has(el))return;
+  done.add(el);
+  const txt=el.dataset.bin;
+  if(!txt)return;
   el.style.opacity='1';
-  const len=finalText.length;
-  const totalDur=2000;
-  let frame=0;
-  const fps=40;
-  const totalFrames=Math.round(totalDur/(1000/fps));
-  const tick=setInterval(()=>{
-    frame++;
-    const progress=frame/totalFrames;
+  const len=txt.length;
+  const FPS=42,DURATION=2000;
+  const total=Math.round(DURATION/(1000/FPS));
+  let f=0;
+  const t=setInterval(()=>{
+    f++;
+    const prog=f/total;
     let out='';
     for(let i=0;i<len;i++){
-      const c=finalText[i];
-      if(c===' '){out+=' ';continue;}
-      const charProgress=i/len;
-      if(progress>=charProgress+0.05){
-        out+=c;
-      } else if(progress>=charProgress){
-        out+=BIN[Math.floor(Math.random()*2)];
-      } else {
-        out+=Math.random()>0.7?BIN[Math.floor(Math.random()*2)]:'\u00A0';
-      }
+      const c=txt[i];
+      if(c===' '||c==='\u00A0'){out+=' ';continue;}
+      const cp=i/len;
+      if(prog>=cp+1/len*2){out+=c;}
+      else if(prog>=cp){out+=BIN[Math.floor(Math.random()*2)];}
+      else{out+=Math.random()>.72?BIN[Math.floor(Math.random()*2)]:'\u00A0';}
     }
     el.textContent=out;
-    if(frame>=totalFrames){el.textContent=finalText;clearInterval(tick);}
-  },1000/fps);
+    if(f>=total){el.textContent=txt;clearInterval(t);}
+  },1000/FPS);
 }
+
+// ── INTERSECTION OBSERVER ──
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)binaryReveal(e.target);});
+},{threshold:0.12});
+document.querySelectorAll('[data-bin]').forEach(el=>{el.style.opacity='0';io.observe(el);});
+
+// ── BARS OBSERVER ──
+const barIO=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)
+      e.target.querySelectorAll('.bar-fill').forEach(b=>{b.style.width=b.dataset.w+'%';});
+  });
+},{threshold:0.25});
+const s1=document.getElementById('s1');
+if(s1)barIO.observe(s1);
 
 // ── LOADER ──
 const lbar=document.getElementById('lbar'),lpct=document.getElementById('lpct'),loader=document.getElementById('loader');
 let p=0;
 const iv=setInterval(()=>{
   p+=Math.random()*16;
-  if(p>=100){p=100;clearInterval(iv);
-    setTimeout(()=>{
-      loader.style.opacity='0';
-      setTimeout(()=>{loader.style.display='none';},700);
-    },200);}
-  lbar.style.width=p+'%';
-  lpct.textContent=Math.floor(p)+'%';
+  if(p>=100){p=100;clearInterval(iv);setTimeout(()=>{loader.style.opacity='0';setTimeout(()=>{loader.style.display='none';},700);},200);}
+  lbar.style.width=p+'%';lpct.textContent=Math.floor(p)+'%';
 },65);
 
-// ── SCROLL BARS ANIMATION ──
-const barsObserver=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.bar-fill').forEach(b=>{b.style.width=b.dataset.w+'%';});
-    }
-  });
-},{threshold:0.3});
-const s1=document.getElementById('s1');
-if(s1)barsObserver.observe(s1);
-
-// ── DOT NAV — highlight active section ──
+// ── DOT NAV ──
 const sections=document.querySelectorAll('section[id]');
 const dots=document.querySelectorAll('.dot');
-const secObserver=new IntersectionObserver(entries=>{
+const secIO=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
-    if(e.isIntersecting&&e.intersectionRatio>0.4){
-      const id=e.target.id;
-      dots.forEach(d=>{
-        d.classList.toggle('active',d.dataset.target===id);
-      });
-    }
+    if(e.isIntersecting&&e.intersectionRatio>0.35)
+      dots.forEach(d=>d.classList.toggle('active',d.dataset.target===e.target.id));
   });
-},{threshold:0.4});
-sections.forEach(s=>secObserver.observe(s));
-dots.forEach(d=>{
-  d.addEventListener('click',()=>{
-    const target=document.getElementById(d.dataset.target);
-    if(target)target.scrollIntoView({behavior:'smooth'});
+},{threshold:0.35});
+sections.forEach(s=>secIO.observe(s));
+dots.forEach(d=>{d.addEventListener('click',()=>{
+  const t=document.getElementById(d.dataset.target);
+  if(t)t.scrollIntoView({behavior:'smooth'});
+});});
+
+// ── TOPBAR NAV smooth scroll ──
+document.querySelectorAll('.top-nav a').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const href=a.getAttribute('href');
+    if(href&&href.startsWith('#')){
+      e.preventDefault();
+      const t=document.querySelector(href);
+      if(t)t.scrollIntoView({behavior:'smooth'});
+    }
   });
 });
 
@@ -625,10 +736,7 @@ function openModal(key){
   document.getElementById('modal-box').scrollTop=0;
   document.body.style.overflow='hidden';
 }
-function closeModal(){
-  document.getElementById('modal').classList.remove('open');
-  document.body.style.overflow='';
-}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
 document.getElementById('modal-close').addEventListener('click',closeModal);
 document.getElementById('modal').addEventListener('click',e=>{if(e.target===document.getElementById('modal'))closeModal();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
