@@ -1,136 +1,3 @@
-
-
-<!DOCTYPE html> <html lang="fr"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Damien A. PARAISO — Developer Portfolio</title> <link rel="preconnect" href="https://fonts.googleapis.com"> <link href="https://fonts.googleapis.com/css
-
-pasted
-
-tu vois ce site ? affiche le stp
-
-23 mars
-
-Fichier créé, lu un fichier
-Fichier créé, lu un fichier
-Voilà ! Le portfolio de Damien Paraiso est affiché. Tu peux naviguer entre les 6 slides avec la molette, les flèches du clavier, les boutons ↑↓ en bas, ou les points de navigation à droite. Le curseur personnalisé et l'animation de chargement sont aussi actifs.
-
-Portfolio
-Code · HTML 
-je veux moins de couleur en juste vert rouge blanc noir et que les testes sois en  01 c'est a dire binaire avant de se changer en vrai texte je sais pas si tu vois et je veux qu'il y'ai une transition entre les sexion du genre contact expérience et ecole réalisation et tout ca et si je clique sur une image du genre les réalisation ou bienles expérience en gros le truc s'agrandit et details un peu tout sur ce que j'ai cliqué exemple si c'est une application comme gab chat il agrandit l'image de gabchat et details a peu près tout ce qu'il faut savoir sur Gabchat comme le langage utilisé et consort et tu as oublié de rajouter l'application de SOGAC transit qui gère les entrées sortie et consort
-
-23 mars
-
-Reading frontend design skill
-Reading frontend design skill
-Compris ! Je refais tout avec :
-
-Palette vert / rouge / blanc / noir uniquement
-Effet texte binaire → vrai texte à l'entrée de chaque slide
-Transitions nommées entre sections (ex: "CONTACT", "EXPÉRIENCE"...)
-Modal cliquable sur chaque projet/expérience avec détails complets
-Ajout du projet SOGAC entrées/sorties
-
-2 fichiers créés, a exécuté une commande, lu un fichier
-2 fichiers créés, a exécuté une commande, lu un fichier
-Voilà la version refaite ! Voici ce qui a changé :
-
-Palette — uniquement noir, blanc, vert 
-#00ff66 et rouge 
-#ff2244. Plus aucune autre couleur.
-
-Effet binaire — au chargement, tous les textes du hero s'affichent d'abord en 01010101 qui se résolvent progressivement en vrai texte. À chaque changement de section, les titres font pareil.
-
-Transitions nommées — quand tu changes de slide, un overlay noir apparaît avec le nom de la section (ex: EXPÉRIENCE, PROJETS...) qui lui-même se déchiffre en binaire avant de disparaître.
-
-Modals au clic — cliquer sur une carte projet ou une expérience ouvre un panneau détaillé avec image agrandie, description complète, liste des fonctionnalités, stack technique et infos (durée, lieu, statut...).
-
-Nouveau projet ajouté — l'application Java de gestion des entrées/sorties de marchandises SOGAC Transit est maintenant le projet 002, avec tous ses détails (JavaFX, MySQL, JDBC, gestion des déclarations douanières, rapports PDF, niveaux d'accès...).
-
-Portfolio
-Code · HTML 
-elle est partfaite je veux qu'on modifie un truc le fait davoir six page je veux qu'il y'ai toujours les sections la mais qu'on puisse naviguer tout simplement en descendant la souris juste en navigant en descendant simplement pas en cliquant et aussi je veux que l'effet de binaire 1 0 la dure 2 seconde et face ca lettre par lettre quand on descend en fait pour chaque texte. tu gardes les grande pas et tout consort tout mais tu change juste la navigation je veux pas de 1/6 page non juste comme un site mais que l'effet binaire reste à chaque fois qu'on va sur les mots ou elle se trouve
-
-23 mars
-Je comprends — tu veux un site scrollable classique (une longue page qu'on descend naturellement), mais avec l'effet binaire qui se déclenche sur chaque texte quand il entre dans le champ de vision. Je garde tout le design, les modals, les transitions, juste la navigation change.
-
-
-A exécuté une commande, fichier créé, lu un fichier
-A exécuté une commande, fichier créé, lu un fichier
-Voilà ! Voici ce qui a changé :
-
-Navigation — c'est maintenant une vraie page longue qu'on scroll naturellement, comme n'importe quel site web. Plus de système de slides, plus de compteur 1/6. Les points de navigation à droite restent et permettent de sauter directement à une section au clic.
-
-Effet binaire au scroll — chaque texte qui a data-bin démarre l'effet dès qu'il entre dans le champ de vision. L'animation dure exactement 2 secondes, lettre par lettre de gauche à droite : les lettres pas encore atteintes affichent du 0 et 1 aléatoire, puis se révèlent progressivement. L'effet ne se rejoue qu'une fois par élément.
-
-Tout le reste est intact — palette vert/rouge/blanc/noir, modals au clic sur projets et expériences, tous les détails SOGAC, GabChat, etc.
-
-Portfolio
-Code · HTML 
-Huuum ok maintenant je veux enlever le pourcentage de niveau qui sont dans les onglés maitrisés mais gardé les bas   et aussi enlever les langues dans ces sections rajoute aussi HTML à cela je veux aussi que tu rajoutes un espace ou on peut telecharger mon cv que je placerai dans le fichier source de ce code je veux aussi et que le caractère des polices sois un peu plus gras toujours tech mais plus épais et je veux une section pour les framework et sans incohérence du genre nodejs et un autre framework du genre voila en gros cette section sera e bas des Methodes et pas tu gardes toujours la section de maitrise oohh je veeux juste qu'il y ai que HTML CSS PHP JAVA JAVASCRIPT C++ et SQL  ainsi que Halcon et la ou c'est ecris disponible alternance stage cdi enleve tu mets les liens pour acceder à mes projet expériences professionnel et mon cursus ensuite contact  c'est à la fin qu'on verra à la recherche d'un cdi stage ou alternance  et le disponible qui clignote en vert
-
-00:48
-Compris, je récapitule toutes les modifs avant de coder :
-
-Barres de maîtrise — enlever les % et les langues (Français/Anglais), garder les barres
-Langages — uniquement : HTML, CSS, PHP, Java, JavaScript, C++, SQL + Halcon
-Section Frameworks — ajoutée sous Méthodes (frameworks cohérents : Spring Boot, Android SDK, JavaFX, etc.)
-CV téléchargeable — section/bouton avec lien vers cv.pdf
-Police plus grasse/épaisse
-Topbar — remplacer le statut par des liens de navigation (Projets, Expérience, Cursus, Contact) + point vert clignotant "DISPONIBLE" à la fin
-Fin de page — "À la recherche d'un CDI / stage / alternance"
-
-A exécuté une commande, fichier créé, lu un fichier
-A exécuté une commande, fichier créé, lu un fichier
-Voilà ! Récapitulatif de tout ce qui a changé :
-
-Barres de maîtrise — plus de %, plus de langues. Juste le nom de la techno et la barre. Plus épaisse (2px) et plus lisible.
-
-Langages — uniquement Java, JavaScript, C++, SQL, HTML, CSS, PHP + Halcon dans Vision industrielle.
-
-Frameworks — nouvelle section cohérente : Spring Boot, JavaFX, Android SDK, JUnit, Chart.js, Bootstrap, JDBC.
-
-Téléchargement CV — une bande dédiée juste sous le hero avec un bouton ↓ TÉLÉCHARGER LE CV qui pointe vers cv.pdf. Tu n'as qu'à mettre ton fichier cv.pdf dans le même dossier que le HTML.
-
-Police — passé à Barlow 700/800/900, plus épaisse et plus technique tout en restant élégante.
-
-Topbar — les liens Projets / Expérience / Cursus / Contact remplacent l'ancien statut. Le point vert clignotant DISPONIBLE reste à droite, bien visible.
-
-Contact — bloc "À la recherche d'un CDI, d'un stage ou d'une alternance" ajouté en bas avec le point vert qui clignote.
-
-Portfolio
-Code · HTML 
-je veux un mode light du coup un bouton pour changer le mode sombre et light et je veux que la navbar passe en invisible quand on navigue sur la page et apparait seulement que quand je change de section. et aussi la responsivité je veux qu'elle s'adapte en fonction du device utilisé c'est à dire sur mobile et sur ordinateur
-
-16:13
-
-A exécuté une commande, fichier créé, lu un fichier
-A exécuté une commande, fichier créé, lu un fichier
-Voilà ! Tout ce qui a changé :
-
-Mode light/dark — le bouton ☀/☾ en haut à droite bascule entre les deux thèmes. Le mode light utilise un fond beige cassé, du vert foncé 
-#009944 et du rouge sombre pour rester cohérent et lisible. Toutes les transitions sont fluides (0.4s).
-
-Navbar auto-hide — la topbar se cache automatiquement 1,2 seconde après que tu arrêtes de scroller. Elle réapparaît dès que tu remontes ou recommences à scroller, et se montre aussi pendant 2 secondes à chaque changement de section visible. Elle reste toujours visible tout en haut de la page.
-
-Responsive complet sur 4 niveaux :
-
-Desktop (>900px) — layout normal, dots nav, tout affiché
-Tablet (≤900px) — hamburger menu, grilles en 1 colonne, projets en 2x2, dots nav cachés, chiffres hero cachés
-Mobile (≤560px) — padding réduit, liens contact en colonne, décoration cachée, typographie clamp fluide
-Très petit (≤380px) — projets en 1 colonne
-Mobile menu — en dessous de 900px, un menu hamburger animé s'ouvre en plein écran avec les liens de navigation en grands caractères Bebas Neue.
-
-Portfolio
-Code · HTML 
-
-
-Vous n’avez plus de messages gratuits jusqu’à 21:00.
-Mettre à niveau
-
-
-
-Claude est une IA et peut faire des erreurs. Veuillez vérifier les réponses.
-Portfolio · HTML
-Copier
-
 <!DOCTYPE html>
 <html lang="fr" data-theme="dark">
 <head>
@@ -172,7 +39,7 @@ Copier
   --card-bg:#ffffff;
   --overlay:rgba(245,245,240,.95);
 }
- 
+
 /* ══ RESET ══ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -184,7 +51,7 @@ body{
 }
 a{color:inherit;text-decoration:none;}
 strong{font-weight:900;}
- 
+
 /* ══ CURSOR (desktop only) ══ */
 #cur,#cur2{display:none;}
 @media(pointer:fine){
@@ -192,7 +59,7 @@ strong{font-weight:900;}
   #cur2{display:block;position:fixed;width:28px;height:28px;border:1px solid var(--green);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.35;}
   *{cursor:none!important;}
 }
- 
+
 /* ══ LOADER ══ */
 #loader{position:fixed;inset:0;background:var(--bg);z-index:9500;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;transition:opacity .8s;}
 .ld-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,6rem);letter-spacing:.12em;color:var(--text);}
@@ -200,7 +67,7 @@ strong{font-weight:900;}
 .ld-bar-wrap{width:180px;height:1px;background:var(--border);}
 .ld-bar{height:1px;background:var(--green);width:0;}
 .ld-pct{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);}
- 
+
 /* ══ TOPBAR ══ */
 #topbar{
   position:fixed;top:0;left:0;right:0;z-index:600;
@@ -211,9 +78,9 @@ strong{font-weight:900;}
   transition:transform .4s cubic-bezier(.77,0,.18,1),opacity .4s,background .4s,border-color .4s;
 }
 #topbar.hidden{transform:translateY(-100%);opacity:0;pointer-events:none;}
- 
+
 .top-logo{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--green);letter-spacing:.2em;flex-shrink:0;}
- 
+
 /* desktop nav */
 .top-nav{display:flex;align-items:center;gap:0;}
 .top-nav a{
@@ -225,14 +92,14 @@ strong{font-weight:900;}
 }
 .top-nav a:hover{color:var(--text);background:rgba(128,128,128,.06);}
 .top-nav a:last-child{border-right:1px solid var(--border);}
- 
+
 /* right cluster */
 .top-right{display:flex;align-items:center;gap:.8rem;flex-shrink:0;padding-left:.8rem;}
- 
+
 .top-dispo{display:flex;align-items:center;gap:.5rem;font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--green);letter-spacing:.14em;}
 .sdot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;animation:blink 1.4s infinite;}
 @keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,255,102,.5)}60%{opacity:.15;box-shadow:0 0 0 5px rgba(0,255,102,0)}}
- 
+
 /* theme toggle */
 .theme-btn{
   width:36px;height:36px;border:1px solid var(--border);background:transparent;
@@ -241,14 +108,14 @@ strong{font-weight:900;}
   border-radius:2px;
 }
 .theme-btn:hover{border-color:var(--green);color:var(--green);}
- 
+
 /* mobile hamburger */
 .burger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;border:1px solid var(--border);background:transparent;}
 .burger span{display:block;width:20px;height:1px;background:var(--text);transition:all .3s;}
 .burger.open span:nth-child(1){transform:translateY(5px) rotate(45deg);}
 .burger.open span:nth-child(2){opacity:0;}
 .burger.open span:nth-child(3){transform:translateY(-5px) rotate(-45deg);}
- 
+
 /* mobile menu overlay */
 #mobile-menu{
   position:fixed;inset:0;top:54px;z-index:590;
@@ -265,32 +132,32 @@ strong{font-weight:900;}
   transition:color .2s;
 }
 .mobile-nav-link:hover{color:var(--green);}
- 
+
 /* ══ DOT NAV — desktop only ══ */
 #dotnav{position:fixed;right:1.6rem;top:50%;transform:translateY(-50%);z-index:400;display:flex;flex-direction:column;gap:.9rem;}
 .dot{width:5px;height:5px;border-radius:50%;background:var(--muted2);border:1px solid var(--border2);cursor:pointer;transition:all .2s;position:relative;}
 .dot::after{content:attr(data-label);font-family:'Share Tech Mono',monospace;font-size:.5rem;color:var(--muted);position:absolute;right:14px;top:50%;transform:translateY(-50%);white-space:nowrap;opacity:0;transition:opacity .2s;}
 .dot:hover::after,.dot.active::after{opacity:1;}
 .dot.active{background:var(--green);border-color:var(--green);box-shadow:0 0 8px var(--green);}
- 
+
 /* ══ NOISE ══ */
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:800;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");opacity:.2;}
- 
+
 /* ══ SECTIONS ══ */
 section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5vw,5vw) clamp(3rem,5vw,5rem);}
 .scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,102,.004) 2px,rgba(0,255,102,.004) 4px);pointer-events:none;}
 .gbg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:50px 50px;opacity:.08;pointer-events:none;}
 .sep{display:block;width:100%;height:1px;background:var(--border);transition:background .4s;}
- 
+
 /* SHARED */
 .idx{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--green);letter-spacing:.25em;display:block;margin-bottom:.5rem;}
 .stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,7vw,6.5rem);line-height:.9;letter-spacing:.03em;margin-bottom:1.4rem;}
 .stitle .r{color:var(--red);}
 .stitle .g{color:var(--green);}
- 
+
 /* binary */
 [data-bin]{opacity:0;transition:opacity .05s;}
- 
+
 /* ══ HERO ══ */
 #s0{min-height:100vh;display:flex;flex-direction:column;justify-content:center;}
 .h-tag{font-family:'Share Tech Mono',monospace;font-size:clamp(.5rem,.7vw+.3rem,.65rem);color:var(--green);letter-spacing:.2em;margin-bottom:1.3rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;}
@@ -312,7 +179,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
 .h-scroll::after{content:'↓';color:var(--green);animation:bounce 1.6s ease-in-out infinite;}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 .h-corner{position:absolute;right:0;bottom:0;font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,12vw,13rem);color:transparent;-webkit-text-stroke:1px var(--border);line-height:1;pointer-events:none;user-select:none;}
- 
+
 /* ══ CV BAND ══ */
 .cv-band{
   background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
@@ -331,7 +198,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
   background:transparent;text-transform:uppercase;white-space:nowrap;
 }
 .cv-dl-btn:hover{background:var(--green);color:var(--bg);}
- 
+
 /* ══ SKILLS ══ */
 #s1{background:var(--bg2);transition:background .4s;}
 .sk-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,3vw,3rem);}
@@ -350,7 +217,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
 .bar-fill.g{background:linear-gradient(90deg,var(--green),rgba(0,255,102,.2));}
 .bar-fill.r{background:linear-gradient(90deg,var(--red),rgba(255,34,68,.2));}
 .bar-fill.w{background:linear-gradient(90deg,var(--text),rgba(240,240,240,.2));}
- 
+
 /* ══ EXPERIENCE ══ */
 #s2{min-height:100vh;}
 .ex-layout{display:grid;grid-template-columns:240px 1fr;gap:clamp(1.5rem,4vw,4vw);}
@@ -370,7 +237,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
 .ex-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.6rem;}
 .xt{font-family:'Share Tech Mono',monospace;font-size:.52rem;padding:.14rem .44rem;border:1px solid rgba(0,255,102,.15);color:rgba(0,255,102,.55);border-radius:1px;}
 .click-hint{font-family:'Share Tech Mono',monospace;font-size:.5rem;color:rgba(0,255,102,.3);margin-top:.5rem;letter-spacing:.1em;}
- 
+
 /* ══ PROJECTS ══ */
 #s3{background:var(--card-bg);transition:background .4s;}
 .pr-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:1.8rem;flex-wrap:wrap;gap:.8rem;}
@@ -388,7 +255,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
 .pr-stack{display:flex;flex-wrap:wrap;gap:.28rem;}
 .pt{font-family:'Share Tech Mono',monospace;font-size:.5rem;padding:.14rem .44rem;border:1px solid rgba(255,34,68,.25);color:var(--red);border-radius:1px;}
 .pr-hint{font-family:'Share Tech Mono',monospace;font-size:.5rem;color:rgba(0,255,102,.3);margin-top:.5rem;}
- 
+
 /* ══ EDUCATION ══ */
 #s4{min-height:80vh;}
 .ed-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,4vw);}
@@ -402,7 +269,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
 .cert-i{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--green);}
 .cert-d{font-family:'Share Tech Mono',monospace;font-size:.56rem;color:var(--muted);margin-top:.2rem;}
 .info-block{font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--muted);line-height:2;margin-top:.6rem;}
- 
+
 /* ══ CONTACT ══ */
 #s5{min-height:90vh;background:var(--card-bg);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;transition:background .4s;}
 .ct-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,9rem);line-height:.9;letter-spacing:.02em;margin-bottom:2.2rem;}
@@ -417,7 +284,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
 .ct-deco{position:absolute;right:0;top:0;bottom:0;width:40%;display:flex;align-items:center;justify-content:center;overflow:hidden;pointer-events:none;}
 .ct-deco-txt{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,14vw,18rem);color:transparent;-webkit-text-stroke:1px var(--border);white-space:nowrap;transform:rotate(-14deg);opacity:.2;animation:flt 9s ease-in-out infinite;}
 @keyframes flt{0%,100%{transform:rotate(-14deg) translateY(0)}50%{transform:rotate(-14deg) translateY(-18px)}}
- 
+
 /* ══ MODAL ══ */
 #modal{position:fixed;inset:0;z-index:6000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.92);backdrop-filter:blur(14px);}
 #modal.open{display:flex;}
@@ -442,7 +309,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
 .m-info{border:1px solid var(--border);padding:.8rem;}
 .m-info-lbl{font-family:'Share Tech Mono',monospace;font-size:.48rem;color:var(--muted);letter-spacing:.15em;margin-bottom:.2rem;}
 .m-info-val{font-size:.82rem;font-weight:800;}
- 
+
 /* ══════════════════════════════════════════════
    RESPONSIVE — TABLET  (≤ 900px)
 ══════════════════════════════════════════════ */
@@ -450,7 +317,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
   .top-nav{display:none;}
   .burger{display:flex;}
   #dotnav{display:none;}
- 
+
   .sk-grid{grid-template-columns:1fr;}
   .ex-layout{grid-template-columns:1fr;}
   .ex-layout>div:first-child{display:flex;flex-wrap:wrap;align-items:flex-end;gap:1.2rem;}
@@ -462,7 +329,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
   .h-corner{display:none;}
   .m-grid{grid-template-columns:1fr 1fr;}
 }
- 
+
 /* ══ MOBILE (≤ 560px) ══ */
 @media(max-width:560px){
   section{padding:4.5rem 1.1rem 2.5rem;}
@@ -482,7 +349,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
   .h1{font-size:clamp(3.2rem,15vw,5rem);}
   .ct-big{font-size:clamp(2.5rem,12vw,5rem);}
 }
- 
+
 /* ══ VERY SMALL (≤ 380px) ══ */
 @media(max-width:380px){
   .pr-cards{grid-template-columns:1fr;}
@@ -490,16 +357,16 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
 </style>
 </head>
 <body>
- 
+
 <div id="cur"></div>
 <div id="cur2"></div>
- 
+
 <div id="loader">
   <div class="ld-name"><span>P</span>ARAISO</div>
   <div class="ld-bar-wrap"><div class="ld-bar" id="lbar"></div></div>
   <div class="ld-pct" id="lpct">0%</div>
 </div>
- 
+
 <div id="modal">
   <div class="modal-box" id="modal-box">
     <div class="modal-close" id="modal-close">[ FERMER × ]</div>
@@ -507,29 +374,29 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
     <div class="modal-body" id="modal-body"></div>
   </div>
 </div>
- 
+
 <!-- TOPBAR -->
 <div id="topbar">
   <div class="top-logo">DAP // 2026</div>
- 
+
   <nav class="top-nav">
     <a href="#s3">Projets</a>
     <a href="#s2">Expérience</a>
     <a href="#s4">Cursus</a>
     <a href="#s5">Contact</a>
   </nav>
- 
+
   <!-- hamburger (mobile) -->
   <div class="burger" id="burger" aria-label="Menu">
     <span></span><span></span><span></span>
   </div>
- 
+
   <div class="top-right">
     <div class="top-dispo"><span class="sdot"></span><span>DISPONIBLE</span></div>
     <button class="theme-btn" id="themeBtn" title="Changer de thème" aria-label="Toggle theme">☀</button>
   </div>
 </div>
- 
+
 <!-- MOBILE MENU -->
 <div id="mobile-menu">
   <a class="mobile-nav-link" href="#s3" id="mn-proj">Projets</a>
@@ -537,7 +404,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
   <a class="mobile-nav-link" href="#s4" id="mn-cur">Cursus</a>
   <a class="mobile-nav-link" href="#s5" id="mn-ct">Contact</a>
 </div>
- 
+
 <!-- DOT NAV -->
 <div id="dotnav">
   <div class="dot active" data-target="s0" data-label="HOME"></div>
@@ -547,7 +414,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
   <div class="dot" data-target="s4" data-label="FORMATION"></div>
   <div class="dot" data-target="s5" data-label="CONTACT"></div>
 </div>
- 
+
 <!-- ══ HERO ══ -->
 <section id="s0">
   <div class="scan"></div><div class="gbg"></div>
@@ -569,7 +436,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
   </div>
   <div class="h-corner">PARAISO</div>
 </section>
- 
+
 <!-- CV BAND -->
 <div class="cv-band">
   <div>
@@ -580,16 +447,16 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
     <span>↓</span> TÉLÉCHARGER LE CV
   </a>
 </div>
- 
+
 <span class="sep"></span>
- 
+
 <!-- ══ SKILLS ══ -->
 <section id="s1">
   <div class="sk-grid">
     <div>
       <span class="idx" data-bin="— 02 / STACK TECHNIQUE">— 02 / STACK TECHNIQUE</span>
       <h2 class="stitle"><span data-bin="STACK">STACK</span><br><span class="g" data-bin="TECH">TECH</span></h2>
- 
+
       <div class="sk-sub">// Langages</div>
       <div class="lang-grid">
         <span class="ltag core">Java</span><span class="ltag core">JavaScript</span>
@@ -597,14 +464,14 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
         <span class="ltag core">HTML</span><span class="ltag core">CSS</span>
         <span class="ltag core">PHP</span>
       </div>
- 
+
       <div class="sk-sub">// Vision industrielle</div>
       <div class="lang-grid">
         <span class="ltag vis">Halcon</span><span class="ltag vis">Open eVision</span>
         <span class="ltag vis">Traitement image</span>
         <span class="ltag vis">Prog. automate</span><span class="ltag vis">Robotique</span>
       </div>
- 
+
       <div class="sk-sub">// Outils</div>
       <div class="lang-grid">
         <span class="ltag tool">Linux</span><span class="ltag tool">Docker</span>
@@ -612,13 +479,13 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
         <span class="ltag tool">IntelliJ IDEA</span><span class="ltag tool">Android Studio</span>
         <span class="ltag tool">VS Code</span>
       </div>
- 
+
       <div class="sk-sub">// Méthodes</div>
       <div class="lang-grid">
         <span class="ltag">POO</span><span class="ltag">Agile / Scrum</span>
         <span class="ltag">REST API</span><span class="ltag">CI/CD</span><span class="ltag">MVC</span>
       </div>
- 
+
       <div class="sk-sub">// Frameworks &amp; Librairies</div>
       <div class="lang-grid">
         <span class="ltag fw">Spring Boot</span><span class="ltag fw">JavaFX</span>
@@ -627,7 +494,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
         <span class="ltag fw">JDBC</span>
       </div>
     </div>
- 
+
     <div>
       <span class="idx" data-bin="— MAÎTRISE">— MAÎTRISE</span><br><br>
       <div class="bars-wrap">
@@ -646,9 +513,9 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
     </div>
   </div>
 </section>
- 
+
 <span class="sep"></span>
- 
+
 <!-- ══ EXPERIENCE ══ -->
 <section id="s2">
   <div class="ex-layout">
@@ -693,9 +560,9 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
     </div>
   </div>
 </section>
- 
+
 <span class="sep"></span>
- 
+
 <!-- ══ PROJECTS ══ -->
 <section id="s3">
   <div class="pr-head">
@@ -752,9 +619,9 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
     </div>
   </div>
 </section>
- 
+
 <span class="sep"></span>
- 
+
 <!-- ══ EDUCATION ══ -->
 <section id="s4">
   <div class="ed-grid">
@@ -793,9 +660,9 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
     </div>
   </div>
 </section>
- 
+
 <span class="sep"></span>
- 
+
 <!-- ══ CONTACT ══ -->
 <section id="s5">
   <div style="position:relative;z-index:1;">
@@ -820,7 +687,7 @@ section{width:100%;position:relative;padding:clamp(5rem,8vw,8rem) clamp(1.2rem,5
   </div>
   <div class="ct-deco"><div class="ct-deco-txt">PARAISO</div></div>
 </section>
- 
+
 <script>
 // ══ MODAL DATA ══
 const MODALS={
@@ -831,7 +698,7 @@ const MODALS={
   proj3:{img:'https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?w=900&q=80',tag:'PROJET · 2024',title:'GABCHAT',sub:'Messagerie P2P — ESGIS Gabon',desc:"Application mobile Android de messagerie peer-to-peer en réseau local, développée en Kotlin. Échange de messages en temps réel sans serveur centralisé.",sections:[{title:'FONCTIONNALITÉS',type:'list',items:["Découverte automatique des utilisateurs sur le LAN","Messagerie instantanée P2P via sockets TCP","Interface native Android Material Design","Historique des conversations en SQLite","Indicateurs de présence en ligne / hors ligne","Envoi de fichiers et images entre pairs","Chiffrement basique des messages"]},{title:'TECHNOLOGIES',type:'tags',items:['Kotlin','Android SDK','TCP Sockets','SQLite','Coroutines','MVVM']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Application mobile'},{label:'PLATEFORME',val:'Android'},{label:'ANNÉE',val:'2024'},{label:'CONTEXTE',val:'Projet académique'}]}]},
   proj4:{img:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80',tag:'PROJET · 2025',title:'MODULE GESTION ABSENCES',sub:'Système web — ESGIS Gabon',desc:"Système web de gestion des absences étudiantes pour l'ESGIS Gabon. Tableaux de bord multi-rôles, alertes automatiques et rapports PDF.",sections:[{title:'FONCTIONNALITÉS',type:'list',items:["Dashboard admin — vue globale par classe / module","Interface enseignant : prise de présence, export","Interface étudiant : historique en temps réel","Alertes email automatiques au dépassement du seuil","Rapports PDF mensuels automatisés","Gestion des justificatifs avec workflow de validation","Auth sécurisée avec rôles (admin / enseignant / étudiant)"]},{title:'TECHNOLOGIES',type:'tags',items:['HTML5','CSS3','JavaScript','PHP','MySQL','Chart.js','Bootstrap']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Application web'},{label:'ANNÉE',val:'2025'},{label:'CLIENT',val:'ESGIS Gabon'},{label:'STATUT',val:'Livré'}]}]}
 };
- 
+
 // ── CURSOR (desktop) ──
 const $cur=document.getElementById('cur'),$cur2=document.getElementById('cur2');
 let mx=0,my=0,rx=0,ry=0;
@@ -839,7 +706,7 @@ if($cur){
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
   (function lp(){$cur.style.left=mx+'px';$cur.style.top=my+'px';rx+=(mx-rx)*.1;ry+=(my-ry)*.1;$cur2.style.left=rx+'px';$cur2.style.top=ry+'px';requestAnimationFrame(lp);})();
 }
- 
+
 // ── THEME ──
 const html=document.documentElement;
 const themeBtn=document.getElementById('themeBtn');
@@ -853,7 +720,7 @@ themeBtn.addEventListener('click',()=>{
   setTimeout(()=>{document.querySelectorAll('.bar-fill').forEach(b=>{b.style.transition='width 1.6s cubic-bezier(.4,0,.2,1)';});},50);
   barsAnimated=false;
 });
- 
+
 // ── TOPBAR AUTO-HIDE ──
 // Shows on: load, scroll stop, section change. Hides while actively scrolling.
 const topbar=document.getElementById('topbar');
@@ -869,7 +736,7 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 // keep visible at very top
 window.addEventListener('scroll',()=>{if(window.scrollY<60)showBar();},{passive:true});
- 
+
 // ── MOBILE MENU ──
 const burger=document.getElementById('burger');
 const mobileMenu=document.getElementById('mobile-menu');
@@ -888,7 +755,7 @@ mobileMenu.querySelectorAll('a').forEach(a=>{
     if(t)t.scrollIntoView({behavior:'smooth'});
   });
 });
- 
+
 // ── DESKTOP NAV SMOOTH ──
 document.querySelectorAll('.top-nav a').forEach(a=>{
   a.addEventListener('click',e=>{
@@ -896,7 +763,7 @@ document.querySelectorAll('.top-nav a').forEach(a=>{
     if(href&&href.startsWith('#')){e.preventDefault();const t=document.querySelector(href);if(t)t.scrollIntoView({behavior:'smooth'});}
   });
 });
- 
+
 // ── BINARY EFFECT ──
 const BIN='01';
 const done=new WeakSet();
@@ -926,7 +793,7 @@ const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)binaryReveal(e.target);});
 },{threshold:0.1});
 document.querySelectorAll('[data-bin]').forEach(el=>{el.style.opacity='0';io.observe(el);});
- 
+
 // ── BARS ──
 let barsAnimated=false;
 const barIO=new IntersectionObserver(entries=>{
@@ -939,7 +806,7 @@ const barIO=new IntersectionObserver(entries=>{
 },{threshold:0.2});
 const s1=document.getElementById('s1');
 if(s1)barIO.observe(s1);
- 
+
 // ── DOT NAV ──
 const secs=document.querySelectorAll('section[id]');
 const dots=document.querySelectorAll('.dot');
@@ -956,7 +823,7 @@ const secIO=new IntersectionObserver(entries=>{
 },{threshold:0.3});
 secs.forEach(s=>secIO.observe(s));
 dots.forEach(d=>{d.addEventListener('click',()=>{const t=document.getElementById(d.dataset.target);if(t)t.scrollIntoView({behavior:'smooth'});});});
- 
+
 // ── LOADER ──
 const lbar=document.getElementById('lbar'),lpct=document.getElementById('lpct'),loader=document.getElementById('loader');
 let p=0;
@@ -965,7 +832,7 @@ const iv=setInterval(()=>{
   if(p>=100){p=100;clearInterval(iv);setTimeout(()=>{loader.style.opacity='0';setTimeout(()=>{loader.style.display='none';},700);},200);}
   lbar.style.width=p+'%';lpct.textContent=Math.floor(p)+'%';
 },65);
- 
+
 // ── MODAL ──
 function openModal(key){
   const d=MODALS[key];if(!d)return;
@@ -991,4 +858,3 @@ document.querySelectorAll('[data-modal]').forEach(el=>el.addEventListener('click
 </script>
 </body>
 </html>
- 
