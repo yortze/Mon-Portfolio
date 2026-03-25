@@ -6,194 +6,72 @@
 <title>Damien A. PARAISO — Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=Barlow:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════
-   THEMES
-═══════════════════════════════════════ */
-:root,[data-theme="dark"]{
-  --bg:#050505;
-  --bg2:#060606;
-  --bg3:#040404;
-  --white:#f0f0f0;
-  --green:#00ff66;
-  --red:#ff2244;
-  --muted:#444;
-  --muted2:#333;
-  --border:#1c1c1c;
-  --border2:#2a2a2a;
-  --card:#0a0a0a;
-  --card2:#0d0d0d;
-  --txt-dim:#555;
-  --txt-dimmer:#333;
-  --stroke-color:#f0f0f0;
-  --deco-border:#1c1c1c;
+:root,[data-theme="light"]{
+  --bg:#f5f5f0;--bg2:#eeeeea;--bg3:#e8e8e4;
+  --white:#0a0a0a;--green:#008844;--red:#cc1133;
+  --muted:#777;--border:#d0d0cc;--border2:#c0c0bc;
+  --card:#ffffff;--card2:#f0f0ec;
+  --txt-dim:#888;--stroke-color:#0a0a0a;--deco-border:#d0d0cc;
+  --topbar-bg:rgba(245,245,240,.96);
 }
-[data-theme="light"]{
-  --bg:#f5f5f0;
-  --bg2:#eeeeea;
-  --bg3:#e8e8e4;
-  --white:#0a0a0a;
-  --green:#008844;
-  --red:#cc1133;
-  --muted:#777;
-  --muted2:#888;
-  --border:#d0d0cc;
-  --border2:#c0c0bc;
-  --card:#ffffff;
-  --card2:#f0f0ec;
-  --txt-dim:#888;
-  --txt-dimmer:#aaa;
-  --stroke-color:#0a0a0a;
-  --deco-border:#d0d0cc;
+[data-theme="dark"]{
+  --bg:#050505;--bg2:#060606;--bg3:#040404;
+  --white:#f0f0f0;--green:#00ff66;--red:#ff2244;
+  --muted:#444;--border:#1c1c1c;--border2:#2a2a2a;
+  --card:#0a0a0a;--card2:#0d0d0d;
+  --txt-dim:#555;--stroke-color:#f0f0f0;--deco-border:#1c1c1c;
+  --topbar-bg:rgba(5,5,5,.94);
 }
-
-/* ═══════════════════════════════════════
-   BASE
-═══════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{
-  background:var(--bg);color:var(--white);
-  font-family:'Barlow',sans-serif;font-weight:700;
-  overflow-x:hidden;cursor:none;
-  transition:background .4s,color .4s;
-}
+body{background:var(--bg);color:var(--white);font-family:'Barlow',sans-serif;font-weight:700;overflow-x:hidden;cursor:none;transition:background .4s,color .4s;}
 a{color:inherit;text-decoration:none;}
-
-/* ═══════════════════════════════════════
-   CURSOR (desktop only)
-═══════════════════════════════════════ */
 #cur,#cur2{position:fixed;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
 #cur{width:6px;height:6px;background:var(--green);}
 #cur2{width:26px;height:26px;border:1px solid var(--green);opacity:.35;}
 @media(hover:none){#cur,#cur2{display:none;}}
-
-/* ═══════════════════════════════════════
-   LOADER
-═══════════════════════════════════════ */
-#loader{
-  position:fixed;inset:0;background:var(--bg);z-index:9500;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;
-  transition:opacity .8s;
-}
+#loader{position:fixed;inset:0;z-index:9500;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;transition:opacity .7s;background:var(--bg);}
 .ld-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,6rem);letter-spacing:.12em;color:var(--white);}
 .ld-name span{color:var(--green);}
 .ld-bar-wrap{width:200px;height:1px;background:var(--border);}
 .ld-bar{height:1px;background:var(--green);width:0;}
 .ld-pct{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);}
-
-/* ═══════════════════════════════════════
-   TOPBAR — auto-hide
-═══════════════════════════════════════ */
-#topbar{
-  position:fixed;top:0;left:0;right:0;z-index:400;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 2rem;height:54px;
-  border-bottom:1px solid var(--border);
-  background:rgba(5,5,5,.92);
-  backdrop-filter:blur(12px);
-  transition:transform .4s cubic-bezier(.77,0,.18,1), opacity .4s, background .4s;
-}
-[data-theme="light"] #topbar{background:rgba(245,245,240,.94);}
+#topbar{position:fixed;top:0;left:0;right:0;z-index:400;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:54px;border-bottom:1px solid var(--border);background:var(--topbar-bg);backdrop-filter:blur(12px);transition:transform .4s cubic-bezier(.77,0,.18,1),opacity .4s,background .4s,border-color .4s;}
 #topbar.hidden{transform:translateY(-100%);opacity:0;pointer-events:none;}
-
 .top-logo{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--green);letter-spacing:.18em;flex-shrink:0;}
-
-.top-nav{display:flex;align-items:center;gap:0;}
-.top-nav a{
-  font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--muted);
-  letter-spacing:.12em;text-transform:uppercase;
-  padding:0 .9rem;height:54px;display:flex;align-items:center;
-  border-left:1px solid var(--border);
-  transition:color .18s,background .18s;cursor:pointer;
-}
+.top-nav{display:flex;align-items:center;}
+.top-nav a{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;padding:0 .9rem;height:54px;display:flex;align-items:center;border-left:1px solid var(--border);transition:color .18s,background .18s;cursor:pointer;}
 .top-nav a:last-child{border-right:1px solid var(--border);}
-.top-nav a:hover{color:var(--white);background:rgba(0,255,102,.04);}
-[data-theme="light"] .top-nav a:hover{background:rgba(0,136,68,.06);}
-
-/* RIGHT SIDE */
-.top-right{display:flex;align-items:center;gap:1rem;flex-shrink:0;}
-.top-dispo{
-  display:flex;align-items:center;gap:.5rem;
-  font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--green);letter-spacing:.12em;
-}
+.top-nav a:hover{color:var(--white);}
+.top-right{display:flex;align-items:center;gap:.9rem;flex-shrink:0;}
+.top-dispo{display:flex;align-items:center;gap:.5rem;font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--green);letter-spacing:.12em;}
 .sdot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;animation:blink 1.4s infinite;}
-@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,255,102,.5)}60%{opacity:.15;box-shadow:0 0 0 5px rgba(0,255,102,0)}}
-
-/* THEME TOGGLE */
-.theme-btn{
-  width:34px;height:34px;border:1px solid var(--border);
-  background:transparent;color:var(--muted);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;
-  font-size:1rem;transition:all .2s;flex-shrink:0;
-}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,180,80,.5)}60%{opacity:.15;box-shadow:0 0 0 5px rgba(0,180,80,0)}}
+.theme-btn{width:34px;height:34px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.95rem;transition:all .2s;flex-shrink:0;}
 .theme-btn:hover{border-color:var(--green);color:var(--green);}
-
-/* HAMBURGER (mobile) */
-.ham-btn{
-  display:none;flex-direction:column;gap:5px;
-  width:34px;height:34px;border:1px solid var(--border);
-  background:transparent;cursor:pointer;
-  align-items:center;justify-content:center;
-  transition:border-color .2s;
-}
+.ham-btn{display:none;flex-direction:column;gap:5px;width:34px;height:34px;border:1px solid var(--border);background:transparent;cursor:pointer;align-items:center;justify-content:center;transition:border-color .2s;}
 .ham-btn span{display:block;width:16px;height:1px;background:var(--muted);transition:all .25s;}
 .ham-btn:hover{border-color:var(--green);}
 .ham-btn:hover span{background:var(--green);}
-
-/* MOBILE MENU */
-#mobile-menu{
-  position:fixed;top:54px;left:0;right:0;z-index:399;
-  background:var(--bg);border-bottom:1px solid var(--border);
-  display:flex;flex-direction:column;
-  transform:translateY(-110%);
-  transition:transform .35s cubic-bezier(.77,0,.18,1);
-}
+#mobile-menu{position:fixed;top:54px;left:0;right:0;z-index:399;background:var(--bg);border-bottom:1px solid var(--border);display:flex;flex-direction:column;transform:translateY(-110%);transition:transform .35s cubic-bezier(.77,0,.18,1);}
 #mobile-menu.open{transform:translateY(0);}
-#mobile-menu a{
-  font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--muted);
-  letter-spacing:.15em;text-transform:uppercase;
-  padding:1.1rem 2rem;border-bottom:1px solid var(--border);
-  cursor:pointer;transition:color .15s,background .15s;
-}
-#mobile-menu a:hover{color:var(--green);background:rgba(0,255,102,.03);}
-
-/* ═══════════════════════════════════════
-   DOT NAV (desktop)
-═══════════════════════════════════════ */
+#mobile-menu a{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;padding:1.1rem 2rem;border-bottom:1px solid var(--border);cursor:pointer;transition:color .15s;}
+#mobile-menu a:hover{color:var(--green);}
 #dotnav{position:fixed;right:1.4rem;top:50%;transform:translateY(-50%);z-index:300;display:flex;flex-direction:column;gap:.85rem;}
-.dot{width:5px;height:5px;border-radius:50%;background:var(--muted2);border:1px solid var(--border2);cursor:pointer;transition:all .22s;position:relative;}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--border2);border:1px solid var(--border);cursor:pointer;transition:all .22s;position:relative;}
 .dot::after{content:attr(data-label);font-family:'Share Tech Mono',monospace;font-size:.48rem;color:var(--muted);position:absolute;right:13px;top:50%;transform:translateY(-50%);white-space:nowrap;opacity:0;transition:opacity .2s;}
 .dot:hover::after,.dot.active::after{opacity:1;}
 .dot.active{background:var(--green);border-color:var(--green);box-shadow:0 0 8px var(--green);}
 @media(max-width:768px){#dotnav{display:none;}}
-
-/* ═══════════════════════════════════════
-   NOISE
-═══════════════════════════════════════ */
-body::before{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:800;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
-  opacity:.22;
-}
-
-/* ═══════════════════════════════════════
-   SECTIONS
-═══════════════════════════════════════ */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:800;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");opacity:.2;}
 section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
-.scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,102,.004) 2px,rgba(0,255,102,.004) 4px);pointer-events:none;}
+.scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,180,80,.004) 2px,rgba(0,180,80,.004) 4px);pointer-events:none;}
 .gbg{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:50px 50px;opacity:.09;pointer-events:none;}
 .sep{display:block;width:100%;height:1px;background:var(--border);}
-
-/* SHARED */
 .idx{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--green);letter-spacing:.25em;display:block;margin-bottom:.5rem;}
 .stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,7.5vw,6.5rem);line-height:.9;letter-spacing:.03em;margin-bottom:1.4rem;}
-.stitle .r{color:var(--red);}
-.stitle .g{color:var(--green);}
-[data-bin]{opacity:0;transition:opacity .05s;}
-
-/* ═══════════════════════════════════════
-   HERO
-═══════════════════════════════════════ */
+.stitle .r{color:var(--red);}.stitle .g{color:var(--green);}
+[data-bin]{opacity:0;}
 #s0{background:var(--bg);display:flex;flex-direction:column;justify-content:center;}
 .h-inner{position:relative;z-index:1;}
 .h-tag{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--green);letter-spacing:.2em;margin-bottom:1.3rem;display:flex;align-items:center;gap:.7rem;}
@@ -201,89 +79,52 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 .h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,11vw,11rem);line-height:.9;letter-spacing:.02em;}
 .h1 .stroke{color:transparent;-webkit-text-stroke:1.5px var(--stroke-color);}
 .h1 .g{color:var(--green);}
-.h-role{font-family:'Share Tech Mono',monospace;font-size:clamp(.65rem,.8vw,.82rem);color:var(--muted);margin:1.5rem 0 .8rem;letter-spacing:.07em;}
+.h-role{font-family:'Share Tech Mono',monospace;font-size:clamp(.6rem,.8vw,.82rem);color:var(--muted);margin:1.5rem 0 .8rem;letter-spacing:.07em;}
 .cur-blink{animation:bl .85s step-end infinite;color:var(--green);}
 @keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
-.h-desc{max-width:460px;font-size:clamp(.8rem,.9vw,.92rem);color:var(--txt-dim);line-height:1.85;font-weight:700;}
-.h-scroll{margin-top:3.5rem;font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--muted);letter-spacing:.15em;display:flex;align-items:center;gap:.6rem;}
-.h-scroll::after{content:'↓';color:var(--green);animation:bounce 1.6s ease-in-out infinite;}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
-
-/* hero stats — right side on desktop, below on mobile */
+.h-desc{max-width:460px;font-size:clamp(.78rem,.9vw,.92rem);color:var(--txt-dim);line-height:1.85;font-weight:700;}
 .h-nums{position:absolute;right:5vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:1.8rem;align-items:flex-end;}
 .h-num{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--white);line-height:1;text-align:right;}
 .h-lbl{font-family:'Share Tech Mono',monospace;font-size:.52rem;color:var(--muted);letter-spacing:.14em;text-align:right;}
+.h-scroll{margin-top:3.5rem;font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--muted);letter-spacing:.15em;display:flex;align-items:center;gap:.6rem;}
+.h-scroll::after{content:'↓';color:var(--green);animation:bounce 1.6s ease-in-out infinite;}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 .h-corner{position:absolute;right:0;bottom:0;font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,12vw,13rem);color:transparent;-webkit-text-stroke:1px var(--deco-border);line-height:1;pointer-events:none;user-select:none;}
-
-@media(max-width:900px){
-  .h-nums{position:static;transform:none;flex-direction:row;gap:2rem;margin-top:2.5rem;align-items:flex-start;}
-  .h-num{font-size:2.4rem;}
-  .h-corner{display:none;}
-}
-@media(max-width:480px){
-  .h-nums{gap:1.2rem;}
-  .h-num{font-size:2rem;}
-  .h-tag{font-size:.55rem;}
-}
-
-/* ═══════════════════════════════════════
-   CV BAND
-═══════════════════════════════════════ */
-.cv-band{
-  background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  padding:2rem 5vw;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
-  position:relative;overflow:hidden;flex-wrap:wrap;
-}
+@media(max-width:900px){.h-nums{position:static;transform:none;flex-direction:row;gap:2rem;margin-top:2.5rem;align-items:flex-start;}.h-num{font-size:2.4rem;}.h-corner{display:none;}}
+@media(max-width:480px){.h-nums{gap:1.2rem;}.h-num{font-size:2rem;}}
+.cv-band{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 5vw;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;position:relative;overflow:hidden;flex-wrap:wrap;}
 .cv-band::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green);}
 .cv-band-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:.05em;color:var(--white);}
 .cv-band-sub{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--muted);letter-spacing:.14em;margin-top:.3rem;}
-.cv-dl-btn{
-  font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:.14em;
-  padding:.8rem 2rem;border:1px solid var(--green);color:var(--green);
-  cursor:pointer;transition:all .22s;display:flex;align-items:center;gap:.6rem;
-  background:transparent;text-transform:uppercase;white-space:nowrap;flex-shrink:0;
-}
+.cv-dl-btn{font-family:'Share Tech Mono',monospace;font-size:.65rem;letter-spacing:.14em;padding:.8rem 2rem;border:1px solid var(--green);color:var(--green);cursor:pointer;transition:all .22s;display:flex;align-items:center;gap:.6rem;background:transparent;text-transform:uppercase;white-space:nowrap;flex-shrink:0;}
 .cv-dl-btn:hover{background:var(--green);color:var(--bg);}
-
-/* ═══════════════════════════════════════
-   SKILLS
-═══════════════════════════════════════ */
+@media(max-width:480px){.cv-band{flex-direction:column;align-items:flex-start;}}
 #s1{background:var(--bg2);}
 .sk-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
 @media(max-width:768px){.sk-grid{grid-template-columns:1fr;gap:2rem;}}
-
 .lang-grid{display:flex;flex-wrap:wrap;gap:.42rem;margin-bottom:1.4rem;}
 .ltag{font-family:'Share Tech Mono',monospace;font-size:.62rem;padding:.28rem .72rem;border:1px solid var(--border);color:var(--muted);border-radius:1px;letter-spacing:.04em;transition:color .3s,border-color .3s;}
-.ltag.core{border-color:rgba(0,255,102,.3);color:var(--green);}
-.ltag.vis{border-color:rgba(255,34,68,.25);color:var(--red);}
-.ltag.tool{border-color:rgba(128,128,128,.18);color:var(--muted);}
+.ltag.core{border-color:rgba(0,136,68,.35);color:var(--green);}
+.ltag.vis{border-color:rgba(200,30,50,.25);color:var(--red);}
+.ltag.tool{border-color:rgba(128,128,128,.2);color:var(--muted);}
 .ltag.fw{border-color:rgba(128,128,128,.22);color:var(--muted);}
-[data-theme="light"] .ltag.core{border-color:rgba(0,136,68,.4);color:var(--green);}
-[data-theme="light"] .ltag.vis{border-color:rgba(204,17,51,.3);color:var(--red);}
 .sk-sub{font-family:'Share Tech Mono',monospace;font-size:.55rem;color:var(--muted);letter-spacing:.22em;text-transform:uppercase;margin-bottom:.75rem;margin-top:.1rem;}
-
 .bars-wrap{display:flex;flex-direction:column;gap:1.2rem;}
 .bar-item{display:flex;flex-direction:column;gap:.42rem;}
 .bar-nm{font-family:'Share Tech Mono',monospace;font-size:.67rem;color:var(--white);letter-spacing:.04em;font-weight:700;}
 .bar-track{height:2px;background:var(--border);position:relative;overflow:hidden;border-radius:1px;}
 .bar-fill{height:100%;width:0;position:absolute;left:0;top:0;transition:width 1.6s cubic-bezier(.4,0,.2,1);}
-.bar-fill.g{background:linear-gradient(90deg,var(--green),rgba(0,255,102,.2));}
-.bar-fill.r{background:linear-gradient(90deg,var(--red),rgba(255,34,68,.2));}
-.bar-fill.w{background:linear-gradient(90deg,var(--white),rgba(240,240,240,.15));}
-[data-theme="light"] .bar-fill.w{background:linear-gradient(90deg,var(--white),rgba(10,10,10,.1));}
-
-/* ═══════════════════════════════════════
-   EXPERIENCE
-═══════════════════════════════════════ */
+.bar-fill.g{background:linear-gradient(90deg,var(--green),rgba(0,136,68,.2));}
+.bar-fill.r{background:linear-gradient(90deg,var(--red),rgba(200,30,50,.2));}
+.bar-fill.w{background:linear-gradient(90deg,var(--white),rgba(128,128,128,.2));}
 #s2{background:var(--bg);}
 .ex-layout{display:grid;grid-template-columns:240px 1fr;gap:4vw;}
 @media(max-width:768px){.ex-layout{grid-template-columns:1fr;gap:2rem;}}
-
 .ex-timeline{position:relative;padding-left:1.7rem;}
 .ex-timeline::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--green),var(--red) 70%,transparent);}
 .ex-item{position:relative;margin-bottom:2.4rem;cursor:pointer;}
 .ex-card{border:1px solid var(--border);padding:1.3rem;transition:border-color .2s,background .2s;background:var(--card2);}
-.ex-item:hover .ex-card{border-color:rgba(0,255,102,.3);background:var(--card);}
+.ex-item:hover .ex-card{border-color:rgba(0,136,68,.4);background:var(--card);}
 .ex-dot{position:absolute;left:-2.25rem;top:18px;width:9px;height:9px;border-radius:50%;background:var(--green);border:2px solid var(--bg);}
 .ex-dot.r{background:var(--red);}
 .ex-date{font-family:'Share Tech Mono',monospace;font-size:.56rem;color:var(--green);letter-spacing:.1em;margin-bottom:.3rem;}
@@ -293,92 +134,61 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 .ex-ul li{font-size:.78rem;color:var(--txt-dim);line-height:1.75;padding-left:1rem;position:relative;margin-bottom:.2rem;font-weight:700;}
 .ex-ul li::before{content:'>';position:absolute;left:0;color:var(--green);font-family:'Share Tech Mono',monospace;}
 .ex-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.6rem;}
-.xt{font-family:'Share Tech Mono',monospace;font-size:.52rem;padding:.14rem .42rem;border:1px solid rgba(0,255,102,.15);color:rgba(0,255,102,.5);border-radius:1px;}
-.click-hint{font-family:'Share Tech Mono',monospace;font-size:.5rem;color:rgba(0,255,102,.3);margin-top:.5rem;letter-spacing:.1em;}
-
-/* ═══════════════════════════════════════
-   PROJECTS
-═══════════════════════════════════════ */
+.xt{font-family:'Share Tech Mono',monospace;font-size:.52rem;padding:.14rem .42rem;border:1px solid rgba(0,136,68,.2);color:rgba(0,120,60,.7);border-radius:1px;}
+[data-theme="dark"] .xt{border-color:rgba(0,255,102,.15);color:rgba(0,255,102,.5);}
+.click-hint{font-family:'Share Tech Mono',monospace;font-size:.5rem;color:rgba(0,136,68,.4);margin-top:.5rem;letter-spacing:.1em;}
+[data-theme="dark"] .click-hint{color:rgba(0,255,102,.3);}
 #s3{background:var(--bg3);}
 .pr-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:1.8rem;flex-wrap:wrap;gap:.8rem;}
 .pr-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;height:62vh;}
 @media(max-width:900px){.pr-cards{grid-template-columns:repeat(2,1fr);height:auto;}}
 @media(max-width:480px){.pr-cards{grid-template-columns:1fr;height:auto;}}
-
 .pr-card{background:var(--card);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;border:1px solid var(--border);transition:border-color .3s;min-height:240px;}
-.pr-card:hover{border-color:rgba(0,255,102,.35);}
-.pr-card-img{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;filter:brightness(.17) grayscale(1);transition:filter .5s,transform .7s;}
-[data-theme="light"] .pr-card-img{filter:brightness(.25) grayscale(.8);}
-.pr-card:hover .pr-card-img{filter:brightness(.36) grayscale(.5);transform:scale(1.05);}
-[data-theme="light"] .pr-card:hover .pr-card-img{filter:brightness(.4) grayscale(.4);}
-.pr-card-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,4,4,.98) 0%,rgba(4,4,4,.35) 55%,transparent 100%);}
-[data-theme="light"] .pr-card-ov{background:linear-gradient(to top,rgba(10,10,10,.95) 0%,rgba(10,10,10,.3) 55%,transparent 100%);}
+.pr-card:hover{border-color:rgba(0,136,68,.5);}
+[data-theme="dark"] .pr-card:hover{border-color:rgba(0,255,102,.35);}
+.pr-card-img{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;filter:brightness(.22) grayscale(.9);transition:filter .5s,transform .7s;}
+[data-theme="dark"] .pr-card-img{filter:brightness(.17) grayscale(1);}
+.pr-card:hover .pr-card-img{filter:brightness(.4) grayscale(.4);transform:scale(1.05);}
+.pr-card-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.96) 0%,rgba(10,10,10,.3) 55%,transparent 100%);}
 .pr-body{position:relative;z-index:2;padding:1.2rem;}
-.pr-num{font-family:'Share Tech Mono',monospace;font-size:.52rem;color:var(--muted);margin-bottom:.5rem;letter-spacing:.1em;}
+.pr-num{font-family:'Share Tech Mono',monospace;font-size:.52rem;color:#888;margin-bottom:.5rem;letter-spacing:.1em;}
 .pr-title{font-size:1rem;font-weight:800;margin-bottom:.25rem;line-height:1.2;color:#f0f0f0;}
 .pr-client{font-family:'Share Tech Mono',monospace;font-size:.56rem;color:var(--green);margin-bottom:.5rem;}
 .pr-stack{display:flex;flex-wrap:wrap;gap:.25rem;}
-.pt{font-family:'Share Tech Mono',monospace;font-size:.5rem;padding:.13rem .42rem;border:1px solid rgba(255,34,68,.2);color:var(--red);border-radius:1px;}
-.pr-hint{font-family:'Share Tech Mono',monospace;font-size:.5rem;color:rgba(0,255,102,.3);margin-top:.5rem;}
-
-/* ═══════════════════════════════════════
-   EDUCATION
-═══════════════════════════════════════ */
+.pt{font-family:'Share Tech Mono',monospace;font-size:.5rem;padding:.13rem .42rem;border:1px solid rgba(200,30,50,.3);color:var(--red);border-radius:1px;}
+.pr-hint{font-family:'Share Tech Mono',monospace;font-size:.5rem;color:rgba(0,136,68,.5);margin-top:.5rem;}
 #s4{background:var(--bg);}
 .ed-grid{display:grid;grid-template-columns:1fr 1fr;gap:4vw;}
 @media(max-width:768px){.ed-grid{grid-template-columns:1fr;gap:2rem;}}
-
 .ed-item{display:grid;grid-template-columns:68px 1fr;gap:1.2rem;padding:1.4rem 0;border-bottom:1px solid var(--border);}
 .ed-yr{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--muted);line-height:1.6;padding-top:.1rem;}
 .ed-deg{font-size:.95rem;font-weight:800;margin-bottom:.2rem;line-height:1.3;}
 .ed-sch{font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--red);}
-.ed-badge{display:inline-block;margin-top:.4rem;font-family:'Share Tech Mono',monospace;font-size:.5rem;padding:.14rem .48rem;border:1px solid rgba(0,255,102,.25);color:var(--green);}
-.cert-card{border-left:2px solid var(--green);padding:.9rem 1.1rem;margin-bottom:.8rem;background:rgba(0,255,102,.025);}
-[data-theme="light"] .cert-card{background:rgba(0,136,68,.05);}
+.ed-badge{display:inline-block;margin-top:.4rem;font-family:'Share Tech Mono',monospace;font-size:.5rem;padding:.14rem .48rem;border:1px solid rgba(0,136,68,.3);color:var(--green);}
+.cert-card{border-left:2px solid var(--green);padding:.9rem 1.1rem;margin-bottom:.8rem;background:rgba(0,136,68,.04);}
 .cert-t{font-size:.92rem;font-weight:800;margin-bottom:.18rem;}
 .cert-i{font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--green);}
 .cert-d{font-family:'Share Tech Mono',monospace;font-size:.56rem;color:var(--muted);margin-top:.2rem;}
 .info-block{font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--muted);line-height:2;margin-top:.6rem;}
-
-/* ═══════════════════════════════════════
-   CONTACT
-═══════════════════════════════════════ */
 #s5{background:var(--bg3);display:flex;flex-direction:column;justify-content:center;position:relative;}
 .ct-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,9rem);line-height:.9;letter-spacing:.02em;margin-bottom:2.2rem;}
 .ct-big .outline{color:transparent;-webkit-text-stroke:1.5px var(--red);}
 .ct-links{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1.8rem;}
-.clink{
-  font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.1em;
-  padding:.65rem 1.4rem;border:1px solid var(--border);color:var(--muted);
-  transition:all .2s;display:flex;align-items:center;gap:.5rem;cursor:pointer;
-}
+.clink{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.1em;padding:.65rem 1.4rem;border:1px solid var(--border);color:var(--muted);transition:all .2s;display:flex;align-items:center;gap:.5rem;cursor:pointer;}
 .clink:hover,.clink.primary{border-color:var(--green);color:var(--green);}
 .clink.primary:hover{background:var(--green);color:var(--bg);}
-.ct-looking{
-  margin-top:2.2rem;padding:1.3rem 1.6rem;
-  border:1px solid var(--border);
-  display:inline-flex;align-items:center;gap:1rem;
-  background:rgba(0,255,102,.025);
-}
-[data-theme="light"] .ct-looking{background:rgba(0,136,68,.05);}
+.ct-looking{margin-top:2.2rem;padding:1.3rem 1.6rem;border:1px solid var(--border);display:inline-flex;align-items:center;gap:1rem;background:rgba(0,136,68,.04);}
+[data-theme="dark"] .ct-looking{background:rgba(0,255,102,.025);}
 .ct-looking-txt{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--white);letter-spacing:.08em;line-height:1.65;}
 .ct-looking-txt span{color:var(--green);}
 .ct-deco{position:absolute;right:0;top:0;bottom:0;width:40%;display:flex;align-items:center;justify-content:center;overflow:hidden;pointer-events:none;}
 .ct-deco-txt{font-family:'Bebas Neue',sans-serif;font-size:clamp(7rem,16vw,18rem);color:transparent;-webkit-text-stroke:1px var(--deco-border);white-space:nowrap;transform:rotate(-14deg);opacity:.2;animation:flt 9s ease-in-out infinite;}
 @keyframes flt{0%,100%{transform:rotate(-14deg) translateY(0)}50%{transform:rotate(-14deg) translateY(-18px)}}
 @media(max-width:768px){.ct-deco{display:none;}}
-
-/* ═══════════════════════════════════════
-   MODAL
-═══════════════════════════════════════ */
-#modal{position:fixed;inset:0;z-index:6000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.93);backdrop-filter:blur(12px);}
+#modal{position:fixed;inset:0;z-index:6000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.92);backdrop-filter:blur(12px);}
 #modal.open{display:flex;}
-.modal-box{
-  background:var(--card);border:1px solid var(--border);
-  width:94%;max-width:860px;max-height:88vh;overflow-y:auto;
-  position:relative;animation:min .3s cubic-bezier(.77,0,.18,1);
-}
-@keyframes min{from{transform:translateY(28px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+.modal-box{background:var(--card);border:1px solid var(--border);width:94%;max-width:860px;max-height:88vh;overflow-y:auto;position:relative;animation:mIn .3s cubic-bezier(.77,0,.18,1);}
+@keyframes mIn{from{transform:translateY(28px) scale(.97);opacity:0}to{transform:none;opacity:1}}
 .modal-close{position:absolute;top:1.1rem;right:1.4rem;font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--muted);cursor:pointer;letter-spacing:.1em;z-index:2;transition:color .15s;}
 .modal-close:hover{color:var(--red);}
 .modal-img{width:100%;height:200px;object-fit:cover;filter:brightness(.28) grayscale(.7);display:block;}
@@ -390,7 +200,8 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 .m-sec{margin-bottom:1.2rem;}
 .m-sec-title{font-family:'Share Tech Mono',monospace;font-size:.52rem;color:var(--muted);letter-spacing:.22em;text-transform:uppercase;margin-bottom:.6rem;padding-bottom:.3rem;border-bottom:1px solid var(--border);}
 .m-tags{display:flex;flex-wrap:wrap;gap:.38rem;}
-.m-tag-item{font-family:'Share Tech Mono',monospace;font-size:.58rem;padding:.2rem .52rem;border:1px solid rgba(0,255,102,.2);color:var(--green);}
+.m-tag-item{font-family:'Share Tech Mono',monospace;font-size:.58rem;padding:.2rem .52rem;border:1px solid rgba(0,136,68,.3);color:var(--green);}
+[data-theme="dark"] .m-tag-item{border-color:rgba(0,255,102,.2);}
 .m-list{list-style:none;}
 .m-list li{font-size:.8rem;color:var(--txt-dim);padding-left:1.1rem;position:relative;margin-bottom:.32rem;line-height:1.68;font-weight:700;}
 .m-list li::before{content:'>';position:absolute;left:0;color:var(--green);font-family:'Share Tech Mono',monospace;}
@@ -399,83 +210,53 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 .m-info{border:1px solid var(--border);padding:.8rem;}
 .m-info-lbl{font-family:'Share Tech Mono',monospace;font-size:.48rem;color:var(--muted);letter-spacing:.15em;margin-bottom:.2rem;}
 .m-info-val{font-size:.8rem;font-weight:800;}
-
-/* ═══════════════════════════════════════
-   MOBILE NAV adjustments
-═══════════════════════════════════════ */
-@media(max-width:768px){
-  .top-nav{display:none;}
-  .ham-btn{display:flex;}
-  .top-dispo span:not(.sdot){display:none;} /* hide text "DISPONIBLE" keep dot */
-  section{padding:6rem 4vw 4rem;}
-}
-@media(max-width:480px){
-  section{padding:5.5rem 5% 3.5rem;}
-  .cv-band{flex-direction:column;align-items:flex-start;}
-}
+@media(max-width:768px){.top-nav{display:none;}.ham-btn{display:flex;}.top-dispo span:not(.sdot){display:none;}section{padding:6rem 4vw 4rem;}}
+@media(max-width:480px){section{padding:5.5rem 5% 3.5rem;}}
 </style>
 </head>
 <body>
-
 <div id="cur"></div>
 <div id="cur2"></div>
-
 <div id="loader">
   <div class="ld-name"><span>P</span>ARAISO</div>
   <div class="ld-bar-wrap"><div class="ld-bar" id="lbar"></div></div>
   <div class="ld-pct" id="lpct">0%</div>
 </div>
-
 <div id="modal">
   <div class="modal-box" id="modal-box">
-    <div class="modal-close" id="modal-close">[ FERMER × ]</div>
+    <div class="modal-close" id="modal-close">[ FERMER x ]</div>
     <img id="modal-img" class="modal-img" src="" alt="">
     <div class="modal-body" id="modal-body"></div>
   </div>
 </div>
-
-<!-- TOPBAR -->
 <div id="topbar">
   <div class="top-logo">DAP // 2026</div>
-
   <nav class="top-nav">
     <a href="#s3">Projets</a>
-    <a href="#s2">Expérience</a>
+    <a href="#s2">Experience</a>
     <a href="#s4">Cursus</a>
     <a href="#s5">Contact</a>
   </nav>
-
   <div class="top-right">
-    <div class="top-dispo">
-      <span class="sdot"></span>
-      <span>DISPONIBLE</span>
-    </div>
-    <button class="theme-btn" id="themeBtn" title="Changer le thème">☀</button>
-    <button class="ham-btn" id="hamBtn" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="top-dispo"><span class="sdot"></span><span>DISPONIBLE</span></div>
+    <button class="theme-btn" id="themeBtn">☾</button>
+    <button class="ham-btn" id="hamBtn"><span></span><span></span><span></span></button>
   </div>
 </div>
-
-<!-- MOBILE MENU -->
 <div id="mobile-menu">
   <a href="#s3" class="mm-link">Projets</a>
-  <a href="#s2" class="mm-link">Expérience</a>
+  <a href="#s2" class="mm-link">Experience</a>
   <a href="#s4" class="mm-link">Cursus</a>
   <a href="#s5" class="mm-link">Contact</a>
 </div>
-
-<!-- DOT NAV -->
 <div id="dotnav">
   <div class="dot active" data-target="s0" data-label="HOME"></div>
   <div class="dot" data-target="s1" data-label="STACK"></div>
-  <div class="dot" data-target="s2" data-label="EXPÉRIENCE"></div>
+  <div class="dot" data-target="s2" data-label="EXPERIENCE"></div>
   <div class="dot" data-target="s3" data-label="PROJETS"></div>
   <div class="dot" data-target="s4" data-label="FORMATION"></div>
   <div class="dot" data-target="s5" data-label="CONTACT"></div>
 </div>
-
-<!-- ══ HERO ══ -->
 <section id="s0">
   <div class="scan"></div><div class="gbg"></div>
   <div class="h-inner">
@@ -485,39 +266,34 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
       <span class="stroke" data-bin="AFFOLABI">AFFOLABI</span><br>
       <span data-bin="PARAISO">PARAISO</span>
     </h1>
-    <p class="h-role">&gt; Java · JavaScript · C++ · SQL · HTML/CSS<span class="cur-blink">_</span></p>
-    <p class="h-desc">Étudiant en Licence Robotique &amp; Vision Industrielle — Université de Nîmes.<br>Développeur fullstack passionné par l'automatisation et la vision par ordinateur.</p>
+    <p class="h-role">&gt; Java &middot; JavaScript &middot; C++ &middot; SQL &middot; HTML/CSS<span class="cur-blink">_</span></p>
+    <p class="h-desc">Etudiant en Licence Robotique &amp; Vision Industrielle - Universite de Nimes.<br>Developpeur fullstack passionne par l'automatisation et la vision par ordinateur.</p>
     <div class="h-nums">
-      <div><div class="h-num" data-bin="3+">3+</div><div class="h-lbl">ANNÉES EXP.</div></div>
+      <div><div class="h-num" data-bin="3+">3+</div><div class="h-lbl">ANNEES EXP.</div></div>
       <div><div class="h-num" data-bin="12+">12+</div><div class="h-lbl">LANGAGES</div></div>
-      <div><div class="h-num" data-bin="4">4</div><div class="h-lbl">PROJETS LIVRÉS</div></div>
+      <div><div class="h-num" data-bin="4">4</div><div class="h-lbl">PROJETS LIVRES</div></div>
     </div>
     <div class="h-scroll">SCROLL DOWN</div>
   </div>
   <div class="h-corner">PARAISO</div>
 </section>
-
-<!-- CV BAND -->
 <div class="cv-band">
   <div>
     <div class="cv-band-title" data-bin="MON CURRICULUM VITAE">MON CURRICULUM VITAE</div>
-    <div class="cv-band-sub">DERNIÈRE MISE À JOUR · 2026 · FR</div>
+    <div class="cv-band-sub">DERNIERE MISE A JOUR · 2026 · FR</div>
   </div>
-  <a href="cv.pdf" download class="cv-dl-btn"><span>↓</span> TÉLÉCHARGER LE CV</a>
+  <a href="cv.pdf" download class="cv-dl-btn"><span>&#8595;</span> TELECHARGER LE CV</a>
 </div>
 <span class="sep"></span>
-
-<!-- ══ SKILLS ══ -->
 <section id="s1">
   <div class="sk-grid">
     <div>
-      <span class="idx" data-bin="— 02 / STACK TECHNIQUE">— 02 / STACK TECHNIQUE</span>
+      <span class="idx" data-bin="-- 02 / STACK TECHNIQUE">-- 02 / STACK TECHNIQUE</span>
       <h2 class="stitle"><span data-bin="STACK">STACK</span><br><span class="g" data-bin="TECH">TECH</span></h2>
       <div class="sk-sub">// Langages</div>
       <div class="lang-grid">
         <span class="ltag core">Java</span><span class="ltag core">JavaScript</span><span class="ltag core">C++</span>
-        <span class="ltag core">SQL</span><span class="ltag core">HTML</span><span class="ltag core">CSS</span>
-        <span class="ltag core">PHP</span>
+        <span class="ltag core">SQL</span><span class="ltag core">HTML</span><span class="ltag core">CSS</span><span class="ltag core">PHP</span>
       </div>
       <div class="sk-sub">// Vision industrielle</div>
       <div class="lang-grid">
@@ -530,7 +306,7 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
         <span class="ltag tool">MySQL</span><span class="ltag tool">IntelliJ IDEA</span>
         <span class="ltag tool">Android Studio</span><span class="ltag tool">VS Code</span>
       </div>
-      <div class="sk-sub">// Méthodes</div>
+      <div class="sk-sub">// Methodes</div>
       <div class="lang-grid">
         <span class="ltag">POO</span><span class="ltag">Agile / Scrum</span>
         <span class="ltag">REST API</span><span class="ltag">CI/CD</span><span class="ltag">MVC</span>
@@ -543,7 +319,7 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
       </div>
     </div>
     <div>
-      <span class="idx" data-bin="— MAÎTRISE">— MAÎTRISE</span><br><br>
+      <span class="idx" data-bin="-- MAITRISE">-- MAITRISE</span><br><br>
       <div class="bars-wrap">
         <div class="bar-item"><span class="bar-nm">Java</span><div class="bar-track"><div class="bar-fill g" data-w="88"></div></div></div>
         <div class="bar-item"><span class="bar-nm">JavaScript</span><div class="bar-track"><div class="bar-fill g" data-w="75"></div></div></div>
@@ -561,61 +337,57 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
   </div>
 </section>
 <span class="sep"></span>
-
-<!-- ══ EXPERIENCE ══ -->
 <section id="s2">
   <div class="ex-layout">
     <div>
-      <span class="idx" data-bin="— 03 / EXPÉRIENCE">— 03 / EXPÉRIENCE</span>
-      <h2 class="stitle"><span data-bin="EXP">EXP</span><span class="r" data-bin="ÉRI">ÉRI</span><br><span data-bin="ENCE">ENCE</span></h2>
-      <p style="font-size:.8rem;color:var(--txt-dim);line-height:1.85;font-weight:700;">Développement logiciel en production — Java, SQL, Android &amp; API dans des contextes métiers réels.</p>
+      <span class="idx" data-bin="-- 03 / EXPERIENCE">-- 03 / EXPERIENCE</span>
+      <h2 class="stitle"><span data-bin="EXP">EXP</span><span class="r" data-bin="ERI">ERI</span><br><span data-bin="ENCE">ENCE</span></h2>
+      <p style="font-size:.8rem;color:var(--txt-dim);line-height:1.85;font-weight:700;">Developpement logiciel en production - Java, SQL, Android et API dans des contextes metiers reels.</p>
       <br>
-      <p style="font-family:'Share Tech Mono',monospace;font-size:.53rem;color:rgba(0,255,102,.35);letter-spacing:.1em;line-height:1.8;">CLIQUER SUR UNE<br>EXPÉRIENCE POUR<br>LES DÉTAILS →</p>
+      <p style="font-family:'Share Tech Mono',monospace;font-size:.53rem;color:var(--green);opacity:.5;letter-spacing:.1em;line-height:1.8;">CLIQUER SUR UNE<br>EXPERIENCE POUR<br>LES DETAILS</p>
     </div>
     <div class="ex-timeline">
       <div class="ex-item" data-modal="exp1">
         <div class="ex-dot"></div>
         <div class="ex-card">
-          <div class="ex-date">01/2025 — 08/2025 · LIBREVILLE, GABON</div>
-          <div class="ex-role" data-bin="Développeur Fullstack">Développeur Fullstack</div>
-          <div class="ex-co">SOGAC Transit — Dépôt sous douane</div>
+          <div class="ex-date">01/2025 -- 08/2025 · LIBREVILLE, GABON</div>
+          <div class="ex-role" data-bin="Developpeur Fullstack">Developpeur Fullstack</div>
+          <div class="ex-co">SOGAC Transit -- Depot sous douane</div>
           <ul class="ex-ul">
             <li>Module facturation marchandises en <strong>Java</strong></li>
-            <li>Optimisation requêtes <strong>SQL</strong></li>
+            <li>Optimisation requetes <strong>SQL</strong></li>
             <li>Maintenance corrective en production</li>
           </ul>
           <div class="ex-tags"><span class="xt">Java</span><span class="xt">SQL</span><span class="xt">MySQL</span><span class="xt">IntelliJ</span></div>
-          <div class="click-hint">[ CLIQUER POUR DÉTAILS ]</div>
+          <div class="click-hint">[ CLIQUER POUR DETAILS ]</div>
         </div>
       </div>
       <div class="ex-item" data-modal="exp2">
         <div class="ex-dot r"></div>
         <div class="ex-card">
-          <div class="ex-date">04/2022 — 01/2023 · LIBREVILLE, GABON</div>
-          <div class="ex-role" data-bin="Stage — Développement Fullstack">Stage — Développement Fullstack</div>
-          <div class="ex-co">SOGAC Transit — Gestion logistique</div>
+          <div class="ex-date">04/2022 -- 01/2023 · LIBREVILLE, GABON</div>
+          <div class="ex-role" data-bin="Stage Developpement Fullstack">Stage Developpement Fullstack</div>
+          <div class="ex-co">SOGAC Transit -- Gestion logistique</div>
           <ul class="ex-ul">
-            <li>App. <strong>Java</strong> gestion entrées/sorties douane</li>
-            <li>Intégration <strong>API externes</strong> douanières</li>
-            <li>Tests unitaires &amp; documentation</li>
+            <li>App. <strong>Java</strong> gestion entrees/sorties douane</li>
+            <li>Integration <strong>API externes</strong> douanieres</li>
+            <li>Tests unitaires et documentation</li>
           </ul>
           <div class="ex-tags"><span class="xt">Java</span><span class="xt">REST API</span><span class="xt">SQL</span><span class="xt">Tests</span></div>
-          <div class="click-hint">[ CLIQUER POUR DÉTAILS ]</div>
+          <div class="click-hint">[ CLIQUER POUR DETAILS ]</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 <span class="sep"></span>
-
-<!-- ══ PROJECTS ══ -->
 <section id="s3">
   <div class="pr-head">
     <div>
-      <span class="idx" data-bin="— 04 / PROJETS">— 04 / PROJETS</span>
-      <h2 class="stitle" style="margin-bottom:0"><span data-bin="RÉALISATIONS">RÉALISATIONS</span></h2>
+      <span class="idx" data-bin="-- 04 / PROJETS">-- 04 / PROJETS</span>
+      <h2 class="stitle" style="margin-bottom:0"><span data-bin="REALISATIONS">REALISATIONS</span></h2>
     </div>
-    <span style="font-family:'Share Tech Mono',monospace;font-size:.52rem;color:var(--muted)">04 PROJETS · CLIQUER POUR DÉTAILS</span>
+    <span style="font-family:'Share Tech Mono',monospace;font-size:.52rem;color:var(--muted)">04 PROJETS · CLIQUER POUR DETAILS</span>
   </div>
   <div class="pr-cards">
     <div class="pr-card" data-modal="proj1">
@@ -665,261 +437,175 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
   </div>
 </section>
 <span class="sep"></span>
-
-<!-- ══ EDUCATION ══ -->
 <section id="s4">
   <div class="ed-grid">
     <div>
-      <span class="idx" data-bin="— 05 / FORMATION">— 05 / FORMATION</span>
+      <span class="idx" data-bin="-- 05 / FORMATION">-- 05 / FORMATION</span>
       <h2 class="stitle"><span data-bin="FORM">FORM</span><span class="r" data-bin="ATION">ATION</span></h2>
       <div class="ed-item">
-        <div class="ed-yr">2025<br>→ cours<br>Nîmes</div>
-        <div><div class="ed-deg">Licence Pro — Robotique &amp; Vision Industrielle</div><div class="ed-sch">Université de Nîmes</div><span class="ed-badge">EN COURS</span></div>
+        <div class="ed-yr">2025<br>en cours<br>Nimes</div>
+        <div><div class="ed-deg">Licence Pro Robotique et Vision Industrielle</div><div class="ed-sch">Universite de Nimes</div><span class="ed-badge">EN COURS</span></div>
       </div>
       <div class="ed-item">
-        <div class="ed-yr">2023<br>→ 2025<br>Gabon</div>
-        <div><div class="ed-deg">Licence — Génie Logiciel</div><div class="ed-sch">ESGIS Gabon</div></div>
+        <div class="ed-yr">2023<br>2025<br>Gabon</div>
+        <div><div class="ed-deg">Licence Genie Logiciel</div><div class="ed-sch">ESGIS Gabon</div></div>
       </div>
       <div class="ed-item">
-        <div class="ed-yr">2022<br>→ 2023<br>Gabon</div>
-        <div><div class="ed-deg">BTS — Informatique &amp; Réseau</div><div class="ed-sch">Institut Technologique d'Owendo</div></div>
+        <div class="ed-yr">2022<br>2023<br>Gabon</div>
+        <div><div class="ed-deg">BTS Informatique et Reseau</div><div class="ed-sch">Institut Technologique d'Owendo</div></div>
       </div>
     </div>
     <div>
-      <span class="idx" data-bin="— CERTIFICATIONS">— CERTIFICATIONS</span><br><br>
+      <span class="idx" data-bin="-- CERTIFICATIONS">-- CERTIFICATIONS</span><br><br>
       <div class="cert-card">
         <div class="cert-t">Google Data Analytics Certificate</div>
-        <div class="cert-i">Coursera × Google</div>
-        <div class="cert-d">10/2025 — 02/2026 · Nîmes</div>
+        <div class="cert-i">Coursera x Google</div>
+        <div class="cert-d">10/2025 - 02/2026 · Nimes</div>
       </div>
       <br>
-      <span class="idx" data-bin="— LOCALISATION">— LOCALISATION</span>
-      <div class="info-block">📍 Lyon, France<br>🌍 Origine : Gabon<br>✈️ Mobilité : France entière</div>
+      <span class="idx" data-bin="-- LOCALISATION">-- LOCALISATION</span>
+      <div class="info-block">Lyon, France<br>Origine : Gabon<br>Mobilite : France entiere</div>
       <br>
-      <span class="idx" data-bin="— INTÉRÊTS">— INTÉRÊTS</span>
+      <span class="idx" data-bin="-- INTERETS">-- INTERETS</span>
       <div class="lang-grid" style="margin-top:.7rem">
-        <span class="ltag">♟ Échecs</span><span class="ltag">💪 Musculation</span>
-        <span class="ltag">⚽ Futsal</span><span class="ltag">🎮 Jeux vidéo</span>
+        <span class="ltag">Echecs</span><span class="ltag">Musculation</span>
+        <span class="ltag">Futsal</span><span class="ltag">Jeux video</span>
       </div>
     </div>
   </div>
 </section>
 <span class="sep"></span>
-
-<!-- ══ CONTACT ══ -->
 <section id="s5">
   <div style="position:relative;z-index:1;">
-    <span class="idx" data-bin="— 06 / CONTACT">— 06 / CONTACT</span>
+    <span class="idx" data-bin="-- 06 / CONTACT">-- 06 / CONTACT</span>
     <div class="ct-big">
       <span data-bin="TRAVAILLONS">TRAVAILLONS</span><br>
       <span class="outline" data-bin="ENSEMBLE.">ENSEMBLE.</span>
     </div>
     <div class="ct-links">
-      <a href="/cdn-cgi/l/email-protection#442d37252527342536252d372b707776042329252d286a272b29" class="clink primary">✉ <span class="__cf_email__" data-cfemail="59302a38383a29382b38302a366d6a6b193e34383035773a3634">[email&#160;protected]</span></a>
-      <a href="tel:0751597288" class="clink">📱 07 51 59 72 88</a>
-      <a href="https://github.com/Yortze" target="_blank" class="clink">⌥ GitHub @Yortze</a>
-      <a href="https://linkedin.com/in/Isaacparaiso1" target="_blank" class="clink">in LinkedIn</a>
+      <a href="mailto:isaacparaiso432@gmail.com" class="clink primary">isaacparaiso432@gmail.com</a>
+      <a href="tel:0751597288" class="clink">07 51 59 72 88</a>
+      <a href="https://github.com/Yortze" target="_blank" class="clink">GitHub @Yortze</a>
+      <a href="https://linkedin.com/in/Isaacparaiso1" target="_blank" class="clink">LinkedIn</a>
     </div>
     <div class="ct-looking">
       <span class="sdot" style="flex-shrink:0;width:8px;height:8px;"></span>
       <div class="ct-looking-txt">
-        À la recherche d'un <span>CDI</span>, d'un <span>stage</span> ou d'une <span>alternance</span><br>
-        Lyon · France entière · Disponible dès maintenant
+        A la recherche d'un <span>CDI</span>, d'un <span>stage</span> ou d'une <span>alternance</span><br>
+        Lyon · France entiere · Disponible des maintenant
       </div>
     </div>
   </div>
   <div class="ct-deco"><div class="ct-deco-txt">PARAISO</div></div>
 </section>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ══ MODAL DATA ══
-const MODALS={
-  exp1:{img:'https://images.unsplash.com/photo-1555066931-4365d14431b9?w=900&q=80',tag:'EXPÉRIENCE · 01/2025 — 08/2025',title:'DÉVELOPPEUR FULLSTACK',sub:'SOGAC Transit — Dépôt sous douane · Libreville, Gabon',desc:"Mission de développement en production au sein de SOGAC Transit, entreprise spécialisée dans la logistique et le dépôt sous douane.",sections:[{title:'MISSIONS',type:'list',items:["Développement du module de facturation des marchandises sortant du dépôt sous douane en Java","Optimisation des requêtes SQL complexes — réduction significative du temps de traitement","Collaboration avec l'équipe métier pour aligner les règles douanières avec la logique applicative","Maintenance corrective et débogage sur l'application en production","Rédaction de rapports de suivi et documentation"]},{title:'STACK',type:'tags',items:['Java','MySQL','SQL avancé','IntelliJ IDEA','Git']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Mission'},{label:'DURÉE',val:'7 mois'},{label:'LIEU',val:'Libreville, Gabon'},{label:'SECTEUR',val:'Logistique douanière'}]}]},
-  exp2:{img:'https://images.unsplash.com/photo-1555066931-4365d14431b9?w=900&q=80',tag:'STAGE · 04/2022 — 01/2023',title:'STAGE DÉVELOPPEMENT FULLSTACK',sub:'SOGAC Transit — Gestion logistique · Libreville, Gabon',desc:"Stage de 9 mois durant lequel j'ai conçu et développé de A à Z une application Java de gestion des entrées et sorties de marchandises en magasin sous douane.",sections:[{title:'MISSIONS',type:'list',items:["Conception et développement d'une application Java de gestion des entrées/sorties de produits","Modélisation de la base de données relationnelle","Intégration d'API externes pour l'interopérabilité avec les outils douaniers","Rédaction de documentation technique complète","Tests unitaires (JUnit)"]},{title:'STACK',type:'tags',items:['Java','JavaFX','MySQL','REST API','JUnit','Git']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Stage'},{label:'DURÉE',val:'9 mois'},{label:'LIEU',val:'Libreville, Gabon'},{label:'SECTEUR',val:'Logistique douanière'}]}]},
-  proj1:{img:'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=900&q=80',tag:'PROJET · 2026',title:'SITE VITRINE SOGAC',sub:'CLIENT — SOGAC Transit · Gabon',desc:"Conception et développement du site vitrine officiel de SOGAC Transit. Interface responsive présentant les services douaniers, les partenaires et les contacts.",sections:[{title:'FONCTIONNALITÉS',type:'list',items:["Page d'accueil animée avec présentation de l'entreprise","Section services détaillant les prestations (import, export, transit)","Formulaire de contact","Design responsive mobile / tablette / desktop","Optimisation SEO"]},{title:'TECHNOLOGIES',type:'tags',items:['HTML5','CSS3','JavaScript (ES6+)','Responsive Design','SEO']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Site vitrine'},{label:'ANNÉE',val:'2026'},{label:'CLIENT',val:'SOGAC Transit'},{label:'STATUT',val:'Livré'}]}]},
-  proj2:{img:'https://images.unsplash.com/photo-1607706189992-eae578626c86?w=900&q=80',tag:'PROJET · 2022 — 2023',title:'APP GESTION DOUANE',sub:'SOGAC Transit — Entrées / Sorties Magasin',desc:"Application de bureau Java pour la gestion complète des entrées et sorties de marchandises en magasin sous douane. Traçabilité totale, rapports automatisés et multi-rôles.",sections:[{title:'FONCTIONNALITÉS',type:'list',items:["Enregistrement des entrées avec numéros de déclaration douanière","Gestion des sorties avec bons de sortie automatiques","Dashboard inventaire en temps réel","Historique complet des mouvements","Rapports PDF mensuels / annuels","Gestion multi-rôles (admin, agent, superviseur)","Intégration API douanière"]},{title:'TECHNOLOGIES',type:'tags',items:['Java','JavaFX','MySQL','JDBC','REST API','JUnit','IntelliJ IDEA']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Application desktop'},{label:'ANNÉE',val:'2022 → 2023'},{label:'CLIENT',val:'SOGAC Transit'},{label:'STATUT',val:'En production'}]}]},
-  proj3:{img:'https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?w=900&q=80',tag:'PROJET · 2024',title:'GABCHAT',sub:'Messagerie P2P — ESGIS Gabon',desc:"Application mobile Android de messagerie peer-to-peer en réseau local. Messages en temps réel sans serveur centralisé, idéal pour les environnements sans internet.",sections:[{title:'FONCTIONNALITÉS',type:'list',items:["Découverte automatique des utilisateurs (broadcast)","Messagerie P2P via sockets TCP","Interface native Android Material Design","Historique en SQLite local","Indicateurs de présence","Envoi de fichiers / images","Chiffrement basique des messages"]},{title:'TECHNOLOGIES',type:'tags',items:['Kotlin','Android SDK','TCP Sockets','SQLite','Coroutines','MVVM']},{title:'ARCHITECTURE',type:'list',items:["Architecture MVVM","Communication via Kotlin Coroutines","SQLite pour la persistance locale","Service Android en arrière-plan"]},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'App mobile'},{label:'PLATEFORME',val:'Android'},{label:'ANNÉE',val:'2024'},{label:'CONTEXTE',val:'Projet académique'}]}]},
-  proj4:{img:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80',tag:'PROJET · 2025',title:'MODULE GESTION ABSENCES',sub:'Système web — ESGIS Gabon',desc:"Système web de gestion des absences étudiantes. Tableaux de bord multi-rôles, alertes automatiques et rapports PDF pour l'ESGIS Gabon.",sections:[{title:'FONCTIONNALITÉS',type:'list',items:["Dashboard admin par classe / module","Prise de présence en ligne (enseignant)","Consultation historique (étudiant)","Alertes email automatiques","Rapports PDF mensuels","Workflow validation justificatifs","Auth multi-rôles"]},{title:'TECHNOLOGIES',type:'tags',items:['HTML5','CSS3','JavaScript','PHP','MySQL','Chart.js','Bootstrap']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Application web'},{label:'ANNÉE',val:'2025'},{label:'CLIENT',val:'ESGIS Gabon'},{label:'STATUT',val:'Livré'}]}]}
+<script>
+var MODALS={
+  exp1:{img:'https://images.unsplash.com/photo-1555066931-4365d14431b9?w=900&q=80',tag:'EXPERIENCE 01/2025-08/2025',title:'DEVELOPPEUR FULLSTACK',sub:'SOGAC Transit - Depot sous douane · Libreville, Gabon',desc:"Mission de developpement en production au sein de SOGAC Transit, entreprise specialisee dans la logistique et le depot sous douane.",sections:[{title:'MISSIONS',type:'list',items:["Developpement du module de facturation des marchandises en Java","Optimisation des requetes SQL complexes","Collaboration avec l'equipe metier pour aligner les regles douanieres","Maintenance corrective et debogage en production","Redaction de documentation"]},{title:'STACK',type:'tags',items:['Java','MySQL','SQL avance','IntelliJ IDEA','Git']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Mission'},{label:'DUREE',val:'7 mois'},{label:'LIEU',val:'Libreville, Gabon'},{label:'SECTEUR',val:'Logistique douaniere'}]}]},
+  exp2:{img:'https://images.unsplash.com/photo-1555066931-4365d14431b9?w=900&q=80',tag:'STAGE 04/2022-01/2023',title:'STAGE DEVELOPPEMENT FULLSTACK',sub:'SOGAC Transit - Gestion logistique · Libreville, Gabon',desc:"Stage de 9 mois durant lequel j'ai concu et developpe une application Java de gestion des entrees et sorties de marchandises en magasin sous douane.",sections:[{title:'MISSIONS',type:'list',items:["Conception et developpement d'une application Java de gestion des entrees/sorties","Modelisation de la base de donnees relationnelle","Integration d'API externes pour l'interoperabilite douaniere","Redaction de documentation technique","Tests unitaires JUnit"]},{title:'STACK',type:'tags',items:['Java','JavaFX','MySQL','REST API','JUnit','Git']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Stage'},{label:'DUREE',val:'9 mois'},{label:'LIEU',val:'Libreville, Gabon'},{label:'SECTEUR',val:'Logistique douaniere'}]}]},
+  proj1:{img:'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=900&q=80',tag:'PROJET 2026',title:'SITE VITRINE SOGAC',sub:'CLIENT - SOGAC Transit · Gabon',desc:"Conception et developpement du site vitrine officiel de SOGAC Transit. Interface responsive presentant les services douaniers, les partenaires et les contacts.",sections:[{title:'FONCTIONNALITES',type:'list',items:["Page d'accueil animee avec presentation de l'entreprise","Section services (import, export, transit)","Formulaire de contact","Design responsive mobile tablette desktop","Optimisation SEO"]},{title:'TECHNOLOGIES',type:'tags',items:['HTML5','CSS3','JavaScript','Responsive','SEO']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Site vitrine'},{label:'ANNEE',val:'2026'},{label:'CLIENT',val:'SOGAC Transit'},{label:'STATUT',val:'Livre'}]}]},
+  proj2:{img:'https://images.unsplash.com/photo-1607706189992-eae578626c86?w=900&q=80',tag:'PROJET 2022-2023',title:'APP GESTION DOUANE',sub:'SOGAC Transit - Entrees / Sorties Magasin',desc:"Application de bureau Java pour la gestion complete des entrees et sorties de marchandises en magasin sous douane. Tracabilite totale, rapports automatises et multi-roles.",sections:[{title:'FONCTIONNALITES',type:'list',items:["Enregistrement des entrees avec numeros de declaration douaniere","Gestion des sorties avec bons de sortie automatiques","Dashboard inventaire en temps reel","Historique complet des mouvements","Rapports PDF mensuels et annuels","Gestion multi-roles admin agent superviseur","Integration API douaniere"]},{title:'TECHNOLOGIES',type:'tags',items:['Java','JavaFX','MySQL','JDBC','REST API','JUnit','IntelliJ IDEA']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Application desktop'},{label:'ANNEE',val:'2022-2023'},{label:'CLIENT',val:'SOGAC Transit'},{label:'STATUT',val:'En production'}]}]},
+  proj3:{img:'https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?w=900&q=80',tag:'PROJET 2024',title:'GABCHAT',sub:'Messagerie P2P - ESGIS Gabon',desc:"Application mobile Android de messagerie peer-to-peer en reseau local. Messages en temps reel sans serveur centralise, ideal pour les environnements sans internet.",sections:[{title:'FONCTIONNALITES',type:'list',items:["Decouverte automatique des utilisateurs via broadcast","Messagerie P2P via sockets TCP","Interface native Android Material Design","Historique en SQLite local","Indicateurs de presence","Envoi de fichiers et images","Chiffrement basique des messages"]},{title:'TECHNOLOGIES',type:'tags',items:['Kotlin','Android SDK','TCP Sockets','SQLite','Coroutines','MVVM']},{title:'ARCHITECTURE',type:'list',items:["Architecture MVVM","Communication via Kotlin Coroutines","SQLite pour la persistance locale","Service Android en arriere-plan"]},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'App mobile'},{label:'PLATEFORME',val:'Android'},{label:'ANNEE',val:'2024'},{label:'CONTEXTE',val:'Projet academique'}]}]},
+  proj4:{img:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&q=80',tag:'PROJET 2025',title:'MODULE GESTION ABSENCES',sub:'Systeme web - ESGIS Gabon',desc:"Systeme web de gestion des absences etudiantes. Tableaux de bord multi-roles, alertes automatiques et rapports PDF pour l'ESGIS Gabon.",sections:[{title:'FONCTIONNALITES',type:'list',items:["Dashboard admin par classe et module","Prise de presence en ligne enseignant","Consultation historique etudiant","Alertes email automatiques","Rapports PDF mensuels","Workflow validation justificatifs","Auth multi-roles"]},{title:'TECHNOLOGIES',type:'tags',items:['HTML5','CSS3','JavaScript','PHP','MySQL','Chart.js','Bootstrap']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Application web'},{label:'ANNEE',val:'2025'},{label:'CLIENT',val:'ESGIS Gabon'},{label:'STATUT',val:'Livre'}]}]}
 };
 
-// ── CURSOR ──
-const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-(function lp(){cur.style.left=mx+'px';cur.style.top=my+'px';rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(lp);})();
+// CURSOR
+var cur=document.getElementById('cur'),cur2=document.getElementById('cur2'),mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;});
+(function loop(){cur.style.left=mx+'px';cur.style.top=my+'px';rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(loop);})();
 
-// ── THEME — init from system preference, toggle with button ──
-const html=document.documentElement;
-const themeBtn=document.getElementById('themeBtn');
-
-function applyTheme(dark){
-  html.setAttribute('data-theme', dark ? 'dark' : 'light');
-  themeBtn.textContent = dark ? '☀' : '☾';
-}
-
-// Detect system preference on load
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+// THEME
+var htmlEl=document.documentElement,themeBtn=document.getElementById('themeBtn');
+function applyTheme(dark){htmlEl.setAttribute('data-theme',dark?'dark':'light');themeBtn.textContent=dark?'☀':'☾';}
+var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
 applyTheme(prefersDark);
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){applyTheme(e.matches);});
+themeBtn.addEventListener('click',function(){applyTheme(htmlEl.getAttribute('data-theme')!=='dark');});
 
-// If system theme changes while page is open, follow it
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-  applyTheme(e.matches);
-});
+// NAVBAR
+var topbar=document.getElementById('topbar'),navHovered=false;
+topbar.addEventListener('mouseenter',function(){navHovered=true;topbar.classList.remove('hidden');});
+topbar.addEventListener('mouseleave',function(){navHovered=false;if(window.scrollY>80)topbar.classList.add('hidden');});
+window.addEventListener('scroll',function(){if(navHovered)return;if(window.scrollY>80){topbar.classList.add('hidden');}else{topbar.classList.remove('hidden');}},{passive:true});
+document.addEventListener('mousemove',function(e){if(navHovered)return;if(e.clientY<=8)topbar.classList.remove('hidden');});
+document.addEventListener('touchstart',function(e){if(e.touches[0].clientY<28){topbar.classList.remove('hidden');setTimeout(function(){if(!navHovered&&window.scrollY>80)topbar.classList.add('hidden');},2000);}},{passive:true});
 
-// Manual toggle overrides system preference
-themeBtn.addEventListener('click', () => {
-  const currentlyDark = html.getAttribute('data-theme') === 'dark';
-  applyTheme(!currentlyDark);
-});
-
-// ── NAVBAR AUTO-HIDE ──
-// Rules:
-// - Hide as soon as user starts scrolling (scroll > 80px)
-// - Show ONLY when mouse enters the topbar zone (top 0–54px of screen)
-// - While mouse is over topbar, never hide
-// - On touch: show when swipe starts from very top (< 30px)
-const topbar = document.getElementById('topbar');
-const sectionEls = [...document.querySelectorAll('section[id]')];
-let navbarHovered = false;
-
-topbar.addEventListener('mouseenter', () => {
-  navbarHovered = true;
-  topbar.classList.remove('hidden');
-});
-topbar.addEventListener('mouseleave', () => {
-  navbarHovered = false;
-  // hide again if we're scrolled down
-  if (window.scrollY > 80) {
-    topbar.classList.add('hidden');
+// LOADER
+var lbar=document.getElementById('lbar'),lpct=document.getElementById('lpct'),loader=document.getElementById('loader'),pct=0;
+function tick(){
+  pct+=Math.random()*15+3;
+  if(pct>=100){
+    pct=100;lbar.style.width='100%';lpct.textContent='100%';
+    setTimeout(function(){loader.style.opacity='0';setTimeout(function(){loader.style.display='none';},700);},200);
+    return;
   }
-});
+  lbar.style.width=pct+'%';lpct.textContent=Math.floor(pct)+'%';
+  setTimeout(tick,60+Math.random()*40);
+}
+setTimeout(tick,100);
 
-// Hide on scroll (immediate)
-window.addEventListener('scroll', () => {
-  if (navbarHovered) return;
-  if (window.scrollY > 80) {
-    topbar.classList.add('hidden');
-  } else {
-    topbar.classList.remove('hidden');
-  }
-}, { passive: true });
-
-// Show ONLY when mouse is fully at the very top (within 10px)
-document.addEventListener('mousemove', e => {
-  if (navbarHovered) return;
-  if (e.clientY <= 10) {
-    topbar.classList.remove('hidden');
-  }
-});
-
-// Touch: show if swipe starts from top edge (< 30px)
-document.addEventListener('touchstart', e => {
-  if (e.touches[0].clientY < 30) {
-    topbar.classList.remove('hidden');
-    setTimeout(() => {
-      if (!navbarHovered && window.scrollY > 80) {
-        topbar.classList.add('hidden');
-      }
-    }, 2000);
-  }
-}, { passive: true });
-
-// ── HAMBURGER ──
-const hamBtn=document.getElementById('hamBtn');
-const mobileMenu=document.getElementById('mobile-menu');
-hamBtn.addEventListener('click',()=>{
-  mobileMenu.classList.toggle('open');
-});
-document.querySelectorAll('.mm-link, .top-nav a').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const href=a.getAttribute('href');
-    if(href&&href.startsWith('#')){
-      e.preventDefault();
-      mobileMenu.classList.remove('open');
-      const t=document.querySelector(href);
-      if(t)t.scrollIntoView({behavior:'smooth'});
-    }
-  });
-});
-
-// ── BINARY EFFECT ──
-const BIN='01';
-const done=new WeakSet();
+// BINARY
+var BIN='01',done=[];
+function isDone(el){return done.indexOf(el)>=0;}
+function markDone(el){done.push(el);}
 function binaryReveal(el){
-  if(done.has(el))return;
-  done.add(el);
-  const txt=el.dataset.bin;
+  if(isDone(el))return;
+  markDone(el);
+  var txt=el.getAttribute('data-bin');
   if(!txt)return;
   el.style.opacity='1';
-  const len=txt.length,FPS=42,DURATION=2000;
-  const total=Math.round(DURATION/(1000/FPS));
-  let f=0;
-  const t=setInterval(()=>{
-    f++;
-    const prog=f/total;
-    let out='';
-    for(let i=0;i<len;i++){
-      const c=txt[i];
-      if(c===' '||c==='\u00A0'){out+=' ';continue;}
-      const cp=i/len;
-      if(prog>=cp+1/len*2){out+=c;}
-      else if(prog>=cp){out+=BIN[Math.floor(Math.random()*2)];}
-      else{out+=Math.random()>.72?BIN[Math.floor(Math.random()*2)]:'\u00A0';}
+  var len=txt.length,FPS=42,DURATION=2000,total=Math.round(DURATION/(1000/FPS)),f=0;
+  var interval=setInterval(function(){
+    f++;var prog=f/total,out='';
+    for(var i=0;i<len;i++){
+      var c=txt[i];
+      if(c===' '){out+=' ';continue;}
+      var cp=i/len;
+      if(prog>=cp+1/len*2)out+=c;
+      else if(prog>=cp)out+=BIN[Math.floor(Math.random()*2)];
+      else out+=Math.random()>.72?BIN[Math.floor(Math.random()*2)]:'\u00A0';
     }
     el.textContent=out;
-    if(f>=total){el.textContent=txt;clearInterval(t);}
+    if(f>=total){el.textContent=txt;clearInterval(interval);}
   },1000/FPS);
 }
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)binaryReveal(e.target);});
-},{threshold:0.1});
-document.querySelectorAll('[data-bin]').forEach(el=>{el.style.opacity='0';io.observe(el);});
+var binEls=document.querySelectorAll('[data-bin]');
+for(var i=0;i<binEls.length;i++){binEls[i].style.opacity='0';}
+var binIO=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)binaryReveal(e.target);});},{threshold:0.1});
+for(var i=0;i<binEls.length;i++){binIO.observe(binEls[i]);}
 
-// ── BARS ──
-const barIO=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting)
-      e.target.querySelectorAll('.bar-fill').forEach(b=>{b.style.width=b.dataset.w+'%';});
-  });
-},{threshold:0.2});
-const s1el=document.getElementById('s1');
-if(s1el)barIO.observe(s1el);
+// BARS
+var barIO=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var bars=e.target.querySelectorAll('.bar-fill');for(var i=0;i<bars.length;i++){bars[i].style.width=bars[i].getAttribute('data-w')+'%';}}});},{threshold:0.2});
+var s1el=document.getElementById('s1');if(s1el)barIO.observe(s1el);
 
-// ── LOADER ──
-const lbar=document.getElementById('lbar'),lpct=document.getElementById('lpct'),loader=document.getElementById('loader');
-let p=0;
-const iv=setInterval(()=>{
-  p+=Math.random()*16;
-  if(p>=100){p=100;clearInterval(iv);setTimeout(()=>{loader.style.opacity='0';setTimeout(()=>{loader.style.display='none';},700);},200);}
-  lbar.style.width=p+'%';lpct.textContent=Math.floor(p)+'%';
-},65);
+// DOT NAV
+var sectionEls=[],dots=document.querySelectorAll('.dot');
+var secIds=['s0','s1','s2','s3','s4','s5'];
+for(var i=0;i<secIds.length;i++){var s=document.getElementById(secIds[i]);if(s)sectionEls.push(s);}
+var secIO=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting&&e.intersectionRatio>0.35){var id=e.target.id;for(var i=0;i<dots.length;i++){dots[i].classList.toggle('active',dots[i].getAttribute('data-target')===id);}}});},{threshold:0.35});
+for(var i=0;i<sectionEls.length;i++){secIO.observe(sectionEls[i]);}
+for(var i=0;i<dots.length;i++){(function(d){d.addEventListener('click',function(){var t=document.getElementById(d.getAttribute('data-target'));if(t)t.scrollIntoView({behavior:'smooth'});});})(dots[i]);}
 
-// ── DOT NAV ──
-const dots=document.querySelectorAll('.dot');
-const secIO=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting&&e.intersectionRatio>0.35)
-      dots.forEach(d=>d.classList.toggle('active',d.dataset.target===e.target.id));
-  });
-},{threshold:0.35});
-sectionEls.forEach(s=>secIO.observe(s));
-dots.forEach(d=>{d.addEventListener('click',()=>{
-  const t=document.getElementById(d.dataset.target);
-  if(t)t.scrollIntoView({behavior:'smooth'});
-});});
+// NAV LINKS
+var navLinks=document.querySelectorAll('.top-nav a, .mm-link');
+for(var i=0;i<navLinks.length;i++){(function(a){a.addEventListener('click',function(e){var href=a.getAttribute('href');if(href&&href.indexOf('#')===0){e.preventDefault();document.getElementById('mobile-menu').classList.remove('open');var t=document.querySelector(href);if(t)t.scrollIntoView({behavior:'smooth'});}});})(navLinks[i]);}
 
-// ── MODAL ──
+// HAMBURGER
+document.getElementById('hamBtn').addEventListener('click',function(){document.getElementById('mobile-menu').classList.toggle('open');});
+
+// MODAL
 function openModal(key){
-  const d=MODALS[key];if(!d)return;
+  var d=MODALS[key];if(!d)return;
   document.getElementById('modal-img').src=d.img;
-  let html=`<div class="m-tag">${d.tag}</div><div class="m-title">${d.title}</div><div class="m-sub">${d.sub}</div><div class="m-desc">${d.desc}</div>`;
-  d.sections.forEach(s=>{
-    html+=`<div class="m-sec"><div class="m-sec-title">${s.title}</div>`;
-    if(s.type==='list')html+='<ul class="m-list">'+s.items.map(x=>`<li>${x}</li>`).join('')+'</ul>';
-    else if(s.type==='tags')html+='<div class="m-tags">'+s.items.map(x=>`<span class="m-tag-item">${x}</span>`).join('')+'</div>';
-    else if(s.type==='grid')html+='<div class="m-grid">'+s.items.map(x=>`<div class="m-info"><div class="m-info-lbl">${x.label}</div><div class="m-info-val">${x.val}</div></div>`).join('')+'</div>';
+  var html='<div class="m-tag">'+d.tag+'</div><div class="m-title">'+d.title+'</div><div class="m-sub">'+d.sub+'</div><div class="m-desc">'+d.desc+'</div>';
+  for(var i=0;i<d.sections.length;i++){
+    var s=d.sections[i];
+    html+='<div class="m-sec"><div class="m-sec-title">'+s.title+'</div>';
+    if(s.type==='list'){html+='<ul class="m-list">';for(var j=0;j<s.items.length;j++){html+='<li>'+s.items[j]+'</li>';}html+='</ul>';}
+    else if(s.type==='tags'){html+='<div class="m-tags">';for(var j=0;j<s.items.length;j++){html+='<span class="m-tag-item">'+s.items[j]+'</span>';}html+='</div>';}
+    else if(s.type==='grid'){html+='<div class="m-grid">';for(var j=0;j<s.items.length;j++){html+='<div class="m-info"><div class="m-info-lbl">'+s.items[j].label+'</div><div class="m-info-val">'+s.items[j].val+'</div></div>';}html+='</div>';}
     html+='</div>';
-  });
+  }
   document.getElementById('modal-body').innerHTML=html;
   document.getElementById('modal').classList.add('open');
   document.getElementById('modal-box').scrollTop=0;
@@ -927,4 +613,10 @@ function openModal(key){
 }
 function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
 document.getElementById('modal-close').addEventListener('click',closeModal);
-document.getElementById('modal').addEventListener('click',e=>{if(e.target===document.getEle
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===document.getElementById('modal'))closeModal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+var modalTriggers=document.querySelectorAll('[data-modal]');
+for(var i=0;i<modalTriggers.length;i++){(function(el){el.addEventListener('click',function(){openModal(el.getAttribute('data-modal'));});})(modalTriggers[i]);}
+</script>
+</body>
+</html>
