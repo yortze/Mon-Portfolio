@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Damien A. PARAISO — Portfolio</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTAiIGZpbGw9IiMwMDg4NDQiLz48dGV4dCBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC13ZWlnaHQ9IjkwMCIgZm9udC1zaXplPSIyOCIgeD0iNCIgeT0iNDQiIGZpbGw9IiNmZmZmZmYiPkQ8L3RleHQ+PHRleHQgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc2l6ZT0iMjgiIHg9IjIyIiB5PSI0NCIgZmlsbD0iIzAwZmY4OCI+QTwvdGV4dD48dGV4dCBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC13ZWlnaHQ9IjkwMCIgZm9udC1zaXplPSIyOCIgeD0iNDAiIHk9IjQ0IiBmaWxsPSIjZmZmZmZmIj5QPC90ZXh0PjxyZWN0IHg9IjQiIHk9IjQ5IiB3aWR0aD0iNTYiIGhlaWdodD0iMi41IiBmaWxsPSIjMDBmZjg4Ii8+PC9zdmc+">
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=Barlow:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
 :root,[data-theme="light"]{
@@ -36,9 +37,8 @@ a{color:inherit;text-decoration:none;}
 .ld-bar-wrap{width:200px;height:1px;background:var(--border);}
 .ld-bar{height:1px;background:var(--green);width:0;}
 .ld-pct{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--muted);}
-#topbar{position:fixed;top:0;left:0;right:0;z-index:400;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:54px;border-bottom:1px solid var(--border);background:var(--topbar-bg);backdrop-filter:blur(12px);transition:transform .4s cubic-bezier(.77,0,.18,1),opacity .4s,background .4s,border-color .4s;}
-#topbar.hidden{transform:translateY(-100%);opacity:0;pointer-events:none;}
-.top-logo{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--green);letter-spacing:.18em;flex-shrink:0;}
+#topbar{position:fixed;top:0;left:0;right:0;z-index:400;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:54px;border-bottom:1px solid var(--border);background:var(--topbar-bg);backdrop-filter:blur(12px);transition:opacity .4s,background .4s,border-color .4s;}
+.top-logo{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--green);letter-spacing:.18em;flex-shrink:0;display:flex;align-items:center;}
 .top-nav{display:flex;align-items:center;}
 .top-nav a{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;padding:0 .9rem;height:54px;display:flex;align-items:center;border-left:1px solid var(--border);transition:color .18s,background .18s;cursor:pointer;}
 .top-nav a:last-child{border-right:1px solid var(--border);}
@@ -46,7 +46,6 @@ a{color:inherit;text-decoration:none;}
 .top-right{display:flex;align-items:center;gap:.9rem;flex-shrink:0;}
 .top-dispo{display:flex;align-items:center;gap:.5rem;font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--green);letter-spacing:.12em;}
 .sdot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;animation:blink 1.4s infinite;}
-@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,180,80,.5)}60%{opacity:.15;box-shadow:0 0 0 5px rgba(0,180,80,0)}}
 .theme-btn{width:34px;height:34px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.95rem;transition:all .2s;flex-shrink:0;}
 .theme-btn:hover{border-color:var(--green);color:var(--green);}
 .ham-btn{display:none;flex-direction:column;gap:5px;width:34px;height:34px;border:1px solid var(--border);background:transparent;cursor:pointer;align-items:center;justify-content:center;transition:border-color .2s;}
@@ -57,6 +56,31 @@ a{color:inherit;text-decoration:none;}
 #mobile-menu.open{transform:translateY(0);}
 #mobile-menu a{font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;padding:1.1rem 2rem;border-bottom:1px solid var(--border);cursor:pointer;transition:color .15s;}
 #mobile-menu a:hover{color:var(--green);}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,180,80,.5)}60%{opacity:.15;box-shadow:0 0 0 5px rgba(0,180,80,0)}}
+
+
+
+
+
+
+
+
+
+
 #dotnav{position:fixed;right:1.4rem;top:50%;transform:translateY(-50%);z-index:300;display:flex;flex-direction:column;gap:.85rem;}
 .dot{width:5px;height:5px;border-radius:50%;background:var(--border2);border:1px solid var(--border);cursor:pointer;transition:all .22s;position:relative;}
 .dot::after{content:attr(data-label);font-family:'Share Tech Mono',monospace;font-size:.48rem;color:var(--muted);position:absolute;right:13px;top:50%;transform:translateY(-50%);white-space:nowrap;opacity:0;transition:opacity .2s;}
@@ -214,7 +238,7 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 .m-github-bar:hover{background:var(--green);color:var(--bg);}
 [data-theme="dark"] .m-github-bar{background:rgba(0,255,102,.04);border-color:rgba(0,255,102,.2);}
 [data-theme="dark"] .m-github-bar:hover{background:var(--green);color:#050505;}
-@media(max-width:768px){.top-nav{display:none;}.ham-btn{display:flex;}.top-dispo span:not(.sdot){display:none;}section{padding:6rem 4vw 4rem;}}
+@media(max-width:768px){section{padding:6rem 4vw 4rem;}}
 @media(max-width:480px){section{padding:5.5rem 5% 3.5rem;}}
 </style>
 </head>
@@ -234,16 +258,17 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
   </div>
 </div>
 <div id="topbar">
-  <div class="top-logo">DAP // 2026</div>
+  <div class="top-logo">
+    <span style="color:var(--green);font-family:'Share Tech Mono',monospace;font-size:.68rem;letter-spacing:.05em;">&gt;_&nbsp;</span><span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;">DAP</span><span style="display:inline-block;width:2px;height:11px;background:var(--green);margin-left:2px;vertical-align:middle;animation:bl .85s step-end infinite;"></span>
+  </div>
   <nav class="top-nav">
     <a href="#s3">Projets</a>
     <a href="#s2">Experience</a>
     <a href="#s4">Cursus</a>
-    <a href="#s5">Contact</a>
   </nav>
   <div class="top-right">
     <div class="top-dispo"><span class="sdot"></span><span>DISPONIBLE</span></div>
-    <button class="theme-btn" id="themeBtn">☾</button>
+    <button class="theme-btn" id="themeBtn">&#9790;</button>
     <button class="ham-btn" id="hamBtn"><span></span><span></span><span></span></button>
   </div>
 </div>
@@ -251,8 +276,8 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
   <a href="#s3" class="mm-link">Projets</a>
   <a href="#s2" class="mm-link">Experience</a>
   <a href="#s4" class="mm-link">Cursus</a>
-  <a href="#s5" class="mm-link">Contact</a>
 </div>
+
 <div id="dotnav">
   <div class="dot active" data-target="s0" data-label="HOME"></div>
   <div class="dot" data-target="s1" data-label="STACK"></div>
@@ -522,20 +547,7 @@ document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;});
 (function loop(){cur.style.left=mx+'px';cur.style.top=my+'px';rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(loop);})();
 
 // THEME
-var htmlEl=document.documentElement,themeBtn=document.getElementById('themeBtn');
-function applyTheme(dark){htmlEl.setAttribute('data-theme',dark?'dark':'light');themeBtn.textContent=dark?'☀':'☾';}
-// Always start in light mode
-applyTheme(false);
-// (dark/light can still be toggled manually via the button)
-themeBtn.addEventListener('click',function(){applyTheme(htmlEl.getAttribute('data-theme')!=='dark');});
-
-// NAVBAR
-var topbar=document.getElementById('topbar'),navHovered=false;
-topbar.addEventListener('mouseenter',function(){navHovered=true;topbar.classList.remove('hidden');});
-topbar.addEventListener('mouseleave',function(){navHovered=false;if(window.scrollY>80)topbar.classList.add('hidden');});
-window.addEventListener('scroll',function(){if(navHovered)return;if(window.scrollY>80){topbar.classList.add('hidden');}else{topbar.classList.remove('hidden');}},{passive:true});
-document.addEventListener('mousemove',function(e){if(navHovered)return;if(e.clientY<=8)topbar.classList.remove('hidden');});
-document.addEventListener('touchstart',function(e){if(e.touches[0].clientY<28){topbar.classList.remove('hidden');setTimeout(function(){if(!navHovered&&window.scrollY>80)topbar.classList.add('hidden');},2000);}},{passive:true});
+// start in light mode — handled above
 
 // LOADER
 var lbar=document.getElementById('lbar'),lpct=document.getElementById('lpct'),loader=document.getElementById('loader'),pct=0;
@@ -594,11 +606,10 @@ for(var i=0;i<sectionEls.length;i++){secIO.observe(sectionEls[i]);}
 for(var i=0;i<dots.length;i++){(function(d){d.addEventListener('click',function(){var t=document.getElementById(d.getAttribute('data-target'));if(t)t.scrollIntoView({behavior:'smooth'});});})(dots[i]);}
 
 // NAV LINKS
-var navLinks=document.querySelectorAll('.top-nav a, .mm-link');
-for(var i=0;i<navLinks.length;i++){(function(a){a.addEventListener('click',function(e){var href=a.getAttribute('href');if(href&&href.indexOf('#')===0){e.preventDefault();document.getElementById('mobile-menu').classList.remove('open');var t=document.querySelector(href);if(t)t.scrollIntoView({behavior:'smooth'});}});})(navLinks[i]);}
+var navLinks=document.querySelectorAll('.top-nav a, .mm-link');for(var i=0;i<navLinks.length;i++){(function(a){a.addEventListener('click',function(e){var href=a.getAttribute('href');if(href&&href.indexOf('#')===0){e.preventDefault();document.getElementById('mobile-menu').classList.remove('open');var t=document.querySelector(href);if(t)t.scrollIntoView({behavior:'smooth'});}});})(navLinks[i]);}
 
 // HAMBURGER
-document.getElementById('hamBtn').addEventListener('click',function(){document.getElementById('mobile-menu').classList.toggle('open');});
+
 
 // MODAL
 function openModal(key){
@@ -623,6 +634,42 @@ function closeModal(){document.getElementById('modal').classList.remove('open');
 document.getElementById('modal-close').addEventListener('click',closeModal);
 document.getElementById('modal').addEventListener('click',function(e){if(e.target===document.getElementById('modal'))closeModal();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+
+
+// TOPBAR — fade out on scroll, reappear on hover near top
+var topbar=document.getElementById('topbar'),navHovered=false;
+function updateTopbar(){
+  var s=window.scrollY;
+  if(navHovered){topbar.style.opacity='1';topbar.style.pointerEvents='auto';return;}
+  if(s>120){
+    var fade=Math.max(0,1-(s-120)/80);
+    topbar.style.opacity=String(fade);
+    topbar.style.pointerEvents=fade<0.05?'none':'auto';
+  } else {
+    topbar.style.opacity='1';topbar.style.pointerEvents='auto';
+  }
+}
+topbar.addEventListener('mouseenter',function(){navHovered=true;topbar.style.opacity='1';topbar.style.pointerEvents='auto';});
+topbar.addEventListener('mouseleave',function(){navHovered=false;updateTopbar();});
+window.addEventListener('scroll',updateTopbar,{passive:true});
+document.addEventListener('mousemove',function(e){if(e.clientY<=54){topbar.style.opacity='1';topbar.style.pointerEvents='auto';}});
+document.addEventListener('touchstart',function(e){if(e.touches[0].clientY<40){topbar.style.opacity='1';topbar.style.pointerEvents='auto';}},{passive:true});
+
+// HAMBURGER
+document.getElementById('hamBtn').addEventListener('click',function(){document.getElementById('mobile-menu').classList.toggle('open');});
+
+// THEME BTN
+var themeBtn=document.getElementById('themeBtn');
+themeBtn.addEventListener('click',function(){
+  var dark=document.documentElement.getAttribute('data-theme')!=='dark';
+  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  themeBtn.textContent=dark?'☀':'☾';
+});
+themeBtn.textContent='☾';
+
+// NAV LINKS
+var navLinks=document.querySelectorAll('.top-nav a, .mm-link');
+for(var i=0;i<navLinks.length;i++){(function(a){a.addEventListener('click',function(e){var href=a.getAttribute('href');if(href&&href.indexOf('#')===0){e.preventDefault();document.getElementById('mobile-menu').classList.remove('open');var t=document.querySelector(href);if(t)t.scrollIntoView({behavior:'smooth'});}});})(navLinks[i]);}
 
 // MODAL OPEN ON CARD CLICK
 var prCards=document.querySelectorAll('.pr-card[data-modal]');
