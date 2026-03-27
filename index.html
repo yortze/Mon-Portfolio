@@ -732,6 +732,15 @@ var prCards=document.querySelectorAll('.pr-card[data-modal]');
 for(var i=0;i<prCards.length;i++){(function(card){card.addEventListener('click',function(){openModal(card.getAttribute('data-modal'));});})(prCards[i]);}
 var exItems=document.querySelectorAll('.ex-item[data-modal]');
 for(var i=0;i<exItems.length;i++){(function(item){item.addEventListener('click',function(){openModal(item.getAttribute('data-modal'));});})(exItems[i]);}
+  // ── PHOTO CAROUSEL ──
+var carousel=document.getElementById('photoCarousel');
+var imgs=carousel?carousel.querySelectorAll('img'):[];
+var cdots=document.querySelectorAll('.cdot');
+var ci=0,carouselTimer=null;
+function goSlide(n){imgs[ci].classList.remove('active');cdots[ci].classList.remove('active');ci=(n+imgs.length)%imgs.length;imgs[ci].classList.add('active');cdots[ci].classList.add('active');}
+function startCarousel(){carouselTimer=setInterval(function(){goSlide(ci+1);},3500);}
+for(var i=0;i<cdots.length;i++){(function(dot,idx){dot.addEventListener('click',function(){clearInterval(carouselTimer);goSlide(idx);startCarousel();});})(cdots[i],i);}
+startCarousel();
 </script>
 </body>
 </html>
