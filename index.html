@@ -90,9 +90,25 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 .h-desc{max-width:460px;font-size:clamp(.78rem,.9vw,.92rem);color:var(--txt-dim);line-height:1.85;font-weight:700;}
 /* PHOTO SWITCHER */
 .h-right{position:absolute;right:5vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:flex-end;gap:1.2rem;}
-.photo-wrap{position:relative;width:160px;height:200px;}
-.photo-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;filter:grayscale(.3) brightness(.95);border:1px solid var(--border);opacity:0;transition:opacity .5s;}
-.photo-wrap img.active{opacity:1;}
+.photo-wrap{position:relative;width:220px;height:280px;}
+.photo-wrap img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top center;
+  filter:grayscale(.3) brightness(.95);
+  border:1px solid var(--border);
+  opacity:0;
+  transform:scale(1.08);
+  transition:opacity .6s ease, transform .8s ease;
+}
+
+.photo-wrap img.active{
+  opacity:1;
+  transform:scale(1);
+}
 .photo-dots{display:flex;gap:.4rem;justify-content:center;}
 .photo-dot{width:5px;height:5px;border-radius:50%;background:var(--border2);border:1px solid var(--border);cursor:pointer;transition:all .2s;}
 .photo-dot.active{background:var(--green);border-color:var(--green);}
@@ -339,7 +355,7 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 <section id="s1">
   <div class="sk-grid">
     <div>
-      <span class="idx" data-bin="-- 02 / STACK TECHNIQUE">-- / ATOUTS & COMPÉTENCES</span>
+      <span class="idx" data-bin="--  / ATOUTS- -COMPÉTENCES">-- / ATOUTS- -COMPÉTENCES</span>
       <h2 class="stitle"><span data-bin="STACK">OUTILS</span><br><span class="g" data-bin="TECH">TECH</span></h2>
       <div class="sk-sub">// Langages de programmation</div>
       <div class="lang-grid">
@@ -404,7 +420,7 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 <section id="s2">
   <div class="ex-layout">
     <div>
-      <span class="idx" data-bin="-- 03 / EXPERIENCE">-- / EXPERIENCE</span>
+      <span class="idx" data-bin="--  / EXPERIENCE">-- / EXPERIENCE</span>
       <h2 class="stitle"><span data-bin="EXP">EXP</span><span class="r" data-bin="ERI">ERI</span><br><span data-bin="ENCE">ENCE</span></h2>
       <p style="font-size:.8rem;color:var(--txt-dim);line-height:1.85;font-weight:700;">Développement logiciel en production — Java, SQL, Android et API dans des contextes métiers réels.</p>
       <br>
@@ -450,7 +466,7 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 <section id="s3">
   <div class="pr-head">
     <div>
-      <span class="idx" data-bin="-- 04 / PROJETS">--  / PROJETS</span>
+      <span class="idx" data-bin="--  / PROJETS">--  / PROJETS</span>
       <h2 class="stitle" style="margin-bottom:0"><span data-bin="REALISATIONS">REALISATIONS</span></h2>
     </div>
     <span style="font-family:'Share Tech Mono',monospace;font-size:.52rem;color:var(--muted)">04 PROJETS · CLIQUER POUR DETAILS</span>
@@ -508,7 +524,7 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 <section id="s4">
   <div class="ed-grid">
     <div>
-      <span class="idx" data-bin="-- 05 / FORMATION">--  / FORMATION</span>
+      <span class="idx" data-bin="--  / FORMATION">--  / FORMATION</span>
       <h2 class="stitle"><span data-bin="FORM">FORM</span><span class="r" data-bin="ATION">ATION</span></h2>
       <div class="ed-item">
         <div class="ed-yr">2025<br>en cours<br>Nimes</div>
@@ -548,7 +564,7 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 <!-- CONTACT -->
 <section id="s5">
   <div style="position:relative;z-index:1;">
-    <span class="idx" data-bin="-- 06 / CONTACT">--  / CONTACT</span>
+    <span class="idx" data-bin="--  / CONTACT">--  / CONTACT</span>
     <div class="ct-big">
       <span data-bin="CONSTRUISONS">CONSTRUISONS</span><br>
       <span class="outline" data-bin="QUELQUE CHOSE.">QUELQUE CHOSE.</span>
