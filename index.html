@@ -195,15 +195,23 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 .cert-d{font-family:'Share Tech Mono',monospace;font-size:.56rem;color:var(--muted);margin-top:.2rem;}
 .info-block{font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--muted);line-height:2;margin-top:.6rem;}
 #s5{background:var(--bg3);display:flex;flex-direction:column;justify-content:center;position:relative;}
-.ct-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,9rem);line-height:.9;letter-spacing:.02em;margin-bottom:2.2rem;}
+.ct-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,9rem);line-height:.9;letter-spacing:.02em;margin-bottom:.6rem;}
 .ct-big .outline{color:transparent;-webkit-text-stroke:1.5px var(--red);}
-.ct-links{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1.8rem;}
-.clink{font-family:'Share Tech Mono',monospace;font-size:.62rem;letter-spacing:.1em;padding:.65rem 1.4rem;border:1px solid var(--border);color:var(--muted);transition:all .2s;display:flex;align-items:center;gap:.5rem;cursor:pointer;}
-.clink:hover,.clink.primary{border-color:var(--green);color:var(--green);}
-.clink.primary:hover{background:var(--green);color:var(--bg);}
-.ct-looking{margin-top:2.2rem;padding:1.3rem 1.6rem;border:1px solid var(--border);display:inline-flex;align-items:center;gap:1rem;background:rgba(0,136,68,.04);}
+.ct-subtitle{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.12em;line-height:1.8;margin-bottom:2rem;max-width:520px;}
+.ct-subtitle span{color:var(--green);}
+.ct-email-block{margin-bottom:1.8rem;}
+.ct-email-label{font-family:'Share Tech Mono',monospace;font-size:.5rem;color:var(--muted);letter-spacing:.22em;text-transform:uppercase;margin-bottom:.5rem;}
+.ct-email-link{font-family:'Share Tech Mono',monospace;font-size:1.05rem;letter-spacing:.06em;color:var(--green);border:1px solid var(--green);padding:.9rem 1.8rem;display:inline-flex;align-items:center;gap:.7rem;transition:all .22s;cursor:pointer;background:rgba(0,136,68,.04);}
+.ct-email-link:hover{background:var(--green);color:var(--bg);}
+[data-theme="dark"] .ct-email-link{background:rgba(0,255,102,.04);}
+[data-theme="dark"] .ct-email-link:hover{background:var(--green);color:#050505;}
+.ct-email-link::before{content:'✉';font-size:.85rem;}
+.ct-links{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.8rem;}
+.clink{font-family:'Share Tech Mono',monospace;font-size:.58rem;letter-spacing:.1em;padding:.55rem 1.1rem;border:1px solid var(--border);color:var(--muted);transition:all .2s;display:flex;align-items:center;gap:.5rem;cursor:pointer;}
+.clink:hover{border-color:var(--green);color:var(--green);}
+.ct-looking{margin-top:2.2rem;padding:1.3rem 1.6rem;border:1px solid var(--border);border-left:3px solid var(--green);display:inline-flex;align-items:center;gap:1rem;background:rgba(0,136,68,.04);max-width:520px;}
 [data-theme="dark"] .ct-looking{background:rgba(0,255,102,.025);}
-.ct-looking-txt{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--white);letter-spacing:.08em;line-height:1.65;}
+.ct-looking-txt{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--white);letter-spacing:.07em;line-height:1.8;}
 .ct-looking-txt span{color:var(--green);}
 .ct-deco{position:absolute;right:0;top:0;bottom:0;width:40%;display:flex;align-items:center;justify-content:center;overflow:hidden;pointer-events:none;}
 .ct-deco-txt{font-family:'Bebas Neue',sans-serif;font-size:clamp(7rem,16vw,18rem);color:transparent;-webkit-text-stroke:1px var(--deco-border);white-space:nowrap;transform:rotate(-14deg);opacity:.2;animation:flt 9s ease-in-out infinite;}
@@ -265,6 +273,7 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
     <a href="#s3">Projets</a>
     <a href="#s2">Experience</a>
     <a href="#s4">Cursus</a>
+    <a href="#s5">Contact</a>
   </nav>
   <div class="top-right">
     <div class="top-dispo"><span class="sdot"></span><span>DISPONIBLE</span></div>
@@ -276,6 +285,7 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
   <a href="#s3" class="mm-link">Projets</a>
   <a href="#s2" class="mm-link">Experience</a>
   <a href="#s4" class="mm-link">Cursus</a>
+  <a href="#s5" class="mm-link">Contact</a>
 </div>
 
 <div id="dotnav">
@@ -289,14 +299,14 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
 <section id="s0">
   <div class="scan"></div><div class="gbg"></div>
   <div class="h-inner">
-    <div class="h-tag" data-bin="FULLSTACK · VISION INDUSTRIELLE · LINUX">FULLSTACK · VISION INDUSTRIELLE · LINUX</div>
+    <div class="h-tag" data-bin="FULLSTACK · ROBOTIQUE · LINUX">FULLSTACK · ROBOTIQUE · LINUX</div>
     <h1 class="h1">
       <span class="g" data-bin="DAM">DAM</span><span data-bin="IEN">IEN</span><br>
       <span class="stroke" data-bin="AFFOLABI">AFFOLABI</span><br>
       <span data-bin="PARAISO">PARAISO</span>
     </h1>
     <p class="h-role">&gt; Java &middot; JavaScript &middot; C++ &middot; SQL &middot; HTML/CSS<span class="cur-blink">_</span></p>
-    <p class="h-desc">Etudiant en Licence Robotique &amp; Vision Industrielle - Universite de Nimes.<br>Developpeur fullstack passionne par l'automatisation et la vision par ordinateur.</p>
+    <p class="h-desc">Etudiant en Licence Robotique - Université de Nîmes.<br>Passionné par le développement et les jeux vidéos.</p>
     <div class="h-nums">
       <div><div class="h-num" data-bin="3+">3+</div><div class="h-lbl">ANNEES EXP.</div></div>
       <div><div class="h-num" data-bin="12+">12+</div><div class="h-lbl">LANGAGES</div></div>
@@ -476,15 +486,15 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
       <h2 class="stitle"><span data-bin="FORM">FORM</span><span class="r" data-bin="ATION">ATION</span></h2>
       <div class="ed-item">
         <div class="ed-yr">2025<br>en cours<br>Nimes</div>
-        <div><div class="ed-deg">Licence Pro Robotique et Vision Industrielle</div><div class="ed-sch">Universite de Nimes</div><span class="ed-badge">EN COURS</span></div>
+        <div><div class="ed-deg">Licence Pro Robotique</div><div class="ed-sch">Université de Nîmes</div><span class="ed-badge">EN COURS</span></div>
       </div>
       <div class="ed-item">
         <div class="ed-yr">2023<br>2025<br>Gabon</div>
-        <div><div class="ed-deg">Licence Genie Logiciel</div><div class="ed-sch">ESGIS Gabon</div></div>
+        <div><div class="ed-deg">Licence Génie Logiciel</div><div class="ed-sch">ESGIS Gabon</div></div>
       </div>
       <div class="ed-item">
         <div class="ed-yr">2022<br>2023<br>Gabon</div>
-        <div><div class="ed-deg">BTS Informatique et Reseau</div><div class="ed-sch">Institut Technologique d'Owendo</div></div>
+        <div><div class="ed-deg">BTS Informatique et Réseau</div><div class="ed-sch">Institut Technologique d'Owendo</div></div>
       </div>
     </div>
     <div>
@@ -511,21 +521,38 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
   <div style="position:relative;z-index:1;">
     <span class="idx" data-bin="-- 06 / CONTACT">-- 06 / CONTACT</span>
     <div class="ct-big">
-      <span data-bin="TRAVAILLONS">TRAVAILLONS</span><br>
-      <span class="outline" data-bin="ENSEMBLE.">ENSEMBLE.</span>
+      <span data-bin="CONSTRUISONS">CONSTRUISONS</span><br>
+      <span class="outline" data-bin="QUELQUE CHOSE.">QUELQUE CHOSE.</span>
     </div>
+    <p class="ct-subtitle">Développeur fullstack <span>Java / JavaScript / Android</span>, 3 ans d'expérience en production.<br>Actuellement en <span>Licence Robotique</span> à Nîmes — disponible pour un <span>stage</span>, une <span>alternance</span> ou un <span>CDI</span>.<br>Mobilité <span>France entière</span> · Origine Gabon.</p>
+
+    <div class="ct-email-block">
+      <div class="ct-email-label">// Contact principal</div>
+      <a href="mailto:isaacparaiso432@gmail.com" class="ct-email-link" id="email-link" onclick="if(!window.matchMedia('(hover:none)').matches){event.preventDefault();navigator.clipboard.writeText('isaacparaiso432@gmail.com').then(function(){var el=document.getElementById('email-link');var orig=el.textContent;el.textContent='✓ Copié dans le presse-papier';setTimeout(function(){el.textContent=orig;},2000);});}" title="Cliquer pour copier · Click to copy">isaacparaiso432@gmail.com</a>
+    </div>
+
     <div class="ct-links">
-      <a href="mailto:isaacparaiso432@gmail.com" class="clink primary" id="email-link" onclick="if(!window.matchMedia('(hover:none)').matches){event.preventDefault();navigator.clipboard.writeText('isaacparaiso432@gmail.com').then(function(){var el=document.getElementById('email-link');var orig=el.textContent;el.textContent='[ COPIE ! ]';setTimeout(function(){el.textContent=orig;},1800);});}" title="Cliquer pour copier">isaacparaiso432@gmail.com</a>
-      <a href="tel:0751597288" class="clink">07 51 59 72 88</a>
-      <a href="https://github.com/Yortze" target="_blank" class="clink">GitHub @Yortze</a>
-      <a href="https://linkedin.com/in/Isaacparaiso1" target="_blank" class="clink">LinkedIn</a>
+      <a href="tel:0751597288" class="clink">&#128222; 07 51 59 72 88</a>
+      <a href="https://github.com/Yortze" target="_blank" class="clink">&#8741; GitHub @Yortze</a>
+      <a href="https://linkedin.com/in/Isaacparaiso1" target="_blank" class="clink">in LinkedIn</a>
     </div>
+
     <div class="ct-looking">
       <span class="sdot" style="flex-shrink:0;width:8px;height:8px;"></span>
       <div class="ct-looking-txt">
-        A la recherche d'un <span>CDI</span>, d'un <span>stage</span> ou d'une <span>alternance</span><br>
-        Lyon · France entiere · Disponible des maintenant
+        Ouvert à un <span>stage</span>, une <span>alternance</span> ou un <span>CDI</span> en développement logiciel<br>
+        Profil : fullstack Java/JS · apps Android · projets livrés en production<br>
+        Lyon · France entière &mdash; <span>Disponible dès maintenant</span>
       </div>
+    </div>
+
+    <div style="margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:.5rem;">
+      <span style="font-family:'Share Tech Mono',monospace;font-size:.52rem;padding:.28rem .75rem;border:1px solid rgba(0,136,68,.3);color:var(--green);letter-spacing:.08em;">Java · Spring Boot</span>
+      <span style="font-family:'Share Tech Mono',monospace;font-size:.52rem;padding:.28rem .75rem;border:1px solid rgba(0,136,68,.3);color:var(--green);letter-spacing:.08em;">JavaScript · React</span>
+      <span style="font-family:'Share Tech Mono',monospace;font-size:.52rem;padding:.28rem .75rem;border:1px solid rgba(0,136,68,.3);color:var(--green);letter-spacing:.08em;">Android · Kotlin</span>
+      <span style="font-family:'Share Tech Mono',monospace;font-size:.52rem;padding:.28rem .75rem;border:1px solid rgba(0,136,68,.3);color:var(--green);letter-spacing:.08em;">SQL · MySQL</span>
+      <span style="font-family:'Share Tech Mono',monospace;font-size:.52rem;padding:.28rem .75rem;border:1px solid rgba(0,136,68,.3);color:var(--green);letter-spacing:.08em;">Docker · Linux</span>
+      <span style="font-family:'Share Tech Mono',monospace;font-size:.52rem;padding:.28rem .75rem;border:1px solid rgba(204,17,51,.25);color:var(--red);letter-spacing:.08em;">CV disponible sur demande</span>
     </div>
   </div>
   <div class="ct-deco"><div class="ct-deco-txt">PARAISO</div></div>
