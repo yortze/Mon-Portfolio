@@ -551,7 +551,7 @@ section{min-height:100vh;width:100%;position:relative;padding:7rem 5vw 5rem;}
         <div class="pr-stack"><span class="pt">HTML/CSS</span><span class="pt">SQL</span></div>
         <div class="pr-hint">[ CLIQUER ]</div>
       </div>
-      <div class="pr-card" data-modal="proj5" >
+      <div class="pr-card" data-modal="proj5">
   <img class="pr-card-img" src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=700&q=80" alt="">
   <div class="pr-card-ov"></div>
   <div class="pr-body">
@@ -680,8 +680,35 @@ var MODALS={
   proj2:{img:'https://images.unsplash.com/photo-1607706189992-eae578626c86?w=900&q=80',tag:'PROJET 2022-2023',title:'APP GESTION DOUANE',sub:'SOGAC Transit - Entrées / Sorties Magasin',desc:"Application de bureau Java pour la gestion des entrées/sorties en magasin sous douane.<br><span style='color:var(--red);font-family:Share Tech Mono,monospace;font-size:.7rem'>⚠ Code source confidentiel — application propriétaire.</span>",sections:[{title:'FONCTIONNALITES',type:'list',items:["Enregistrement des entrées avec n° de déclaration","Gestion des sorties avec bons automatiques","Dashboard inventaire temps réel","Historique complet des mouvements","Rapports PDF","Gestion multi-rôles","Intégration API douanière"]},{title:'TECHNOLOGIES',type:'tags',items:['Java','JavaFX','MySQL','JDBC','REST API','JUnit','IntelliJ IDEA']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Application desktop'},{label:'ANNEE',val:'2022-2023'},{label:'CLIENT',val:'SOGAC Transit'},{label:'STATUT',val:'En production'}]}]},
   proj3:{github:'https://github.com/Yortze/GabChat',img:'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80',tag:'PROJET 2024',title:'GABCHAT',sub:'Messagerie P2P - ESGIS Gabon',desc:"Application mobile Android de messagerie peer-to-peer en réseau local.",sections:[{title:'FONCTIONNALITES',type:'list',items:["Découverte automatique des utilisateurs via broadcast","Messagerie P2P via sockets TCP","Interface native Android Material Design","Historique SQLite local","Indicateurs de présence","Chiffrement basique"]},{title:'TECHNOLOGIES',type:'tags',items:['Kotlin','Android SDK','TCP Sockets','SQLite','Coroutines','MVVM']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'App mobile'},{label:'PLATEFORME',val:'Android'},{label:'ANNEE',val:'2024'},{label:'CONTEXTE',val:'Projet académique'}]}]},
   proj4:{github:'https://github.com/Yortze/Module-Gestion-des-Absences-ESGIS-Gabon',img:'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=900&q=80',tag:'PROJET 2025',title:'MODULE GESTION ABSENCES',sub:'Système web - ESGIS Gabon',desc:"Système web de gestion des absences étudiantes avec tableaux de bord multi-rôles.",sections:[{title:'FONCTIONNALITES',type:'list',items:["Dashboard admin par classe","Prise de présence enseignant","Consultation historique étudiant","Alertes email automatiques","Rapports PDF","Auth multi-rôles"]},{title:'TECHNOLOGIES',type:'tags',items:['HTML5','CSS3','JavaScript','PHP','MySQL','Chart.js','Bootstrap']},{title:'INFOS',type:'grid',items:[{label:'TYPE',val:'Application web'},{label:'ANNEE',val:'2025'},{label:'CLIENT',val:'ESGIS Gabon'},{label:'STATUT',val:'Livré'}]}]}
-proj5:{ live:'https://medus-nails.vercel.app', img:'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=900&q=80', tag:'PROJET 2026', title:"MEDU'S NAILS",sub:'Application de réservation · Libreville, Gabon', desc:"Application web complète de prise de rendez-vous pour prothésiste ongulaire, avec panel admin sécurisé et galerie photos.", sections:[  {title:'FONCTIONNALITES',type:'list',items:[ "Réservation en ligne avec calendrier interactif",  "Panel admin sécurisé (authentification PIN côté serveur)", "Galerie photos synchronisée via Cloudinary", "Blocage automatique des numéros pénalisés (1 mois)", "Notifications email à chaque réservation (EmailJS)",  "Mode sombre / clair",  "Interface 100% responsive" ]}, {title:'TECHNOLOGIES',type:'tags',items:[ 'React','Vite','Vercel Functions','Upstash Redis','Cloudinary','EmailJS'  ]}, {title:'INFOS',type:'grid',items:[ {label:'TYPE',val:'Application web'}, {label:'ANNEE',val:'2026'}, {label:'CLIENT',val:"Medu's Nails"},  {label:'STATUT',val:'En ligne'}  ]} ] }
-};
+proj5:{
+  live:'https://medus-nails.vercel.app',
+  img:'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=900&q=80',
+  tag:'PROJET 2026',
+  title:"MEDU'S NAILS",
+  sub:'Application de réservation · Libreville, Gabon',
+  desc:"Application web complète de prise de rendez-vous pour prothésiste ongulaire, avec panel admin sécurisé et galerie photos.",
+  sections:[
+    {title:'FONCTIONNALITES',type:'list',items:[
+      "Réservation en ligne avec calendrier interactif",
+      "Panel admin sécurisé (authentification PIN côté serveur)",
+      "Galerie photos synchronisée via Cloudinary",
+      "Blocage automatique des numéros pénalisés (1 mois)",
+      "Notifications email à chaque réservation (EmailJS)",
+      "Mode sombre / clair",
+      "Interface 100% responsive"
+    ]},
+    {title:'TECHNOLOGIES',type:'tags',items:[
+      'React','Vite','Vercel Functions','Upstash Redis','Cloudinary','EmailJS'
+    ]},
+    {title:'INFOS',type:'grid',items:[
+      {label:'TYPE',val:'Application web'},
+      {label:'ANNEE',val:'2026'},
+      {label:'CLIENT',val:"Medu's Nails"},
+      {label:'STATUT',val:'En ligne'}
+    ]}
+  ]
+}
+  };
 
 // CURSOR
 var cur=document.getElementById('cur'),cur2=document.getElementById('cur2'),mx=0,my=0,rx=0,ry=0;
